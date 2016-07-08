@@ -2,9 +2,9 @@
 This repository contains information and settings related to my general development environments
 
 ### Text Editors
-# Sublime Text
-# Atom
-# Visual Code
+* Sublime Text
+* Atom
+* Visual Code
 
 ### Both
 * [Beyond Compare](http://www.scootersoftware.com/index.php) for file diffs and merges
