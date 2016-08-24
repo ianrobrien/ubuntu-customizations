@@ -1,21 +1,30 @@
 # Development Configuration
 This repository contains information and settings related to my general development environments
 
-### Text Editors
-* Sublime Text
-* Atom
-* Visual Code
+## Configuration Files
+* ConEmu
+* IntelliJ IDEA/Android Studio
+* ZSH Profiles
 
-### Both
+## Windows
+* [Git for Windows](https://git-scm.com/download/win)
+* [ConEmu](http://conemu.github.io/)
+* [Cygwin](https://www.cygwin.com/)
+* [Visual Studio Code](https://code.visualstudio.com/)
+* [Atom](https://atom.io/)
+* [ReSharper](https://confluence.jetbrains.com/display/ReSharper/ReSharper+Early+Access+Program) - Remember to buy full license before the year ends
+* [IntelliJ IDEA](https://www.jetbrains.com/idea/)
+* [Android Studio](https://developer.android.com/studio/index.html)
+* [Visual Studio Community](https://beta.visualstudio.com/vs/community/)
 * [Beyond Compare](http://www.scootersoftware.com/index.php) for file diffs and merges
-* [IntelliJ](https://www.jetbrains.com/idea) Java development (community edition)
-* [WebStorm](https://www.jetbrains.com/webstorm/) Web development (too expensive)
 * [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) shell themes for zsh
 * [powerline-fonts](https://github.com/powerline/fonts) fonts for zsh
 
-### Windows
-* [Visual Studio 15](https://www.visualstudio.com/en-us/downloads/visual-studio-next-downloads-vs.aspx) for C# and C++ development
-* [ReSharper](https://www.jetbrains.com/resharper/) also includes dotPeek
-* [ConEmu](https://conemu.github.io/) multiple console emulator
-* [Cygwin](https://www.cygwin.com/) terminal in Windows
-* [Meteor](https://www.meteor.com/) for web development
+## Linux
+* [Visual Studio Code](https://code.visualstudio.com/)
+* [Atom](https://atom.io/)
+* [IntelliJ IDEA](https://www.jetbrains.com/idea/)
+* [Android Studio](https://developer.android.com/studio/index.html)
+* [Beyond Compare](http://www.scootersoftware.com/index.php) for file diffs and merges
+* [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) shell themes for zsh
+* [powerline-fonts](https://github.com/powerline/fonts) fonts for zsh
