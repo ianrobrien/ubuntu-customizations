@@ -55,8 +55,12 @@ This repository contains information and settings related to my general developm
 
 ### Linux
 * Themes
- * unity tweak tool
+ * [arc-theme](https://github.com/horst3180/arc-theme)
+ * [RAVEfinity Ambiance Radiance](http://www.ravefinity.com/p/download-ambiance-radiance-flat-colors.html)
+ * [RAVEfinity Vivacious Colors GTK Icon Theme](http://www.ravefinity.com/p/vivacious-colors-gtk-icon-theme.html)
+ * [RAVEfinity Vivacious Colors GTK Theme](http://www.ravefinity.com/p/vivacious-colors-gtk-theme.html)
  * link to theme/cursor icons
 * sudo-apt-get install
  * git
  * zsh
+ * red shift
