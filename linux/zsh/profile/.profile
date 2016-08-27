@@ -24,6 +24,8 @@ fi
 # load all ZSH scripts
 if [ -n "$ZSH_VERSION" ]; then
   for SCRIPT in ~/.profile.d/*
-    $SCRIPT
+    do
+      . $SCRIPT
+      echo "executing ${SCRIPT}"
+    done
 fi
-
