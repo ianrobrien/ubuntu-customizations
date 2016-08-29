@@ -1,4 +1,6 @@
 # This script will set up profile variables for ZSH
+pwd=$(pwd)
+echo ${pwd}
 
 # Destination Variables for profile files
 profile_file=~/.profile
@@ -7,7 +9,7 @@ profile_bak_file=${profile_file}.bak
 profile_d_dir=~/.profile.d
 profile_d_bak_dir=${profile_d_dir}.bak
 
-profile_d_src_dir=./profile/profile.d/.
+profile_d_src_dir=./profile/profile.d/
 profile_src_file=./profile/.profile
 
 echo "Setting up ZSH profile..."
