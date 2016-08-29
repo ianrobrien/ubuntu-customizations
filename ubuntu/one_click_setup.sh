@@ -1,31 +1,18 @@
 # This script will setup an environment with all the nice stuff I like
 #   Applications
-#     ZSH
 #   Configurations
-#     Profile scripts
 
-pwd_dir=$(pwd)
+current_directory=$(dirname $0)
+install_scripts_dir=${current_directory}/applications/install_*.sh
 
-# ZSH Stuff
-zsh_dir=${pwd_dir}/zsh
-zsh_config_script="setup_zsh_profile.sh"
+#$(sudo apt-get update)
+#$(sudo apt-get upgrade)
 
-#sudo apt-get update
-#sudo apt-get upgrade
-#sudo apt-get install redshift vim git
-
-# ZSH: Download and install
-cd ~
-git clone https://github.com/robbyrussell/oh-my-zsh.git .oh-my-zsh
-cd .oh-my-zsh/tools/
-./install.sh
-# copy theme, plugins, aliases
-
-# ZSH: Set up profiles, aliases, etc
-cd ${zsh_dir}
-ls
-./${zsh_config_script}
-cd ..
+# Load Applications
+for install_script in ${install_scripts_dir}; do
+  . ${install_script}
+  echo ${install_script}
+done
 
 #setup fonts
 #setup color schemes
