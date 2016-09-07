@@ -45,10 +45,10 @@ This repository contains information and settings related to my general developm
   * [Android Studio](https://developer.android.com/studio/index.html)
   * [Sublime Text](https://www.sublimetext.com/3)
     * [Ubuntu PPA](https://launchpad.net/~webupd8team/+archive/ubuntu/sublime-text-3)
- * Utilities
-   * [Beyond Compare](http://www.scootersoftware.com/index.php) for file diffs and merges
- * Environmental
-   * [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) shell themes for zsh
+* Utilities
+  * [Beyond Compare](http://www.scootersoftware.com/index.php) for file diffs and merges
+* Environmental
+  * [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) shell themes for zsh
 
 ## Non-Development Items
 
