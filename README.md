@@ -31,12 +31,15 @@ This repository contains information and settings related to my general developm
 ### Linux
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Atom](https://atom.io/)
+  * [Ubuntu PPA](https://launchpad.net/~webupd8team/+archive/ubuntu/atom)
 * [IntelliJ IDEA](https://www.jetbrains.com/idea/)
 * [Android Studio](https://developer.android.com/studio/index.html)
 * [Beyond Compare](http://www.scootersoftware.com/index.php) for file diffs and merges
 * [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) shell themes for zsh
+* [Sublime Text](https://www.sublimetext.com/3)
+  * [Ubuntu PPA](https://launchpad.net/~webupd8team/+archive/ubuntu/sublime-text-3)
 
-## Other Environment Setup
+## Non-Development Items
 
 ### Fonts
 * [powerline-fonts](https://github.com/powerline/fonts) fonts for zsh
@@ -51,7 +54,7 @@ This repository contains information and settings related to my general developm
   * [HashTools](https://www.binaryfortress.com/HashTools/)
   * [TrayStatus](https://www.binaryfortress.com/TrayStatus/)
 * [f.lux](https://justgetflux.com/)
-* 
+* [Rapid Environment Editor](http://www.rapidee.com/en/about) tool for editing system variables
 
 ### Linux
 * Themes
@@ -64,3 +67,5 @@ This repository contains information and settings related to my general developm
  * git
  * zsh
  * red shift
+ * unity tweak tool
+ * 
