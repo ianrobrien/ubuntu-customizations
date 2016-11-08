@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # This script will setup an environment with all the nice stuff I like
 #   Applications
 #   Configurations
