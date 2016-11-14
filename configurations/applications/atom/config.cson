@@ -1,0 +1,45 @@
+"*":
+  "activate-power-mode":
+    comboMode:
+      enabled: false
+    screenShake:
+      enabled: false
+  "atom-beautify":
+    general:
+      _analyticsUserId: "1111c3f3-8126-4a81-8ee5-97f8414abb7a"
+  atomatigit:
+    show_on_startup: true
+  "bracket-matcher":
+    autocompleteBrackets: false
+    autocompleteSmartQuotes: false
+  core:
+    customFileTypes:
+      "source.sql": [
+        "sp"
+      ]
+    disabledPackages: [
+      "atom_packages"
+      "whitespace"
+    ]
+    telemetryConsent: "limited"
+  editor:
+    atomicSoftTabs: false
+    fontFamily: "Fira Mono"
+    preferredLineLength: 200
+    showIndentGuide: true
+    showInvisibles: true
+    tabLength: 4
+    tabType: "soft"
+  "exception-reporting":
+    userId: "2b1cc552-e6f1-6b6c-a052-1d95786a0bed"
+  "file-icons": {}
+  "git-plus": {}
+  "linter-javac":
+    javacExecutablePath: "javaC:\\Program Files\\Java\\jdk1.8.0_102\\bin"
+  minimap: {}
+  welcome:
+    showOnStartup: false
+".diff.source":
+  editor:
+    preferredLineLength: 200
+    tabLength: 4
