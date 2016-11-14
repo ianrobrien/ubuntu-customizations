@@ -3,10 +3,7 @@
     comboMode:
       enabled: false
     screenShake:
-      enabled: false
-  "atom-beautify":
-    general:
-      _analyticsUserId: "1111c3f3-8126-4a81-8ee5-97f8414abb7a"
+      enabled: false  
   atomatigit:
     show_on_startup: true
   "bracket-matcher":
@@ -29,9 +26,7 @@
     showIndentGuide: true
     showInvisibles: true
     tabLength: 4
-    tabType: "soft"
-  "exception-reporting":
-    userId: "2b1cc552-e6f1-6b6c-a052-1d95786a0bed"
+    tabType: "soft"  
   "file-icons": {}
   "git-plus": {}
   "linter-javac":
