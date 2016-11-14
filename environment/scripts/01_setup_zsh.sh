@@ -18,7 +18,7 @@ cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 # copy over the custom themes
 mkdir ~/.oh-my-zsh/custom/themes
 cp ./01_oh_my_zsh/themes/* ~/.oh-my-zsh/custom/themes
-sed -i -e 's/ZSH_THEME="robbyrussell"/ZSH_THEME="koselig"/g' /tmp/file.txt
+sed -i -e 's/ZSH_THEME="robbyrussell"/ZSH_THEME="koselig"/g' ~/.zshrc
 
 chsh -s /bin/zsh
 
