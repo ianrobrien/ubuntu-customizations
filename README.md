@@ -11,12 +11,10 @@ This repository contains information and settings related to my general developm
 ## Development Tools
 
 ### Windows
-* Editors
-  * [Visual Studio Code](https://code.visualstudio.com/)
+* Editors and IDEs
   * [Atom](https://atom.io/)
   * [IntelliJ IDEA](https://www.jetbrains.com/idea/)
-  * [Android Studio](https://developer.android.com/studio/index.html)
-  * [Visual Studio Community](https://beta.visualstudio.com/vs/community/)
+  * [Visual Studio](https://www.visualstudio.com/downloads/)
 * SVN
   * [Git for Windows](https://git-scm.com/download/win)
     * [How to build latest for Cygwin](http://stackoverflow.com/questions/14330050/how-to-get-git-1-8-in-cygwin)
@@ -32,19 +30,14 @@ This repository contains information and settings related to my general developm
   * JetBrains
     * [ReSharper](https://confluence.jetbrains.com/display/ReSharper/ReSharper+Early+Access+Program) - Remember to buy full license before the year ends
   * [SQL Complete](https://secure.devart.com/Default.aspx)
-    * Maybe not if I buy DataGrip
   * [Beyond Compare](http://www.scootersoftware.com/index.php) for file diffs and merges
   * [GhostDoc](http://submain.com/products/ghostdoc.aspx)
 
 ### Linux
 * Editors
-  * [Visual Studio Code](https://code.visualstudio.com/)
   * [Atom](https://atom.io/)
     * [Ubuntu PPA](https://launchpad.net/~webupd8team/+archive/ubuntu/atom)
   * [IntelliJ IDEA](https://www.jetbrains.com/idea/)
-  * [Android Studio](https://developer.android.com/studio/index.html)
-  * [Sublime Text](https://www.sublimetext.com/3)
-    * [Ubuntu PPA](https://launchpad.net/~webupd8team/+archive/ubuntu/sublime-text-3)
 * Utilities
   * [Beyond Compare](http://www.scootersoftware.com/index.php) for file diffs and merges
 * Environmental
@@ -64,11 +57,9 @@ This repository contains information and settings related to my general developm
   * [Notepad Replacer](https://www.binaryfortress.com/NotepadReplacer/)
   * [LogFusion](https://www.logfusion.ca/)
   * [HashTools](https://www.binaryfortress.com/HashTools/)
-  * [TrayStatus](https://www.binaryfortress.com/TrayStatus/)
 * [f.lux](https://justgetflux.com/)
 * [Rapid Environment Editor](http://www.rapidee.com/en/about) tool for editing system variables
 * [FileZilla](https://filezilla-project.org/download.php?type=client)
-* VirtualBox
 
 ### Linux
 * Themes
