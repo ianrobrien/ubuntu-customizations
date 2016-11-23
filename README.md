@@ -67,10 +67,17 @@ This repository contains information and settings related to my general developm
  * [RAVEfinity Ambiance Radiance](http://www.ravefinity.com/p/download-ambiance-radiance-flat-colors.html)
  * [RAVEfinity Vivacious Colors GTK Icon Theme](http://www.ravefinity.com/p/vivacious-colors-gtk-icon-theme.html)
  * [RAVEfinity Vivacious Colors GTK Theme](http://www.ravefinity.com/p/vivacious-colors-gtk-theme.html)
- * link to theme/cursor icons
+* Icons
+ * [RAVEfinity Vivacious Colors Icon Theme](http://www.ravefinity.com/p/vivacious-colors-gtk-icon-theme.html)
+ * [RAVEfinity Vibrancy Colors Icon Theme](http://www.ravefinity.com/p/vibrancy-colors-gtk-icon-theme.html)
+* Cursors
+ * [Flatbed Cursors](https://www.gnome-look.org/content/show.php/Flatbed+Cursors?content=52027)
 * sudo-apt-get install (will script this out)
  * git
  * zsh
  * red shift
  * unity tweak tool
- * JDK
+* ppa
+ * [Chrome](http://www.ubuntuupdates.org/ppa/google_chrome)
+ * [Atom](https://launchpad.net/~webupd8team/+archive/ubuntu/atom)
+ * [IntelliJ Community](https://launchpad.net/~mmk2410/+archive/ubuntu/intellij-idea-community)
