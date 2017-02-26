@@ -2,16 +2,28 @@ box_name() { [ -f ~/.box-name ] && cat ~/.box-name || echo $HOST }
 
 prompt_prelude() { print_plain "#" blue false true }
 
-prompt_context() { print_plain "%n@$(box_name)" green false true }
+prompt_context() {
+    print_plain "["
+    print_plain "%n" green
+    print_plain ":" white false false
+    local ssh_connection=$SSH_CONNECTION
+    local length=${#ssh_connection}
+    if [ ${length} -eq "0" ]; then
+        print_plain "$(box_name)" green false false
+    else
+        print_plain "$(box_name)" red false false
+    fi
+    print_plain "]" white false true
+}
 
 local RETVAL=0
 save_retval() { RETVAL=$? }
 
 prompt_status() {
     if [[ ${RETVAL} -ne 0 ]]; then
-        print_with_brackets ✘ red white false true
+        print_with_brackets ✗ red white false true
     else
-        print_with_brackets ✔ green white false true
+        print_with_brackets ✓ green white false true
     fi
 }
 
@@ -20,7 +32,7 @@ prompt_time() { print_with_brackets "%D{%X}" cyan white false true }
 prompt_dir() { print_plain %~ yellow false true }
 
 prompt_git() {
-    if $(git rev-parse --is-inside-work-tree >/dev/null 2>%1); then
+    if $(git rev-parse --is-inside-work-tree >/dev/null 2>&1); then
         local mode=""
         local repo_path=$(git rev-parse --git-dir 2>/dev/null)
         if [[ -e "${repo_path}/BISECT_LOG" ]]; then
@@ -80,4 +92,3 @@ build_prompt() {
 
 PROMPT='$(build_prompt)
 $ '
-
