@@ -11,7 +11,7 @@ prompt_context() {
     if [ ${length} -eq "0" ]; then
         print_plain "$(box_name)" green false false
     else
-        print_plain "$(box_name)" red false false
+        print_plain "$(box_name)::ssh" red false false
     fi
     print_plain "]" white false true
 }
