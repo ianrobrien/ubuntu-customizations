@@ -81,3 +81,19 @@ This repository contains information and settings related to my general developm
  * [Chrome](http://www.ubuntuupdates.org/ppa/google_chrome)
  * [Atom](https://launchpad.net/~webupd8team/+archive/ubuntu/atom)
  * [IntelliJ Community](https://launchpad.net/~mmk2410/+archive/ubuntu/intellij-idea-community)
+
+### Colors
+* [atom/one-dark-syntax](https://github.com/atom/one-dark-syntax)
+ * Text
+  * mono-1:   #ABB2BF // default text
+  * mono-2:   #828997 // darker text
+  * mono-3:   #5C6370 // darkest text
+ * Colors
+  * cyan:     #56B6C2
+  * blue:     #61AFEF
+  * purple:   #C678DD
+  * green:    #98C379
+  * red-1:    #E06C75
+  * red-2:    #BE5046
+  * orange-1: #D19A66
+  * orange-2: #E5C07B

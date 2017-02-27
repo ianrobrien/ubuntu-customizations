@@ -21,9 +21,9 @@ save_retval() { RETVAL=$? }
 
 prompt_status() {
     if [[ ${RETVAL} -ne 0 ]]; then
-        print_with_brackets ✗ red white false true
+        print_with_brackets ✘ red white false true
     else
-        print_with_brackets ✓ green white false true
+        print_with_brackets ✔ green white false true
     fi
 }
 
