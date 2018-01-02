@@ -10,7 +10,7 @@ alias ls='ls -lFSsh'
 alias lart='ls -lFcart'
 alias lrt='ls -lFcrt'
 
-alias grep-'grep --color'
+alias grep='grep --color'
 alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
 
 alias t='tail -f'
