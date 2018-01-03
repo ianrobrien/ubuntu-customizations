@@ -6,7 +6,7 @@ alias lr='ls -tRFh'         #sorted by date,recursive,show type,human readable
 alias lt='ls -ltFh'         #long list,sorted by date,show type,human readable
 alias ll='ls -l'            #long list
 alias ldot='ls -ld . *'
-alias ls='ls -lFSsh'
+alias lS='ls -lFSsh'
 alias lart='ls -lFcart'
 alias lrt='ls -lFcrt'
 
