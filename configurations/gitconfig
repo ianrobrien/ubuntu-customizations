@@ -1,0 +1,21 @@
+[alias]
+    bl = branch -l
+    cam = commit -am
+    co = checkout
+    cob = checkout -b
+    cot = checkout tags/
+    db = branch -D
+    discard = checkout --
+    fpo = fetch --prune origin
+    unstage = reset
+[color]
+    branch = auto
+    diff = auto
+    interactive = true
+    staLus = auto
+[color "diff"]
+    new = green
+    old = red
+[core]
+[log]
+    decorate = short
