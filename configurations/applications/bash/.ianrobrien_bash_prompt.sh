@@ -9,7 +9,7 @@ c_clear='\[\e[0m\]'
 c_red='\[\e[31m\]'
 c_blue='\[\e[0;34m\]'
 c_green='\[\e[32m\]'
-c_yellow='\[\e[33m\]'
+c_orange='\[\e[33m\]'
 c_purple='\[\e[0;35m\]'
 
 function __getPrelude {
@@ -31,7 +31,7 @@ function __getTime {
 }
 
 function __getWorkingDirectory {
-    echo "${c_yellow}\w${c_clear}"
+    echo "${c_orange}\w${c_clear}"
 }
 
 function __getPromptCommand {

@@ -84,6 +84,7 @@ This repository contains information and settings related to my general developm
 
 ### Colors
 * [atom/one-dark-syntax](https://github.com/atom/one-dark-syntax)
+ * Background: #282C34
  * Text
   * mono-1:   #ABB2BF // default text
   * mono-2:   #828997 // darker text
