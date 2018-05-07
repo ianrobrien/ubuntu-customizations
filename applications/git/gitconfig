@@ -20,5 +20,4 @@
 [log]
     decorate = short
 [user]
-    name = Ian R. O'Brien
-    email = ian.r.obrien@protonmail.com
+    name = "Ian R. O'Brien"

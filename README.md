@@ -15,9 +15,9 @@ This repository contains information and settings related to my general developm
 ### Windows
 
 * Editors and IDEs
-  * [Atom](https://atom.io/)
-  * [IntelliJ IDEA](https://www.jetbrains.com/idea/)
+  * [JetBrains Toolbox](https://www.jetbrains.com/toolbox/app/)
   * [Visual Studio](https://www.visualstudio.com/downloads/)
+  * [Visual Studio Code](https://code.visualstudio.com/)
 * SVN
   * [Git for Windows](https://git-scm.com/download/win)
     * [How to build latest for Cygwin](http://stackoverflow.com/questions/14330050/how-to-get-git-1-8-in-cygwin)
@@ -25,69 +25,66 @@ This repository contains information and settings related to my general developm
 * Environmental
   * [ConEmu](http://conemu.github.io/)
   * [Cygwin](https://www.cygwin.com/)
-  * [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) shell themes for zsh
-  * [powerline-fonts](https://github.com/powerline/fonts) fonts for zsh
 * Frameworks
   * [Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * Utilities
-  * JetBrains
-    * [ReSharper](https://confluence.jetbrains.com/display/ReSharper/ReSharper+Early+Access+Program) - Remember to buy full license before the year ends
-  * [SQL Complete](https://secure.devart.com/Default.aspx)
-  * [Beyond Compare](http://www.scootersoftware.com/index.php) for file diffs and merges
+  * [Beyond Compare](http://scootersoftware.com/download.php)
   * [GhostDoc](http://submain.com/products/ghostdoc.aspx)
+  * JetBrains
+    * [ReSharper](https://confluence.jetbrains.com/display/ReSharper/ReSharper+Early+Access+Program)    
+  * [SQL Complete](https://secure.devart.com/Default.aspx)
 
 ### Linux
 
 * Editors
-  * [Atom](https://atom.io/)
-    * [Ubuntu PPA](https://launchpad.net/~webupd8team/+archive/ubuntu/atom)
-  * [IntelliJ IDEA](https://www.jetbrains.com/idea/)
+  * [Jetbrains Toolbox App](https://www.jetbrains.com/toolbox/app/)
+  * [Visual Studio Code](https://code.visualstudio.com/)
+* Frameworks
+  * [Java](https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-get-on-ubuntu-16-04)
 * Utilities
-  * [Beyond Compare](http://www.scootersoftware.com/index.php) for file diffs and merges
-* Environmental
-  * [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) shell themes for zsh
+  * [Beyond Compare](http://scootersoftware.com/download.php)
 
 ## Non-Development Items
 
 ### Fonts
 
-* [powerline-fonts](https://github.com/powerline/fonts) fonts for zsh
 * [Fira](https://github.com/mozilla/Fira)
 
 ### Windows
 
-* [Paint.NET](http://www.getpaint.net/index.html)
 * [binaryfortress](https://www.binaryfortress.com/)
   * [DisplayFusion](https://www.displayfusion.com/)
   * [FileSeek](https://www.fileseek.ca/)
-  * [Notepad Replacer](https://www.binaryfortress.com/NotepadReplacer/)
-  * [LogFusion](https://www.logfusion.ca/)
   * [HashTools](https://www.binaryfortress.com/HashTools/)
+  * [LogFusion](https://www.logfusion.ca/)
+  * [Notepad Replacer](https://www.binaryfortress.com/NotepadReplacer/)
 * [f.lux](https://justgetflux.com/)
-* [Rapid Environment Editor](http://www.rapidee.com/en/about) tool for editing system variables
 * [FileZilla](https://filezilla-project.org/download.php?type=client)
+* [Paint.NET](http://www.getpaint.net/index.html)
+* [Rapid Environment Editor](http://www.rapidee.com/en/about) tool for editing system variables
 
 ### Linux
 
 * Themes
-  * [arc-theme](https://github.com/horst3180/arc-theme)
+  * [Arc Theme](https://github.com/horst3180/Arc-theme)
   * [RAVEfinity Ambiance Radiance](http://www.ravefinity.com/p/download-ambiance-radiance-flat-colors.html)
   * [RAVEfinity Vivacious Colors GTK Icon Theme](http://www.ravefinity.com/p/vivacious-colors-gtk-icon-theme.html)
   * [RAVEfinity Vivacious Colors GTK Theme](http://www.ravefinity.com/p/vivacious-colors-gtk-theme.html)
 * Icons
+  * [Papirus Icon Theme](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)
   * [RAVEfinity Vivacious Colors Icon Theme](http://www.ravefinity.com/p/vivacious-colors-gtk-icon-theme.html)
   * [RAVEfinity Vibrancy Colors Icon Theme](http://www.ravefinity.com/p/vibrancy-colors-gtk-icon-theme.html)
 * Cursors
+  * [Capitaine Cursors](https://github.com/keeferrourke/capitaine-cursors)
   * [Flatbed Cursors](https://www.gnome-look.org/content/show.php/Flatbed+Cursors?content=52027)
 * sudo-apt-get install (will script this out)
+  * gdebi
   * git
-  * zsh
-  * red shift
-  * unity tweak tool
-* ppa
-  * [Chrome](http://www.ubuntuupdates.org/ppa/google_chrome)
-  * [Atom](https://launchpad.net/~webupd8team/+archive/ubuntu/atom)
-  * [IntelliJ Community](https://launchpad.net/~mmk2410/+archive/ubuntu/intellij-idea-community)
+  * gnome-tweak-tools
+  * keepassxc
+  * pinta
+  * redshift
+  * vim
 
 ### Colors
 
