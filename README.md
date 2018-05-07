@@ -1,7 +1,9 @@
 # Development Configuration
+
 This repository contains information and settings related to my general development environments
 
 ## Configuration Files
+
 * ConEmu
 * Visual Studio
 * IntelliJ IDEA/Android Studio
@@ -11,6 +13,7 @@ This repository contains information and settings related to my general developm
 ## Development Tools
 
 ### Windows
+
 * Editors and IDEs
   * [Atom](https://atom.io/)
   * [IntelliJ IDEA](https://www.jetbrains.com/idea/)
@@ -34,6 +37,7 @@ This repository contains information and settings related to my general developm
   * [GhostDoc](http://submain.com/products/ghostdoc.aspx)
 
 ### Linux
+
 * Editors
   * [Atom](https://atom.io/)
     * [Ubuntu PPA](https://launchpad.net/~webupd8team/+archive/ubuntu/atom)
@@ -46,10 +50,12 @@ This repository contains information and settings related to my general developm
 ## Non-Development Items
 
 ### Fonts
+
 * [powerline-fonts](https://github.com/powerline/fonts) fonts for zsh
 * [Fira](https://github.com/mozilla/Fira)
 
 ### Windows
+
 * [Paint.NET](http://www.getpaint.net/index.html)
 * [binaryfortress](https://www.binaryfortress.com/)
   * [DisplayFusion](https://www.displayfusion.com/)
@@ -62,39 +68,41 @@ This repository contains information and settings related to my general developm
 * [FileZilla](https://filezilla-project.org/download.php?type=client)
 
 ### Linux
+
 * Themes
- * [arc-theme](https://github.com/horst3180/arc-theme)
- * [RAVEfinity Ambiance Radiance](http://www.ravefinity.com/p/download-ambiance-radiance-flat-colors.html)
- * [RAVEfinity Vivacious Colors GTK Icon Theme](http://www.ravefinity.com/p/vivacious-colors-gtk-icon-theme.html)
- * [RAVEfinity Vivacious Colors GTK Theme](http://www.ravefinity.com/p/vivacious-colors-gtk-theme.html)
+  * [arc-theme](https://github.com/horst3180/arc-theme)
+  * [RAVEfinity Ambiance Radiance](http://www.ravefinity.com/p/download-ambiance-radiance-flat-colors.html)
+  * [RAVEfinity Vivacious Colors GTK Icon Theme](http://www.ravefinity.com/p/vivacious-colors-gtk-icon-theme.html)
+  * [RAVEfinity Vivacious Colors GTK Theme](http://www.ravefinity.com/p/vivacious-colors-gtk-theme.html)
 * Icons
- * [RAVEfinity Vivacious Colors Icon Theme](http://www.ravefinity.com/p/vivacious-colors-gtk-icon-theme.html)
- * [RAVEfinity Vibrancy Colors Icon Theme](http://www.ravefinity.com/p/vibrancy-colors-gtk-icon-theme.html)
+  * [RAVEfinity Vivacious Colors Icon Theme](http://www.ravefinity.com/p/vivacious-colors-gtk-icon-theme.html)
+  * [RAVEfinity Vibrancy Colors Icon Theme](http://www.ravefinity.com/p/vibrancy-colors-gtk-icon-theme.html)
 * Cursors
- * [Flatbed Cursors](https://www.gnome-look.org/content/show.php/Flatbed+Cursors?content=52027)
+  * [Flatbed Cursors](https://www.gnome-look.org/content/show.php/Flatbed+Cursors?content=52027)
 * sudo-apt-get install (will script this out)
- * git
- * zsh
- * red shift
- * unity tweak tool
+  * git
+  * zsh
+  * red shift
+  * unity tweak tool
 * ppa
- * [Chrome](http://www.ubuntuupdates.org/ppa/google_chrome)
- * [Atom](https://launchpad.net/~webupd8team/+archive/ubuntu/atom)
- * [IntelliJ Community](https://launchpad.net/~mmk2410/+archive/ubuntu/intellij-idea-community)
+  * [Chrome](http://www.ubuntuupdates.org/ppa/google_chrome)
+  * [Atom](https://launchpad.net/~webupd8team/+archive/ubuntu/atom)
+  * [IntelliJ Community](https://launchpad.net/~mmk2410/+archive/ubuntu/intellij-idea-community)
 
 ### Colors
+
 * [atom/one-dark-syntax](https://github.com/atom/one-dark-syntax)
- * Background: #282C34
- * Text
-  * mono-1:   #ABB2BF // default text
-  * mono-2:   #828997 // darker text
-  * mono-3:   #5C6370 // darkest text
- * Colors
-  * cyan:     #56B6C2
-  * blue:     #61AFEF
-  * purple:   #C678DD
-  * green:    #98C379
-  * red-1:    #E06C75
-  * red-2:    #BE5046
-  * orange-1: #D19A66
-  * orange-2: #E5C07B
+  * Background: #282C34
+  * Text
+    * mono-1:   #ABB2BF // default text
+    * mono-2:   #828997 // darker text
+    * mono-3:   #5C6370 // darkest text
+  * Colors
+    * cyan:     #56B6C2
+    * blue:     #61AFEF
+    * purple:   #C678DD
+    * green:    #98C379
+    * red-1:    #E06C75
+    * red-2:    #BE5046
+    * orange-1: #D19A66
+    * orange-2: #E5C07B
