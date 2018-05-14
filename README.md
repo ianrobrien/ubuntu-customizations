@@ -67,6 +67,7 @@ This repository contains information and settings related to my general developm
 
 * Themes
   * [Arc Theme](https://github.com/horst3180/Arc-theme)
+    * Firefox fix: widget.content.gtk-theme-override Arc
   * [RAVEfinity Ambiance Radiance](http://www.ravefinity.com/p/download-ambiance-radiance-flat-colors.html)
   * [RAVEfinity Vivacious Colors GTK Icon Theme](http://www.ravefinity.com/p/vivacious-colors-gtk-icon-theme.html)
   * [RAVEfinity Vivacious Colors GTK Theme](http://www.ravefinity.com/p/vivacious-colors-gtk-theme.html)
