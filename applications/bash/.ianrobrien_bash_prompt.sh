@@ -3,13 +3,12 @@ source ~/.git-prompt.sh
 
 export GIT_PS1_SHOWDIRTYSTATE="true"
 export GIT_PS1_SHOWCOLORHINTS="true"
-#export GIT_TRACE=1 git stash
 
 c_clear='\[\e[0m\]'
 c_red='\[\e[31m\]'
 c_blue='\[\e[0;34m\]'
 c_green='\[\e[32m\]'
-c_orange='\[\e[33m\]'
+c_yellow='\[\e[33m\]'
 c_purple='\[\e[0;35m\]'
 
 function __getPrelude {
@@ -20,9 +19,9 @@ function __getUserHost {
     local ssh_connection=$SSH_CONNECTION
     local length=${#ssh_connection}
     if [ ${length} -eq "0" ]; then
-        echo "[${c_green}\u:\h${c_clear}]"
+        echo "[${c_green}\u${c_clear}:${c_green}\h${c_clear}]"
     else
-        echo "[${c_red}\u:\h${c_clear}]"
+        echo "[${c_green}\u${c_clear}:${c_red}\h${c_clear}]"
     fi
 }
 
@@ -31,7 +30,7 @@ function __getTime {
 }
 
 function __getWorkingDirectory {
-    echo "${c_orange}\w${c_clear}"
+    echo "${c_yellow}\w${c_clear}"
 }
 
 function __getPromptCommand {

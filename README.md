@@ -96,11 +96,15 @@ This repository contains information and settings related to my general developm
     * mono-2:   #828997 // darker text
     * mono-3:   #5C6370 // darkest text
   * Colors
-    * cyan:     #56B6C2
-    * blue:     #61AFEF
-    * purple:   #C678DD
-    * green:    #98C379
-    * red-1:    #E06C75
-    * red-2:    #BE5046
-    * orange-1: #D19A66
-    * orange-2: #E5C07B
+    * cyan-light:   #56B6C2
+    * cyan-dark:    #39787F
+    * blue-light:   #61AFEF
+    * blue-dark:    #345D7F
+    * purple-light: #C678DD
+    * purple-dark:  #72457F
+    * green-light:  #98C379
+    * green-dark:   #98C379
+    * red-light:    #E06C75
+    * red-dark:     #7F3D43
+    * orange-light: #D19A66
+    * orange-dark:  #7F5E3E
