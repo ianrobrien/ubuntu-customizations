@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-cp ./.bash_aliases ~
-cp ./.git-completion.bash ~
-cp ./.git-prompt.sh ~
-cp ./.ianrobrien_bash_prompt.sh ~
+ln -sfr ./.bash_aliases ~
+ln -sfr ./.git-completion.bash ~
+ln -sfr ./.git-prompt.sh ~
+ln -sfr ./.ianrobrien_bash_prompt ~
 
 source ~/.bashrc
