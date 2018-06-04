@@ -10,6 +10,9 @@ This repository contains information and settings related to my general developm
 * ZSH/shell Profiles/themes
 * vim/nano configs
 
+##
+* Convert rsa key to ppk puttygen id_rsa -o id_rsa.pub.ppk
+
 ## Development Tools
 
 ### Windows
