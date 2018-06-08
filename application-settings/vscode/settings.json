@@ -12,4 +12,5 @@
     "editor.autoClosingBrackets": false,
     "workbench.iconTheme": "vscode-icons",
     "workbench.startupEditor": "newUntitledFile",
+    "workbench.colorTheme": "One Dark Pro",
 }
