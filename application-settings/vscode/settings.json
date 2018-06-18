@@ -13,4 +13,7 @@
     "workbench.iconTheme": "vscode-icons",
     "workbench.startupEditor": "newUntitledFile",
     "workbench.colorTheme": "One Dark Pro",
+
+    // CPP
+    "C_Cpp.clang_format_fallbackStyle": "Google",
 }
