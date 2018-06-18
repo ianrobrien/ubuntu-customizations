@@ -1,5 +1,5 @@
-source ~/.git-completion.bash
-source ~/.git-prompt.sh
+source ~/.bin/.git-completion.bash
+source ~/.bin/.git-prompt.sh
 
 export GIT_PS1_SHOWDIRTYSTATE="true"
 export GIT_PS1_SHOWCOLORHINTS="true"

@@ -14,15 +14,18 @@ source="${PWD}/dot-files"
 
 echo "Copying dot files to home directory..."
 
-for file in ${source}/*
-do
-    echo "Copying ${file} to ${HOME}/.${file##*/}"
-    cp ${file} ${HOME}/.${file##*/}
-done
+ln -sf ${source}/bin ${HOME}/.bin
+ln -sf ${source}/.bash_aliases ${HOME}/.bash_aliases
+ln -sf ${source}/.bashrc ${HOME}/.bashrc
+ln -sf ${source}/.gitconfig ${HOME}/.gitconfig
+ln -sf ${source}/.vimrc ${HOME}/.vimrc
+ln -sf ${source}/.vim ${HOME}/.vim
 
-grep -q -F 'source one-dark-bash-prompt' ${HOME}/.bashrc || cat  >> ${HOME}/.bashrc <<EOF
-source ${HOME}/.one-dark-bash-prompt
-EOF
+# for file in ${source}/*
+# do
+#     echo "Copying ${file} to ${HOME}/.${file##*/}"
+#     cp ${file} ${HOME}/.${file##*/}
+# done
 
 echo "Finished copying dot files to home directory."
 echo "Sourcing .bashrc to pick up latest changes."
