@@ -32,9 +32,6 @@ if ! [[ -x `(command -v idea)` ]]; then
     ${PWD}/application-installation-scripts/install-intellij-idea.sh
 fi
 
-# Dot Files
-${PWD}/install-dot-files.sh
-
 # Appearances
 ${PWD}/gnome-settings/install-capitaine-cursors.sh
 ${PWD}/gnome-settings/install-papirus-icon-theme.sh
