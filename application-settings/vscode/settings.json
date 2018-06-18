@@ -2,18 +2,16 @@
     // Privacy
     "telemetry.enableTelemetry": false,
     "telemetry.enableCrashReporter": false,
-
     // Appearance
     "editor.fontFamily": "'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
     "editor.fontSize": 16,
     "editor.fontLigatures": true,
-
     // Behavior
     "editor.autoClosingBrackets": false,
     "workbench.iconTheme": "vscode-icons",
     "workbench.startupEditor": "newUntitledFile",
     "workbench.colorTheme": "One Dark Pro",
-
     // CPP
     "C_Cpp.clang_format_fallbackStyle": "Google",
+    "[makefile]": {},
 }
