@@ -15,11 +15,16 @@ fi
 
 # Default Applications
 apt update && apt install -y \
+    # editors
                 vim \
-                filezilla thunderbird \
-                htop gdebi \
+    # office
+                filezilla thunderbird libreoffice \
+    # utilities
+                htop gdebi neofetch \
+    # appearance
                 fonts-firacode \
-                git docker.io
+    # development
+                git docker.io openjdk-11-jre openjdk-11-jdk openjdk-8-jdk openjdk-8-jre
 
 # Manual Applications
 if ! [[ -x `(command -v code)` ]]; then
