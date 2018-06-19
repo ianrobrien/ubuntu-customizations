@@ -21,6 +21,8 @@ apt update && apt install -y \
                 filezilla thunderbird libreoffice \
     # utilities
                 htop gdebi neofetch \
+    # fun
+                fortunes cowsay lolcat \
     # appearance
                 fonts-firacode \
     # development
