@@ -11,3 +11,5 @@
 ###############################################################################
 
 dconf load /org/gnome/terminal/ < ${PWD}/../application-settings/gnome-terminal/gnome-terminal-settings-backup.txt
+
+gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
