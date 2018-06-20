@@ -13,6 +13,8 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-wget http://www.scootersoftware.com/bcompare-4.2.4.22795_amd64.deb
-gdebi -n bcompare-4.2.4.22795_amd64.deb
-rm bcompare-4.2.4.22795_amd64.deb
+version="bcompare-4.2.5.23088_amd64.deb"
+
+wget http://www.scootersoftware.com/${version}
+gdebi -n ${version}
+rm ${version}
