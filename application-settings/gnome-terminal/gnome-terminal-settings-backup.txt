@@ -8,8 +8,8 @@ list=['b1dcc9dd-5262-4d8d-a863-c897e6d979b9', 'e5517783-6749-48a5-be63-caafd0ef4
 default='e5517783-6749-48a5-be63-caafd0ef4358'
 
 [legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
-default-size-columns=128
-default-size-rows=44
+default-size-columns=110
+default-size-rows=30
 palette=['rgb(0,0,0)', 'rgb(170,0,0)', 'rgb(0,170,0)', 'rgb(170,85,0)', 'rgb(0,0,170)', 'rgb(170,0,170)', 'rgb(0,170,170)', 'rgb(170,170,170)', 'rgb(85,85,85)', 'rgb(255,85,85)', 'rgb(85,255,85)', 'rgb(255,255,85)', 'rgb(85,85,255)', 'rgb(255,85,255)', 'rgb(85,255,255)', 'rgb(255,255,255)']
 visible-name='Default'
 
@@ -17,8 +17,8 @@ visible-name='Default'
 foreground-color='rgb(171,178,191)'
 visible-name='OneDark'
 palette=['rgb(46,52,54)', 'rgb(224,108,117)', 'rgb(152,195,121)', 'rgb(209,154,102)', 'rgb(97,175,239)', 'rgb(198,120,221)', 'rgb(86,182,194)', 'rgb(211,215,207)', 'rgb(85,87,83)', 'rgb(255,148,157)', 'rgb(193,255,148)', 'rgb(255,200,148)', 'rgb(148,207,255)', 'rgb(231,148,255)', 'rgb(148,243,255)', 'rgb(238,238,236)']
-default-size-columns=136
-default-size-rows=44
+default-size-columns=110
+default-size-rows=30
 use-transparent-background=true
 use-theme-colors=false
 use-theme-transparency=false
