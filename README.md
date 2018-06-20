@@ -15,14 +15,15 @@ This repository contains information and settings related to my general developm
 * dot files
 * rc files
 * bash prompt
+* [How to make touch-screen scrolling work in Firefox Quantum?](https://askubuntu.com/questions/978226/how-to-make-touch-screen-scrolling-work-in-firefox-quantum)
 
 ## Gnome Customizations
 
 * Appearance
-  * Applications: [Arc](https://github.com/horst3180/Arc-theme)
-  * Cursor: Capitaine-cursors
+  * Applications: [McOS-MJV-Dark-mode](https://github.com/paullinuxthemer/Mc-OS-themes/tree/master/McOS-MJV-Dark-mode)
+  * Cursor: [Capitaine-cursors](https://github.com/keeferrourke/capitaine-cursors)
   * Icons: Papirus
-  * Shell: [Arc](https://github.com/horst3180/Arc-theme)
+  * Shell: [McOS-Dark-Shell](https://github.com/paullinuxthemer/Mc-OS-themes/tree/master/McOS-Shell-themes)
     * Requires [user-themes](https://extensions.gnome.org/extension/19/user-themes/) extension
 * Behavior
   * Minimize on dock icon click
