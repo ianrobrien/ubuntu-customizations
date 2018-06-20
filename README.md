@@ -53,3 +53,5 @@ This repository contains information and settings related to my general developm
 ### Frequently used commands
 
 * Create ppk public key from rsa private key: puttygen id_rsa -o id_rsa.pub.ppk
+
+Licensed under the [MIT](LICENSE) License.
