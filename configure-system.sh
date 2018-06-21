@@ -20,11 +20,12 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # Applications
 sudo apt update && apt install -y \
     vim \
-    filezilla thunderbird libreoffice keepassxc \
+    keepassxc \
     htop gdebi \
     git docker.io openjdk-11-jre openjdk-11-jdk openjdk-8-jdk openjdk-8-jre \
     gnome-tweak-tool gnome-system-monitor gnome-calculator pinta \
     fortunes cowsay lolcat papirus-icon-theme fonts-firacode
+    #thunderbird libreoffice filezilla
 
 # Application Settings
 gsettings set "org.gnome.desktop.interface" "icon-theme" "Papirus"
@@ -44,7 +45,7 @@ if ! [[ -x `(command -v idea)` ]]; then
     su -c ${DIR}/application-installation-scripts/install-jetbrains-toolbox-app.sh -s /bin/sh ${user}
 fi
 
-To Do (Probably in system settings)
-# Splash Screen
-# Login Screen
-# Grub Theme
+# To Do (Probably in system settings)
+## Splash Screen
+## Login Screen
+## Grub Theme
