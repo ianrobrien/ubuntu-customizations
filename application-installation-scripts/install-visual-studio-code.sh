@@ -12,6 +12,7 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
+echo "********************************************************************************"
 echo "Installing VS Code..."
 
 curl -sSL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | apt-key add -
@@ -23,3 +24,4 @@ mkdir -p ${target}
 cp "${PWD}/../application-settings/vscode/settings.json" ${target}
 
 echo "Installed VS Code."
+echo "********************************************************************************"

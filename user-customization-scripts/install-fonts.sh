@@ -9,6 +9,12 @@
 #
 # Usage: ./install-fonts.sh
 ###############################################################################
+if [[ $EUID = 0 ]]
+  then echo "Please run this script without sudo permissions"
+  exit
+fi
+
+echo "********************************************************************************"
 echo "Installing fonts..."
 
 font_name="RobotoCondensed-Regular.ttf"
@@ -26,3 +32,4 @@ gsettings set "org.gnome.desktop.interface" "font-name" "Roboto Condensed, 12"
 gsettings set "org.gnome.desktop.interface" "document-font-name" "Sans 11"
 
 echo "Installed fonts."
+echo "********************************************************************************"

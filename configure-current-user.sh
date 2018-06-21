@@ -44,4 +44,8 @@ gsettings set "org.gnome.shell.extensions.dash-to-dock" "click-action" "minimize
 
 ${PWD}/dotfiles/install-user-dot-files.sh
 
+if ! [[ -x `(command -v idea)` ]]; then
+    ${PWD}/application-installation-scripts/install-jetbrains-toolbox-app.sh
+fi
+
 echo "Customized gnome."

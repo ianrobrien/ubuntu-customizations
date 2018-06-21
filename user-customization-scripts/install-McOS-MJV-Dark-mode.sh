@@ -9,6 +9,11 @@
 #
 # Usage: ./install-McOS-MJV-Dark-mode.sh
 ###############################################################################
+if [[ $EUID = 0 ]]
+  then echo "Please run this script without sudo permissions"
+  exit
+fi
+
 # Constants
 repo_location="https://github.com/paullinuxthemer/Mc-OS-themes.git"
 repo_name="Mc-OS-themes"
@@ -23,6 +28,7 @@ theme_name_shell="McOS-Dark-Shell"
 source_dir_shell_theme=${repo_dir}McOS-Shell-themes/${theme_name_shell}
 target_dir_shell_theme="${HOME}/.themes/${theme_name_shell}"
 
+echo "********************************************************************************"
 echo "Installing ${theme_name_application}..."
 
 # clone repo
@@ -54,3 +60,4 @@ gsettings set org.gnome.desktop.interface gtk-theme ${theme_name_application}${d
 
 echo "Installed ${theme_name_application}."
 echo "*** REMEMBER TO FIX FIREFOX: about:config [widget.content.gtk-theme-override | McOS-MJV] ***"
+echo "********************************************************************************"

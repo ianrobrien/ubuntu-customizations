@@ -9,6 +9,11 @@
 #
 # Usage: ./install-capitaine-cursors.sh
 ###############################################################################
+if [[ $EUID = 0 ]]
+  then echo "Please run this script without sudo permissions"
+  exit
+fi
+
 # Constants
 theme_name="capitaine-cursors"
 target="${HOME}/.icons/capitaine-cursors"
@@ -16,6 +21,7 @@ temp="${PWD}/.${theme_name}"
 source="${temp}/dist"
 repo_location="https://github.com/keeferrourke/capitaine-cursors.git"
 
+echo "********************************************************************************"
 echo "Installing ${theme_name}..."
 
 if [[ -d "${target}" ]]; then
@@ -44,3 +50,4 @@ echo "Setting ${theme_name} as current theme"
 gsettings set "org.gnome.desktop.interface" "cursor-theme" ${theme_name}
 
 echo "Installed ${theme_name}."
+echo "********************************************************************************"

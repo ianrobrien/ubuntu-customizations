@@ -12,6 +12,7 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
+echo "********************************************************************************"
 echo "Installing Beyond Compare..."
 
 package_name="bcompare-4.2.5.23088_amd64.deb"
@@ -21,3 +22,4 @@ gdebi -n ${package_name}
 rm ${package_name}
 
 echo "Installed Beyond Compare."
+echo "********************************************************************************"

@@ -12,6 +12,7 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
+echo "********************************************************************************"
 echo "Installing JetBrains Toolbox App..."
 
 version="jetbrains-toolbox-1.8.3868"
@@ -27,3 +28,4 @@ rm -rf ${gz_file_name}
 rm -rf ${version}
 
 echo "Installed JetBrains Toolbox App."
+echo "********************************************************************************"
