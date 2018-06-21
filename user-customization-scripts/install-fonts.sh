@@ -8,11 +8,8 @@
 #
 # Usage: ./install-fonts.sh
 
-# User Check
-if [[ $EUID = 0 ]]
-  then echo "Please run this script without sudo permissions"
-  exit
-fi
+# Get the current user
+[ $SUDO_USER ] && user=$SUDO_USER || user=`whoami`
 
 # Constants
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -26,6 +23,7 @@ echo "Installing fonts..."
 if [ ! -f ${font_target_dir}${font_name} ]; then
     mkdir -p ${font_target_dir}
     cp ${font_source_dir}${font_name} ${font_target_dir}
+    chown -R ${user}: ${font_target_dir}
     fc-cache -f -v
 fi
 

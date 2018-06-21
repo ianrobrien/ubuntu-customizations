@@ -37,8 +37,11 @@ fi
 if ! [[ -x `(command -v grub-customizer)` ]]; then
     ${DIR}/application-installation-scripts/install-grub-customizer.sh
 fi
+if ! [[ -x `(command -v idea)` ]]; then
+    ${DIR}/application-installation-scripts/install-jetbrains-toolbox-app.sh
+fi
 
-# To Do (Probably in system settings)
-## Splash Screen
-## Login Screen
-## Grub Theme
+To Do (Probably in system settings)
+# Splash Screen
+# Login Screen
+# Grub Theme

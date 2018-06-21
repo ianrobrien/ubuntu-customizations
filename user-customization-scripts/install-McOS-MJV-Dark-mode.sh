@@ -8,11 +8,8 @@
 #
 # Usage: ./install-McOS-MJV-Dark-mode.sh
 
-# User Check
-if [[ $EUID = 0 ]]
-  then echo "Please run this script without sudo permissions"
-  exit
-fi
+# Get the current user
+[ $SUDO_USER ] && user=$SUDO_USER || user=`whoami`
 
 # Constants
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -40,16 +37,19 @@ git clone ${repo_location} ${repo_dir_temp}
 rm -rf ${target_dir_application_theme}
 mkdir -p ${target_dir_application_theme}
 cp -r ${source_dir_application_theme}/* ${target_dir_application_theme}
+chown -R ${user}: ${target_dir_application_theme}
 
 # Install Application Theme (Dark)
 rm -rf ${target_dir_application_theme}${dark_mode}
 mkdir -p ${target_dir_application_theme}${dark_mode}
 cp -r ${source_dir_application_theme}${dark_mode}/* ${target_dir_application_theme}${dark_mode}
+chown -R ${user}: ${target_dir_application_theme}${dark_mode}
 
 # Install Shell Theme
 rm -rf ${target_dir_shell_theme}
 mkdir -p ${target_dir_shell_theme}
 cp -r ${source_dir_shell_theme}/* ${target_dir_shell_theme}
+chown -R ${user}: ${target_dir_shell_theme}
 
 echo "Deleting ${repo_name} repository"
 rm -rf ${repo_dir_temp}

@@ -8,11 +8,8 @@
 #
 # Usage: ./install-capitaine-cursors.sh
 
-# User Check
-if [[ $EUID = 0 ]]
-  then echo "Please run this script without sudo permissions"
-  exit
-fi
+# Get the current user
+[ $SUDO_USER ] && user=$SUDO_USER || user=`whoami`
 
 # Constants
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -21,26 +18,35 @@ source="${DIR}"
 echo "********************************************************************************"
 echo "Copying dot files to home directory..."
 
-# Copy over directories (delete them first otherwise recursive link is created) (TODO: loop)
-unlink ${HOME}/.bin
-ln -sf ${source}/.bin ${HOME}/.bin
-
-unlink ${HOME}/.vim
-ln -sf ${source}/.vim ${HOME}/.vim
-
-unlink ${HOME}/.config/neofetch
-ln -sf ${source}/.config/neofetch ${HOME}/.config/neofetch
-
-unlink ${HOME}/.config/Code/User/settings.json
-ln -sf ${source}/.config/Code/User/settings.json ${HOME}/.config/Code/User/settings.json
-
 # Copy over single files (TODO: loop)
-ln -sf ${source}/.bash_aliases ${HOME}/.bash_aliases
-ln -sf ${source}/.bashrc ${HOME}/.bashrc
-cp ${source}/.gitconfig ${HOME}/.gitconfig
-ln -sf ${source}/.profile ${HOME}/.profile
-ln -sf ${source}/.inputrc ${HOME}/.inputrc
-ln -sf ${source}/.vimrc ${HOME}/.vimrc
+declare -a link_targets=(
+  ".bash_aliases"
+  ".bashrc"
+  ".bin"
+  ".config/Code/User/settings.json"
+  ".config/neofetch"  
+  ".profile"
+  ".inputrc"
+  ".vim"
+  ".vimrc"
+)
+
+for target in "${link_targets[@]}"
+do
+  unlink ${HOME}/${target}
+  ln -sf ${source}/${target} ${HOME}/${target}
+  chown -R ${user}: ${HOME}/${target}
+done
+
+declare -a copy_targets=(
+  ".gitconfig"
+)
+
+for target in "${copy_targets[@]}"
+do
+  cp ${source}/${target} ${HOME}/${target}
+  chown -R ${user}: ${HOME}/${target}
+done
 
 echo "Finished copying dot files to home directory."
 echo "Sourcing .bashrc to pick up latest changes."

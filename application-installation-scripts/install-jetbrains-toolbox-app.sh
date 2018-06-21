@@ -9,7 +9,7 @@
 # Constants
 version="jetbrains-toolbox-1.8.3868"
 gz_file_name="${version}.tar.gz"
-install_target="/home/ianrobrien/.local/share/"
+install_target="${HOME}/.local/share/"
 
 echo "********************************************************************************"
 echo "Installing JetBrains Toolbox App..."
