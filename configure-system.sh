@@ -11,6 +11,9 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
+# Get the current user
+[ $SUDO_USER ] && user=$SUDO_USER || user=`whoami`
+
 # Constants
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
@@ -38,7 +41,7 @@ if ! [[ -x `(command -v grub-customizer)` ]]; then
     ${DIR}/application-installation-scripts/install-grub-customizer.sh
 fi
 if ! [[ -x `(command -v idea)` ]]; then
-    ${DIR}/application-installation-scripts/install-jetbrains-toolbox-app.sh
+    su -c ${DIR}/application-installation-scripts/install-jetbrains-toolbox-app.sh -s /bin/sh ${user}
 fi
 
 To Do (Probably in system settings)

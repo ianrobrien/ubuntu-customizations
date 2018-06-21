@@ -6,6 +6,12 @@
 #
 # Usage: ./install-intellij-idea.sh
 
+# Check user
+if [[ `whoami` == "root" ]]; then
+   echo "This script cannot be executed with sudo permissions" 1>&2
+   exit 1
+fi
+
 # Constants
 version="jetbrains-toolbox-1.8.3868"
 gz_file_name="${version}.tar.gz"
