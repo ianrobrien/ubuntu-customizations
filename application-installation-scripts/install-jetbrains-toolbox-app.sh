@@ -6,12 +6,6 @@
 #
 # Usage: ./install-intellij-idea.sh
 
-# User Check
-if [[ $EUID -ne 0 ]]; then
-   echo "This script must be run as root" 1>&2
-   exit 1
-fi
-
 # Constants
 version="jetbrains-toolbox-1.8.3868"
 gz_file_name="${version}.tar.gz"
