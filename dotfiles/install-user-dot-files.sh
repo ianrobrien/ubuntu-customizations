@@ -9,8 +9,16 @@
 #
 # Usage: ./install-capitaine-cursors.sh
 ###############################################################################
+# User Check
+if [[ $EUID = 0 ]]
+  then echo "Please run this script without sudo permissions"
+  exit
+fi
+
+# Constants
 source="${PWD}/dotfiles"
 
+echo "********************************************************************************"
 echo "Copying dot files to home directory..."
 
 # Copy over directories (delete them first otherwise recursive link is created) (TODO: loop)
@@ -24,7 +32,6 @@ unlink ${HOME}/.config/neofetch
 ln -sf ${source}/.config/neofetch ${HOME}/.config/neofetch
 
 unlink ${HOME}/.config/Code/User/settings.json
-echo "ln -sf ${source}/.config/Code/User/settings.json ${HOME}/.config/Code/User/settings.json"
 ln -sf ${source}/.config/Code/User/settings.json ${HOME}/.config/Code/User/settings.json
 
 # Copy over single files (TODO: loop)
@@ -39,3 +46,4 @@ echo "Finished copying dot files to home directory."
 echo "Sourcing .bashrc to pick up latest changes."
 source ~/.bashrc
 echo "Finished installing dot files."
+echo "********************************************************************************"

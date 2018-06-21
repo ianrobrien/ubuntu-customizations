@@ -8,12 +8,11 @@
 # How to find setting: gsettings list-recursively | grep ${wallpaper_name}
 # Usage: ./configure-current-user.sh
 ###############################################################################
+# User Check
 if [[ $EUID = 0 ]]
   then echo "Please run this script without sudo permissions"
   exit
 fi
-
-echo "Customizing gnome..."
 
 # Constants
 extras_dir=${PWD}/extras/
@@ -21,6 +20,9 @@ wallpaper_source_dir=${extras_dir}wallpaper/
 wallpaper_target_dir=${HOME}/Pictures/Wallpapers/
 gnome_customization_scripts=${PWD}/user-customization-scripts/
 wallpaper_name="trolltunga-1920x1200.jpg"
+
+echo "********************************************************************************"
+echo "Customizing gnome..."
 
 # Appearance
 ${gnome_customization_scripts}install-McOS-MJV-Dark-mode.sh
@@ -49,3 +51,4 @@ if ! [[ -x `(command -v idea)` ]]; then
 fi
 
 echo "Customized gnome."
+echo "********************************************************************************"

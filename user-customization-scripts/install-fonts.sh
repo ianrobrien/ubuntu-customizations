@@ -9,17 +9,19 @@
 #
 # Usage: ./install-fonts.sh
 ###############################################################################
+# User Check
 if [[ $EUID = 0 ]]
   then echo "Please run this script without sudo permissions"
   exit
 fi
 
-echo "********************************************************************************"
-echo "Installing fonts..."
-
+# Constants
 font_name="RobotoCondensed-Regular.ttf"
 font_source_dir=${PWD}/extras/fonts/${font_name}
 font_target_dir=${HOME}/.local/share/fonts/
+
+echo "********************************************************************************"
+echo "Installing fonts..."
 
 if [ ! -f ${font_target_dir}${font_name} ]; then
     mkdir -p ${font_target_dir}

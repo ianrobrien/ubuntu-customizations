@@ -9,6 +9,7 @@
 #
 # Usage: ./install-McOS-MJV-Dark-mode.sh
 ###############################################################################
+# User Check
 if [[ $EUID = 0 ]]
   then echo "Please run this script without sudo permissions"
   exit
