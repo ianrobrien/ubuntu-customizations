@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-
-###############################################################################
+#
 # Ian R. O'Brien
 # https://gitlab.com/ianrobrien/ubuntu-customizations
 #
@@ -8,7 +7,7 @@
 # current user's home directory, and enables it in gsettings
 #
 # Usage: ./install-capitaine-cursors.sh
-###############################################################################
+
 # User Check
 if [[ $EUID = 0 ]]
   then echo "Please run this script without sudo permissions"
@@ -16,9 +15,11 @@ if [[ $EUID = 0 ]]
 fi
 
 # Constants
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 theme_name="capitaine-cursors"
 target="${HOME}/.icons/capitaine-cursors"
-temp="${PWD}/.${theme_name}"
+temp="${DIR}/.${theme_name}"
 source="${temp}/dist"
 repo_location="https://github.com/keeferrourke/capitaine-cursors.git"
 

@@ -1,8 +1,8 @@
 # ubuntu-customizations
 
-This repository contains information and settings related to customizing ubuntu (gnome/debian)
+This repository contains information, settings, and scripts for customizing Ubuntu 18.04 (with Gnome).
 
-## Application Installs
+## Non apt Application Installs
 
 * Editors
   * [Jetbrains Toolbox App](https://www.jetbrains.com/toolbox/app/)
@@ -12,23 +12,35 @@ This repository contains information and settings related to customizing ubuntu 
 
 ## Application Customizations
 
-* dot files
+* [dot files](dotfiles)
 * rc files
 * bash prompt
 * [How to make touch-screen scrolling work in Firefox Quantum?](https://askubuntu.com/questions/978226/how-to-make-touch-screen-scrolling-work-in-firefox-quantum)
+* VS Code
+  * [markdownlint](https://github.com/DavidAnson/vscode-markdownlint)
+  * [One Dark Pro](https://github.com/Binaryify/OneDark-Pro)
+  * [vscode-icons](https://github.com/vscode-icons/vscode-icons)
 
 ## Gnome Customizations
 
 * Appearance
   * Applications: [McOS-MJV-Dark-mode](https://github.com/paullinuxthemer/Mc-OS-themes)
-    * Firefox fix: widget.content.gtk-theme-override | McOS-MJV
+    * Firefox fix: about:config [widget.content.gtk-theme-override|McOS-MJV]
+    * Dash to dock settings [#1E222C, 82%]
   * Cursor: [Capitaine-cursors](https://github.com/keeferrourke/capitaine-cursors)
   * Icons: Papirus
   * Shell: [McOS-Dark-Shell](https://github.com/paullinuxthemer/Mc-OS-themes/tree/master/McOS-Shell-themes)
     * Requires [user-themes](https://extensions.gnome.org/extension/19/user-themes/) extension
 * Behavior
   * Minimize on dock icon click
-* Terminal - OneDark profile
+* Terminal - [OneDark](application-settings/gnome-terminal.txt) profile
+
+## Gnome Extensions
+
+* [Alt-Tab Switcher Popup Delay Removal](https://extensions.gnome.org/extension/1317/alt-tab-switcher-popup-delay-removal/)
+* [Dash to Dock](https://extensions.gnome.org/extension/307/dash-to-dock/)
+* [OpenWeather](https://extensions.gnome.org/extension/750/openweather/)
+* [User Themes](https://extensions.gnome.org/extension/19/user-themes/)
 
 ### Colors
 
@@ -54,7 +66,7 @@ This repository contains information and settings related to customizing ubuntu 
 
 ### Frequently used commands
 
-* Create ppk public key from rsa private key: puttygen id_rsa -o id_rsa.pub.ppk
-* Find a dconf setting by key/value: gsettings list-recursively | grep "VALUE"
+* Create ppk public key from rsa private key: `puttygen id_rsa -o id_rsa.pub.ppk`
+* Find a dconf setting by key/value: `gsettings list-recursively | grep "VALUE"`
 
 Licensed under the [MIT](LICENSE) License.

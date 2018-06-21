@@ -4,14 +4,8 @@ schema-version=uint32 3
 theme-variant='system'
 
 [legacy/profiles:]
-list=['b1dcc9dd-5262-4d8d-a863-c897e6d979b9', 'e5517783-6749-48a5-be63-caafd0ef4358']
+list=['e5517783-6749-48a5-be63-caafd0ef4358']
 default='e5517783-6749-48a5-be63-caafd0ef4358'
-
-[legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
-default-size-columns=110
-default-size-rows=30
-palette=['rgb(0,0,0)', 'rgb(170,0,0)', 'rgb(0,170,0)', 'rgb(170,85,0)', 'rgb(0,0,170)', 'rgb(170,0,170)', 'rgb(0,170,170)', 'rgb(170,170,170)', 'rgb(85,85,85)', 'rgb(255,85,85)', 'rgb(85,255,85)', 'rgb(255,255,85)', 'rgb(85,85,255)', 'rgb(255,85,255)', 'rgb(85,255,255)', 'rgb(255,255,255)']
-visible-name='Default'
 
 [legacy/profiles:/:e5517783-6749-48a5-be63-caafd0ef4358]
 foreground-color='rgb(171,178,191)'

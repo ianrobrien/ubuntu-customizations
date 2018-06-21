@@ -11,7 +11,7 @@ set showcmd       " display incomplete commands
 set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
-set shortmess+=I  " Clear out the splash screeni
+set shortmess+=I  " Clear out the splash screen
 
 filetype plugin indent on
 
@@ -74,4 +74,3 @@ endif
 
 syntax on
 colorscheme onedark
-

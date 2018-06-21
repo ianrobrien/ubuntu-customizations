@@ -1,13 +1,12 @@
 #!/usr/bin/env bash
-
-###############################################################################
+#
 # Ian R. O'Brien
 # https://gitlab.com/ianrobrien/ubuntu-customizations
 #
 # Sections are organized by Gnome Tweak Tool settings and Gnome Settings
 # How to find setting: gsettings list-recursively | grep ${wallpaper_name}
 # Usage: ./configure-current-user.sh
-###############################################################################
+
 # User Check
 if [[ $EUID = 0 ]]
   then echo "Please run this script without sudo permissions"
@@ -15,10 +14,12 @@ if [[ $EUID = 0 ]]
 fi
 
 # Constants
-extras_dir=${PWD}/extras/
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+extras_dir=${DIR}/extras/
 wallpaper_source_dir=${extras_dir}wallpaper/
 wallpaper_target_dir=${HOME}/Pictures/Wallpapers/
-customization_scripts_dir=${PWD}/user-customization-scripts/
+customization_scripts_dir=${DIR}/user-customization-scripts/
 wallpaper_name="trolltunga-1920x1200.jpg"
 
 echo "********************************************************************************"
@@ -39,10 +40,10 @@ gsettings set "org.gnome.desktop.screensaver" "picture-uri" "file://${wallpaper_
 ${customization_scripts_dir}load-gnome-terminal-settings.sh
 gsettings set "org.gnome.shell.extensions.dash-to-dock" "click-action" "minimize"
 
-${PWD}/dotfiles/install-user-dot-files.sh
+${DIR}/dotfiles/install-user-dot-files.sh
 
 if ! [[ -x `(command -v idea)` ]]; then
-    ${PWD}/application-installation-scripts/install-jetbrains-toolbox-app.sh
+    ${DIR}/application-installation-scripts/install-jetbrains-toolbox-app.sh
 fi
 
 echo "Customized gnome."

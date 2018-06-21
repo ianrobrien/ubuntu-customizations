@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-
-###############################################################################
+#
 # Ian R. O'Brien
 # https://gitlab.com/ianrobrien/ubuntu-customization
 #
@@ -8,7 +7,7 @@
 # current user's home directory, and enables it in gsettings
 #
 # Usage: ./install-capitaine-cursors.sh
-###############################################################################
+
 # User Check
 if [[ $EUID = 0 ]]
   then echo "Please run this script without sudo permissions"
@@ -16,7 +15,8 @@ if [[ $EUID = 0 ]]
 fi
 
 # Constants
-source="${PWD}/dotfiles"
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source="${DIR}"
 
 echo "********************************************************************************"
 echo "Copying dot files to home directory..."

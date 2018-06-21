@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-
-###############################################################################
+#
 # Ian R. O'Brien
 # https://gitlab.com/ianrobrien/ubuntu-customizations
 #
@@ -8,7 +7,7 @@
 # current user's home directory, and enables it in gsettings
 #
 # Usage: ./install-McOS-MJV-Dark-mode.sh
-###############################################################################
+
 # User Check
 if [[ $EUID = 0 ]]
   then echo "Please run this script without sudo permissions"
@@ -16,25 +15,26 @@ if [[ $EUID = 0 ]]
 fi
 
 # Constants
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 repo_location="https://github.com/paullinuxthemer/Mc-OS-themes.git"
 repo_name="Mc-OS-themes"
-repo_dir="${PWD}/.${repo_name}/"
-
+repo_dir_temp="${DIR}/.${repo_name}/"
+## Light Theme
 theme_name_application="McOS-MJV"
 dark_mode="-Dark-mode"
-source_dir_application_theme=${repo_dir}${theme_name_application}
+source_dir_application_theme=${repo_dir_temp}${theme_name_application}
 target_dir_application_theme="${HOME}/.themes/${theme_name_application}"
-
+## Dark Theme
 theme_name_shell="McOS-Dark-Shell"
-source_dir_shell_theme=${repo_dir}McOS-Shell-themes/${theme_name_shell}
+source_dir_shell_theme=${repo_dir_temp}McOS-Shell-themes/${theme_name_shell}
 target_dir_shell_theme="${HOME}/.themes/${theme_name_shell}"
 
 echo "********************************************************************************"
 echo "Installing ${theme_name_application}..."
 
 # clone repo
-rm -rf ${repo_dir}
-git clone ${repo_location} ${repo_dir}
+rm -rf ${repo_dir_temp}
+git clone ${repo_location} ${repo_dir_temp}
 
 # Install Application Theme (Light)
 rm -rf ${target_dir_application_theme}
@@ -52,7 +52,7 @@ mkdir -p ${target_dir_shell_theme}
 cp -r ${source_dir_shell_theme}/* ${target_dir_shell_theme}
 
 echo "Deleting ${repo_name} repository"
-rm -rf ${repo_dir}
+rm -rf ${repo_dir_temp}
 
 echo "Setting ${theme_name} as current theme"
 gsettings set org.gnome.desktop.wm.preferences theme ${theme_name_application}${dark_mode}
@@ -60,5 +60,6 @@ gsettings set org.gnome.desktop.interface gtk-theme ${theme_name_application}${d
 #gsettings set org.gnome.shell.extensions.user-theme name McOS-Dark-Shell
 
 echo "Installed ${theme_name_application}."
+echo "*** REMEMBER TO SET THE SHELL THEME TO McOS-Dark-Shell ***"
 echo "*** REMEMBER TO FIX FIREFOX: about:config [widget.content.gtk-theme-override | McOS-MJV] ***"
 echo "********************************************************************************"

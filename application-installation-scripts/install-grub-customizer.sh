@@ -4,7 +4,7 @@
 # https://gitlab.com/ianrobrien/ubuntu-customizations
 #
 #
-# Usage: ./install-visual-studio-code.sh
+# Usage: ./install-grub-customizer
 
 # User Check
 if [[ $EUID -ne 0 ]]; then
@@ -13,11 +13,11 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 echo "********************************************************************************"
-echo "Installing VS Code..."
+echo "Installing Grub Customizer..."
 
-curl -sSL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | apt-key add -
-echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list
-apt update && apt install -y code
+sudo add-apt-repository ppa:danielrichter2007/grub-customizer
+sudo apt-get update
+sudo apt-get install grub-customizer
 
-echo "Installed VS Code."
+echo "Installed Grub Customizer."
 echo "********************************************************************************"

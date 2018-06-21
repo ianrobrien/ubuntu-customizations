@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-
-###############################################################################
+#
 # Ian R. O'Brien
 # https://gitlab.com/ianrobrien/ubuntu-customizations
 #
@@ -8,7 +7,7 @@
 # current user's home directory, and enables it in gsettings
 #
 # Usage: ./install-fonts.sh
-###############################################################################
+
 # User Check
 if [[ $EUID = 0 ]]
   then echo "Please run this script without sudo permissions"
@@ -16,8 +15,9 @@ if [[ $EUID = 0 ]]
 fi
 
 # Constants
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 font_name="RobotoCondensed-Regular.ttf"
-font_source_dir=${PWD}/extras/fonts/${font_name}
+font_source_dir=${DIR}/../extras/fonts/${font_name}
 font_target_dir=${HOME}/.local/share/fonts/
 
 echo "********************************************************************************"
