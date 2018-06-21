@@ -29,9 +29,9 @@ if [ ! -f ${font_target_dir}${font_name} ]; then
     fc-cache -f -v
 fi
 
-gsettings set "org.gnome.desktop.wm.preferences" "titlebar-font" "Roboto Condensed, 13"
-gsettings set "org.gnome.desktop.interface" "font-name" "Roboto Condensed, 12"
-gsettings set "org.gnome.desktop.interface" "document-font-name" "Sans 11"
+gsettings set org.gnome.desktop.wm.preferences titlebar-font "Roboto Condensed, 13"
+gsettings set org.gnome.desktop.interface font-name "Roboto Condensed, 12"
+gsettings set org.gnome.desktop.interface document-font-name "Sans 11"
 
 echo "Installed fonts."
 echo "********************************************************************************"

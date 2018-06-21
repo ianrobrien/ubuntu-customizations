@@ -49,7 +49,7 @@ echo "Deleting ${theme_name} repository"
 rm -rf ${temp}
 
 echo "Setting ${theme_name} as current theme"
-gsettings set "org.gnome.desktop.interface" "cursor-theme" ${theme_name}
+gsettings set org.gnome.desktop.interface cursor-theme ${theme_name}
 
 echo "Installed ${theme_name}."
 echo "********************************************************************************"
