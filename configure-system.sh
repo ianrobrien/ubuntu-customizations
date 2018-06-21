@@ -3,7 +3,6 @@
 # Ian R. O'Brien
 # https://gitlab.com/ianrobrien/ubuntu-customizations
 #
-#
 # Usage: ./install-system-applications.sh
 
 # User Check
