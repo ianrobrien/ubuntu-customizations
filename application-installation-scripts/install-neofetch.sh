@@ -5,18 +5,14 @@
 # https://gitlab.com/ianrobrien/ubuntu-customizations
 #
 #
-# Usage: ./configure-ubuntu.sh
+# Usage: ./install-neofetch.sh
 ###############################################################################
 if [[ $EUID -ne 0 ]]; then
    echo "This script must be run as root" 1>&2
    exit 1
 fi
 
-echo "Installing IntelliJ IDEA..."
+repo_location="https://github.com/dylanaraps/neofetch.git"
+repo_name="neofetch"
 
-wget https://download.jetbrains.com/idea/ideaIC-2018.1.4.tar.gz
-tar xvf ideaIC-2018.1.4.tar.gz
-mv idea-IC-181.5087.20/ /home/ianrobrien/.local/share/
-rm ideaIC-2018.1.4.tar.gz
-
-echo "Installed IntelliJ IDEA."
+git clone ${repo_location} ${HOME}/.local/share

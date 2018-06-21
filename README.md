@@ -20,7 +20,7 @@ This repository contains information and settings related to my general developm
 ## Gnome Customizations
 
 * Appearance
-  * Applications: [McOS-MJV-Dark-mode](https://github.com/paullinuxthemer/Mc-OS-themes/tree/master/McOS-MJV-Dark-mode)
+  * Applications: [McOS-MJV-Dark-mode](https://github.com/paullinuxthemer/Mc-OS-themes)
   * Cursor: [Capitaine-cursors](https://github.com/keeferrourke/capitaine-cursors)
   * Icons: Papirus
   * Shell: [McOS-Dark-Shell](https://github.com/paullinuxthemer/Mc-OS-themes/tree/master/McOS-Shell-themes)
@@ -54,5 +54,6 @@ This repository contains information and settings related to my general developm
 ### Frequently used commands
 
 * Create ppk public key from rsa private key: puttygen id_rsa -o id_rsa.pub.ppk
+* Find a dconf setting by key/value: gsettings list-recursively | grep "VALUE"
 
 Licensed under the [MIT](LICENSE) License.

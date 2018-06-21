@@ -2,22 +2,21 @@
 
 ###############################################################################
 # Ian R. O'Brien
-# https://gitlab.com/ianrobrien/development-configurations.git
+# https://gitlab.com/ianrobrien/ubuntu-customizations
 #
 # This script installs the capitaine-cursors mouse cursors theme into the
 # current user's home directory, and enables it in gsettings
 #
 # Usage: ./install-capitaine-cursors.sh
 ###############################################################################
-
 # Constants
 theme_name="capitaine-cursors"
 target="${HOME}/.icons/capitaine-cursors"
 temp="${PWD}/.${theme_name}"
 source="${temp}/dist"
 repo_location="https://github.com/keeferrourke/capitaine-cursors.git"
-gsettings_schema="org.gnome.desktop.interface"
-gsettings_key="cursor-theme"
+
+echo "Installing ${theme_name}..."
 
 if [[ -d "${target}" ]]; then
   echo "Deleting previous installation at ${target}"
@@ -42,6 +41,6 @@ echo "Deleting ${theme_name} repository"
 rm -rf ${temp}
 
 echo "Setting ${theme_name} as current theme"
-gsettings set ${gsettings_schema} ${gsettings_key} ${theme_name}
+gsettings set "org.gnome.desktop.interface" "cursor-theme" ${theme_name}
 
-echo "Finished installing ${theme_name}"
+echo "Installed ${theme_name}."
