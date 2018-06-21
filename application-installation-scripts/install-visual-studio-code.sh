@@ -5,7 +5,7 @@
 # https://gitlab.com/ianrobrien/ubuntu-customizations
 #
 #
-# Usage: ./configure-ubuntu.sh
+# Usage: ./install-visual-studio-code.sh
 ###############################################################################
 if [[ $EUID -ne 0 ]]; then
    echo "This script must be run as root" 1>&2

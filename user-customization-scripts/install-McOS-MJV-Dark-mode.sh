@@ -7,7 +7,7 @@
 # This script installs the capitaine-cursors mouse cursors theme into the
 # current user's home directory, and enables it in gsettings
 #
-# Usage: ./install-capitaine-cursors.sh
+# Usage: ./install-McOS-MJV-Dark-mode.sh
 ###############################################################################
 # Constants
 repo_location="https://github.com/paullinuxthemer/Mc-OS-themes.git"

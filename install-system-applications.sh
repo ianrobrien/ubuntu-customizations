@@ -5,7 +5,7 @@
 # https://gitlab.com/ianrobrien/ubuntu-customizations
 #
 #
-# Usage: ./install.sh
+# Usage: ./install-system-applications.sh
 ###############################################################################
 if [[ $EUID -ne 0 ]]; then
    echo "This script must be run as root" 1>&2
@@ -32,5 +32,5 @@ if ! [[ -x `(command -v bcompare)` ]]; then
     ${PWD}/application-installation-scripts/install-beyond-compare.sh
 fi
 if ! [[ -x `(command -v idea)` ]]; then
-    ${PWD}/application-installation-scripts/install-intellij-idea.sh
+    ${PWD}/application-installation-scripts/install-jetbrains-toolbox-app.sh
 fi

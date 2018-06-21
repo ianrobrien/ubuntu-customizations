@@ -23,6 +23,10 @@ ln -sf ${source}/.vim ${HOME}/.vim
 unlink ${HOME}/.config/neofetch
 ln -sf ${source}/.config/neofetch ${HOME}/.config/neofetch
 
+unlink ${HOME}/.config/Code/User/settings.json
+echo "ln -sf ${source}/.config/Code/User/settings.json ${HOME}/.config/Code/User/settings.json"
+ln -sf ${source}/.config/Code/User/settings.json ${HOME}/.config/Code/User/settings.json
+
 # Copy over single files (TODO: loop)
 ln -sf ${source}/.bash_aliases ${HOME}/.bash_aliases
 ln -sf ${source}/.bashrc ${HOME}/.bashrc

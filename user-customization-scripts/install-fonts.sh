@@ -11,14 +11,15 @@
 ###############################################################################
 echo "Installing fonts..."
 
-font_source_dir=${PWD}/extras/fonts/RobotoCondensed-Regular.ttf
-font_target_dir=${HOME}/.local/share/fonts
+font_name="RobotoCondensed-Regular.ttf"
+font_source_dir=${PWD}/extras/fonts/${font_name}
+font_target_dir=${HOME}/.local/share/fonts/
 
-# Install Roboto from repository
-echo ${font_target_dir}
-mkdir -p ${font_target_dir}
-cp ${font_source_dir} ${font_target_dir}
-fc-cache -f -v
+if [ ! -f ${font_target_dir}${font_name} ]; then
+    mkdir -p ${font_target_dir}
+    cp ${font_source_dir}${font_name} ${font_target_dir}
+    fc-cache -f -v
+fi
 
 gsettings set "org.gnome.desktop.wm.preferences" "titlebar-font" "Roboto Condensed, 13"
 gsettings set "org.gnome.desktop.interface" "font-name" "Roboto Condensed, 12"
