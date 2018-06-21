@@ -1,6 +1,6 @@
 # ubuntu-customizations
 
-This repository contains information and settings related to my general development environments
+This repository contains information and settings related to customizing ubuntu (gnome/debian)
 
 ## Application Installs
 
@@ -21,6 +21,7 @@ This repository contains information and settings related to my general developm
 
 * Appearance
   * Applications: [McOS-MJV-Dark-mode](https://github.com/paullinuxthemer/Mc-OS-themes)
+    * Firefox fix: widget.content.gtk-theme-override | McOS-MJV
   * Cursor: [Capitaine-cursors](https://github.com/keeferrourke/capitaine-cursors)
   * Icons: Papirus
   * Shell: [McOS-Dark-Shell](https://github.com/paullinuxthemer/Mc-OS-themes/tree/master/McOS-Shell-themes)
