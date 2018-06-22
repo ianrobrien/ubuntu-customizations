@@ -41,6 +41,8 @@ This repository contains information, settings, and scripts for customizing Ubun
 * [Dash to Dock](https://extensions.gnome.org/extension/307/dash-to-dock/)
 * [OpenWeather](https://extensions.gnome.org/extension/750/openweather/)
 * [User Themes](https://extensions.gnome.org/extension/19/user-themes/)
+* [Hide Activities Button](https://extensions.gnome.org/extension/744/hide-activities-button/)
+* [Workspace Grid](https://extensions.gnome.org/extension/484/workspace-grid/)
 
 ### Colors
 

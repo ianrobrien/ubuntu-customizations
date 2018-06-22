@@ -52,9 +52,9 @@ echo "GRUB_THEME=\"/boot/grub/themes/preikestolen/theme.txt\"" >> /etc/default/g
 sudo update-grub
 
 # Login Screen
-sudo cp /usr/share/gnome-shell/theme/ubuntu.css /usr/share/gnome-shell/theme/ubuntu.css.bak
-sudo cp /usr/share/gnome-shell/theme/ubuntu.css ${DIR}/extras/gdm-themes/trolltunga/ubuntu.css.bak
-sudo cp ${DIR}/extras/gdm-themes/trolltunga/ubuntu.css /usr/share/gnome-shell/theme/ubuntu.css
-sudo cp ${DIR}/extras/gdm-themes/trolltunga/trolltunga-1920x1200-blurred.jpg /usr/share/backgrounds/
+# sudo cp /usr/share/gnome-shell/theme/ubuntu.css /usr/share/gnome-shell/theme/ubuntu.css.bak
+# sudo cp /usr/share/gnome-shell/theme/ubuntu.css ${DIR}/extras/gdm-themes/trolltunga/ubuntu.css.bak
+# sudo cp ${DIR}/extras/gdm-themes/trolltunga/ubuntu.css /usr/share/gnome-shell/theme/ubuntu.css
+# sudo cp ${DIR}/extras/gdm-themes/trolltunga/trolltunga-1920x1200-blurred.jpg /usr/share/backgrounds/
 
 ## Splash Screen
