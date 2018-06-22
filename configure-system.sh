@@ -31,7 +31,7 @@ sudo apt update && apt install -y \
 gsettings set "org.gnome.desktop.interface" "icon-theme" "Papirus"
 gsettings set "org.gnome.desktop.interface" "monospace-font-name" "Fira Code 12"
 
-# Manual Applications
+# Manual Applications (TODO: consider replacing with flatpak or snaps)
 if ! [[ -x `(command -v code)` ]]; then
     ${DIR}/application-installation-scripts/install-visual-studio-code.sh
 fi
@@ -46,6 +46,16 @@ if ! [[ -x `(command -v idea)` ]]; then
 fi
 
 # To Do (Probably in system settings)
-## Splash Screen
-## Login Screen
 ## Grub Theme
+sudo cp -R ${DIR}/extras/grub-themes/preikestolen /boot/grub/themes
+sudo grep "GRUB_THEME=" /etc/default/grub 2>&1 >/dev/null && sed -i '/GRUB_THEME=/d' /etc/default/grub
+echo "GRUB_THEME=\"/boot/grub/themes/preikestolen/theme.txt\"" >> /etc/default/grub
+sudo update-grub
+
+## Login Screen
+sudo cp /usr/share/gnome-shell/theme/ubuntu.css /usr/share/gnome-shell/theme/ubuntu.css.bak
+sudo cp /usr/share/gnome-shell/theme/ubuntu.css ${DIR}/extras/gdm-themes/trolltunga/ubuntu.css.bak
+sudo cp ${DIR}/extras/gdm-themes/trolltunga/ubuntu.css /usr/share/gnome-shell/theme/ubuntu.css
+
+sudo cp ${DIR}/extras/gdm-themes/trolltunga/trolltunga-1920x1200-blurred.jpg /usr/share/backgrounds/
+## Splash Screen

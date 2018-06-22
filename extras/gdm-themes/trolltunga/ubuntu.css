@@ -1795,7 +1795,7 @@ StScrollBar {
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4); }
 
 #lockDialogGroup {
-  background: #2c001e url(file:///usr/share/backgrounds/gdm_lock.jpg);/*lockscreen wallpaper*/
+  background: #2c001e url(file:///usr/share/backgrounds/trolltunga-1920x1200-blurred.jpg);/*lockscreen wallpaper*/
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;}
