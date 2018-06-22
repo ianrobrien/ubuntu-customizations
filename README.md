@@ -68,5 +68,6 @@ This repository contains information, settings, and scripts for customizing Ubun
 
 * Create ppk public key from rsa private key: `puttygen id_rsa -o id_rsa.pub.ppk`
 * Find a dconf setting by key/value: `gsettings list-recursively | grep "VALUE"`
+* Make wallpaper blurry: `convert -blur 0x30 in out`
 
 Licensed under the [MIT](LICENSE) License.
