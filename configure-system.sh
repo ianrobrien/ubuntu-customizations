@@ -25,7 +25,7 @@ sudo apt update && apt install -y \
     git docker.io openjdk-11-jre openjdk-11-jdk openjdk-8-jdk openjdk-8-jre \
     gnome-tweak-tool gnome-system-monitor gnome-calculator pinta \
     fortunes cowsay lolcat papirus-icon-theme fonts-firacode
-    #thunderbird libreoffice filezilla
+    #thunderbird libreoffice filezilla flatpak? (spotify, steam_
 
 # Application Settings
 gsettings set "org.gnome.desktop.interface" "icon-theme" "Papirus"
@@ -52,9 +52,9 @@ echo "GRUB_THEME=\"/boot/grub/themes/preikestolen/theme.txt\"" >> /etc/default/g
 sudo update-grub
 
 # Login Screen
-# sudo cp /usr/share/gnome-shell/theme/ubuntu.css /usr/share/gnome-shell/theme/ubuntu.css.bak
-# sudo cp /usr/share/gnome-shell/theme/ubuntu.css ${DIR}/extras/gdm-themes/trolltunga/ubuntu.css.bak
-# sudo cp ${DIR}/extras/gdm-themes/trolltunga/ubuntu.css /usr/share/gnome-shell/theme/ubuntu.css
-# sudo cp ${DIR}/extras/gdm-themes/trolltunga/trolltunga-1920x1200-blurred.jpg /usr/share/backgrounds/
+#sudo cp /usr/share/gnome-shell/theme/ubuntu.css /usr/share/gnome-shell/theme/ubuntu.css.bak
+sudo cp /usr/share/gnome-shell/theme/ubuntu.css ${DIR}/extras/gdm-themes/trolltunga/ubuntu.css.bak
+sudo cp ${DIR}/extras/gdm-themes/trolltunga/ubuntu.css /usr/share/gnome-shell/theme/ubuntu.css
+sudo cp ${DIR}/extras/gdm-themes/trolltunga/trolltunga-1920x1200-blurred.jpg /usr/share/backgrounds/
 
 ## Splash Screen
