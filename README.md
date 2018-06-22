@@ -39,6 +39,7 @@ This repository contains information, settings, and scripts for customizing Ubun
 
 * [Alt-Tab Switcher Popup Delay Removal](https://extensions.gnome.org/extension/1317/alt-tab-switcher-popup-delay-removal/)
 * [Dash to Dock](https://extensions.gnome.org/extension/307/dash-to-dock/)
+  * See also [dock on lock screen](https://github.com/micheleg/dash-to-dock/issues/649)
 * [OpenWeather](https://extensions.gnome.org/extension/750/openweather/)
 * [User Themes](https://extensions.gnome.org/extension/19/user-themes/)
 * [Hide Activities Button](https://extensions.gnome.org/extension/744/hide-activities-button/)
