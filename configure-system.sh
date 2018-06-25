@@ -25,7 +25,7 @@ sudo apt update && apt install -y \
     git docker.io openjdk-11-jre openjdk-11-jdk openjdk-8-jdk openjdk-8-jre \
     gnome-tweak-tool gnome-system-monitor gnome-calculator pinta \
     fortunes cowsay lolcat papirus-icon-theme fonts-firacode
-    #thunderbird libreoffice filezilla flatpak? (spotify, steam_
+    #thunderbird libreoffice flatpak? (spotify, steam)
 
 # Application Settings
 gsettings set "org.gnome.desktop.interface" "icon-theme" "Papirus"
