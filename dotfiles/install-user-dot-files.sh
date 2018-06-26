@@ -13,13 +13,13 @@
 
 # Constants
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-source="${DIR}"
+SOURCE=${DIR}
 
 echo "********************************************************************************"
 echo "Copying dot files to home directory..."
 
 # Copy over single files (TODO: loop)
-declare -a link_targets=(
+declare -a LINK_TARGETS=(
   ".bash_aliases"
   ".bashrc"
   ".bin"
@@ -31,25 +31,26 @@ declare -a link_targets=(
   ".vimrc"
 )
 
-for target in "${link_targets[@]}"
+for target in "${LINK_TARGETS[@]}"
 do
   unlink ${HOME}/${target}
-  ln -sf ${source}/${target} ${HOME}/${target}
+  ln -sf ${SOURCE}/${target} ${HOME}/${target}
   chown -R ${user}: ${HOME}/${target}
 done
 
-declare -a copy_targets=(
+declare -a COPY_TARGETS=(
   ".gitconfig"
 )
 
-for target in "${copy_targets[@]}"
+for target in "${COPY_TARGETS[@]}"
 do
-  cp ${source}/${target} ${HOME}/${target}
+  cp ${SOURCE}/${target} ${HOME}/${target}
   chown -R ${user}: ${HOME}/${target}
 done
 
 echo "Finished copying dot files to home directory."
 echo "Sourcing .bashrc to pick up latest changes."
-source ~/.bashrc
+SOURCE ~/.bashrc
+
 echo "Finished installing dot files."
 echo "********************************************************************************"

@@ -3,29 +3,47 @@
 # Ian R. O'Brien
 # https://gitlab.com/ianrobrien/ubuntu-customizations
 #
-# Usage: ./configure-gnome.sh
+# Sections are organized by Gnome Tweak Tool settings and Gnome Settings
+# How to find setting: gsettings list-recursively | grep ${WALLPAPER_NAME}
+# Usage: ./configure-current-user.sh
 
 # Constants
+
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+CUSTOMIZATION_SCRIPTS_DIR=${DIR}/user-customization-scripts/
+EXTRAS_DIR=${DIR}/extras/
+WALLPAPER_SOURCE_DIR=${EXTRAS_DIR}wallpaper/
+WALLPAPER_TARGET_DIR=${HOME}/Pictures/Wallpapers/
+WALLPAPER_NAME="trolltunga-1920x1200.jpg"
 
-# Global variables
-mode=global
+echo "********************************************************************************"
+echo "Customizing gnome..."
 
-# Checks for root
-if [[ $UID -ne 0 ]]; then
-    echo "The script must be run as root to install in /usr/system/."
-    while true; do
-        read -r -p "Do you want to continue in local mode? [y/n] " answer
-        case $answer in
-            [Yy]* )
-                mode=local; break;;
-            [Nn]* ) exit;;
-            * ) echo "Please answer [Y/y]es or [N/n]o.";;
-        esac
-    done
-fi
+# Appearance
 
-echo "Running configure-gnome in ${mode} mode"
+## Theme
 
-# themes
+${CUSTOMIZATION_SCRIPTS_DIR}install-mcos-themes.sh
 
+## Cursors
+
+${CUSTOMIZATION_SCRIPTS_DIR}install-capitaine-cursors.sh
+
+## Fonts
+
+${CUSTOMIZATION_SCRIPTS_DIR}install-fonts.sh
+
+## Background and Lockscreen Image
+
+mkdir -p ${WALLPAPER_TARGET_DIR}
+cp ${WALLPAPER_SOURCE_DIR}${WALLPAPER_NAME} ${WALLPAPER_TARGET_DIR}
+gsettings set "org.gnome.desktop.background" "picture-uri" "file://${WALLPAPER_TARGET_DIR}${WALLPAPER_NAME}"
+gsettings set "org.gnome.desktop.screensaver" "picture-uri" "file://${WALLPAPER_TARGET_DIR}${WALLPAPER_NAME}"
+
+# Application Settings
+
+${CUSTOMIZATION_SCRIPTS_DIR}load-gnome-terminal-settings.sh
+gsettings set "org.gnome.shell.extensions.dash-to-dock" "click-action" "minimize"
+
+echo "Customized gnome."
+echo "********************************************************************************"
