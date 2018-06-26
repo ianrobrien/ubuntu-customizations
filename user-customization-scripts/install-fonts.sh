@@ -13,23 +13,23 @@
 
 # Constants
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-font_name="RobotoCondensed-Regular.ttf"
-font_source_dir=${DIR}/../extras/fonts/${font_name}
-font_target_dir=${HOME}/.local/share/fonts/
+FONT_NAME='RobotoCondensed-Regular.ttf'
+FONT_SOURCE_DIR=${DIR}/../extras/fonts/${FONT_NAME}
+FONT_TARGET_DIR=${HOME}/.local/share/fonts/
 
-echo "********************************************************************************"
-echo "Installing fonts..."
+echo '********************************************************************************'
+echo 'Installing fonts...'
 
-if [ ! -f ${font_target_dir}${font_name} ]; then
-    mkdir -p ${font_target_dir}
-    cp ${font_source_dir}${font_name} ${font_target_dir}
-    chown -R ${user}: ${font_target_dir}
+if [ ! -f ${FONT_TARGET_DIR}${FONT_NAME} ]; then
+    mkdir -p ${FONT_TARGET_DIR}
+    cp ${FONT_SOURCE_DIR}${FONT_NAME} ${FONT_TARGET_DIR}
+    chown -R ${user}: ${FONT_TARGET_DIR}
     fc-cache -f -v
 fi
 
-gsettings set org.gnome.desktop.wm.preferences titlebar-font "Roboto Condensed, 13"
-gsettings set org.gnome.desktop.interface font-name "Roboto Condensed, 12"
-gsettings set org.gnome.desktop.interface document-font-name "Sans 11"
+gsettings set org.gnome.desktop.wm.preferences titlebar-font 'Roboto Condensed, 13'
+gsettings set org.gnome.desktop.interface font-name 'Roboto Condensed, 12'
+gsettings set org.gnome.desktop.interface document-font-name 'Sans 11'
 
-echo "Installed fonts."
-echo "********************************************************************************"
+echo 'Installed fonts.'
+echo '********************************************************************************'

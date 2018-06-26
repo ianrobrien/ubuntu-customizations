@@ -12,10 +12,10 @@
 # Constants
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-echo "********************************************************************************"
-echo "Loading gnome-terminal application settings..."
+echo '********************************************************************************'
+echo 'Loading gnome-terminal application settings...'
 
 dconf load /org/gnome/terminal/ < ${DIR}/../application-settings/gnome-terminal.txt
 
-echo "Loaded gnome-terminal application settings."
-echo "********************************************************************************"
+echo 'Loaded gnome-terminal application settings.'
+echo '********************************************************************************'

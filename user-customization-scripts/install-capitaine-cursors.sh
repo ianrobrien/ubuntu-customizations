@@ -13,44 +13,45 @@
 
 # Constants
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-REPO_LOCATION="https://github.com/keeferrourke/capitaine-cursors.git"
-THEME_NAME="capitaine-cursors"
-GLOBAL_TARGET="/usr/system/icons/"
+THEME_NAME='capitaine-cursors'
+REPO_LOCATION="https://github.com/keeferrourke/${THEME_NAME}.git"
+GLOBAL_TARGET='/usr/system/icons/'
 LOCAL_TARGET="/home/${user}/.icons/"
 
 # Check for root
-mode="local"
+mode='local'
 if [[ $UID -eq 0 ]]; then
-    echo "Sudo permissions detected."
+    echo 'Sudo permissions detected.'
     while true; do
         read -r -p "Do you want to install the theme into ${GLOBAL_TARGET}? [y/n]: " answer
         case $answer in
             [Yy]* )
-                mode="global"; break;;
+                mode='global'; break;;
             [Nn]* )            
                 break;;
-            * ) echo "Please answer [Y/y]es or [N/n]o.";;
+            * ) echo 'Please answer [Y/y]es or [N/n]o.';;
         esac
     done
 fi
 
 # Variables
 ## Set variables based on mode
-icons_dir=""
-if [ "${mode}" == "global" ]; then
+icons_dir=''
+if [ "${mode}" == 'global' ]; then
     icons_dir=${GLOBAL_TARGET}
-elif [ "${mode}" == "local" ]; then
+elif [ "${mode}" == 'local' ]; then
     icons_dir=${LOCAL_TARGET}
 else
-    echo "An unexpected error has occurred. The script will now exit."
+    echo 'An unexpected error has occurred. The script will now exit.'
     exit 1
 fi
 target="${icons_dir}capitaine-cursors"
 temp="${DIR}/.${THEME_NAME}"
 source="${temp}/dist"
 
-echo "********************************************************************************"
+echo '********************************************************************************'
 echo "Installing ${THEME_NAME}..."
+echo "Installing into ${target}"
 
 if [[ -d "${temp}" ]]; then
   echo "Deleting previous temp directory ${temp}"
@@ -79,4 +80,4 @@ echo "Setting ${THEME_NAME} as current theme"
 gsettings set org.gnome.desktop.interface cursor-theme ${THEME_NAME}
 
 echo "Installed ${THEME_NAME}."
-echo "********************************************************************************"
+echo '********************************************************************************'
