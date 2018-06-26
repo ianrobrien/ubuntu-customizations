@@ -8,40 +8,58 @@
 #
 # Usage: ./install-McOS-MJV-Dark-mode.sh
 
+# User Variables
+SELECTED_THEME="McOS-MJV-dark"
+REPO_NAME="mc-os-themes"
+
 # Get the current user
 [ $SUDO_USER ] && user=$SUDO_USER || user=`whoami`
-themes_dir="/usr/share/themes/"
 
-# Checks for root
-if [[ $UID -ne 0 ]]; then
-    echo "The script must be run as root to install in /usr/system/themes/."
+# Constants
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+REPO_URL="https://github.com/ianrobrien/${REPO_NAME}.git"
+GLOBAL_TARGET="/usr/share/themes/"
+LOCAL_TARGET="/home/${user}/.themes"
+
+# Check for root
+mode="local"
+if [[ $UID -eq 0 ]]; then
+    echo "Sudo permissions detected."
     while true; do
-        read -r -p "Do you want to continue in local mode?" answer
+        read -r -p "Do you want to install the theme into /usr/system/themes/? [y/n]: " answer
         case $answer in
             [Yy]* )
-                themes_dir="/home/${user}/.themes/"; break;;
-            [Nn]* ) exit;;
+                mode="global"; break;;
+            [Nn]* )            
+                break;;
             * ) echo "Please answer [Y/y]es or [N/n]o.";;
         esac
     done
 fi
 
-echo "Installing themes into: ${themes_dir}"
+# Variables
+themes_dir=""
+
+# Set variables based on mode
+if [ "${mode}" == "global" ]; then
+    themes_dir=${GLOBAL_TARGET}
+elif [ "${mode}" == "local" ]; then
+    themes_dir=${LOCAL_TARGET}
+else
+    echo "An unexpected error has occurred. The script will now exit."
+    exit 1
+fi
 
 # Constants
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-repo_url="https://github.com/ianrobrien/mc-os-themes.git"
-repo_name="mc-os-themes"
-repo_dir="${DIR}/.${repo_name}/"
-
-selected_theme="McOS-MJV-dark"
+repo_dir="${DIR}/.${REPO_NAME}/"
 
 echo "********************************************************************************"
-echo "Installing ${selected_theme}..."
+echo "Installing ${SELECTED_THEME}..."
+echo "Installing themes into: ${themes_dir}"
 
 # clone repo
 rm -rf ${repo_dir}
-git clone ${repo_url} ${repo_dir}
+git clone ${REPO_URL} ${repo_dir}
 
 themes=("Gnome-Mc-OS-YS-light-menu"
         "Gnome-Mc-OS-YS-light-menu-transparent"
@@ -67,13 +85,13 @@ do
 done
 
 echo "Setting ${theme_name} as current theme"
-gsettings set org.gnome.desktop.wm.preferences theme ${selected_theme}
-gsettings set org.gnome.desktop.interface gtk-theme ${selected_theme}
+gsettings set org.gnome.desktop.wm.preferences theme ${SELECTED_THEME}
+gsettings set org.gnome.desktop.interface gtk-theme ${SELECTED_THEME}
 #gsettings set org.gnome.shell.extensions.user-theme name McOS-Dark-Shell
 
 rm -rf ${repo_dir}
 
-echo "Installed ${selected_theme}."
+echo "Installed ${SELECTED_THEME}."
 echo "*** REMEMBER TO SET THE SHELL THEME TO McOS-Dark-Shell ***"
 echo "*** REMEMBER TO FIX FIREFOX: about:config [widget.content.gtk-theme-override | McOS-MJV] ***"
 echo "********************************************************************************"
