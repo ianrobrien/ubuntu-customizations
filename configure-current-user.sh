@@ -26,7 +26,7 @@ echo "**************************************************************************
 echo "Customizing gnome..."
 
 # Appearance
-${customization_scripts_dir}install-McOS-MJV-Dark-mode.sh
+${customization_scripts_dir}install-McOS-themes.sh
 ${customization_scripts_dir}install-capitaine-cursors.sh
 ${customization_scripts_dir}install-fonts.sh
 
