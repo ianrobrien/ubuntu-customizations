@@ -15,7 +15,7 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 THEME_NAME='capitaine-cursors'
 REPO_LOCATION="https://github.com/keeferrourke/${THEME_NAME}.git"
-GLOBAL_TARGET='/usr/system/icons/'
+GLOBAL_TARGET='/usr/share/icons/'
 LOCAL_TARGET="/home/${user}/.icons/"
 
 # Check for root
