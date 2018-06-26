@@ -10,13 +10,29 @@
 
 # Get the current user
 [ $SUDO_USER ] && user=$SUDO_USER || user=`whoami`
+themes_dir="/usr/share/themes/"
+
+# Checks for root
+if [[ $UID -ne 0 ]]; then
+    echo "The script must be run as root to install in /usr/system/themes/."
+    while true; do
+        read -r -p "Do you want to continue in local mode?" answer
+        case $answer in
+            [Yy]* )
+                themes_dir="/home/${user}/.themes/"; break;;
+            [Nn]* ) exit;;
+            * ) echo "Please answer [Y/y]es or [N/n]o.";;
+        esac
+    done
+fi
+
+echo "Installing themes into: ${themes_dir}"
 
 # Constants
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 repo_url="https://github.com/ianrobrien/mc-os-themes.git"
 repo_name="mc-os-themes"
 repo_dir="${DIR}/.${repo_name}/"
-themes_dir="${HOME}/.themes/"
 
 selected_theme="McOS-MJV-dark"
 
@@ -44,7 +60,9 @@ themes=("Gnome-Mc-OS-YS-light-menu"
         "McOS-YS-transparent")
 for theme in "${themes[@]}"
 do
+    echo "Deleting theme at: ${themes_dir}${theme}"
     rm -rf ${themes_dir}${theme}
+    echo "Copying theme from: ${repo_dir}${theme} to ${themes_dir}"
     cp -R ${repo_dir}${theme} ${themes_dir}
 done
 

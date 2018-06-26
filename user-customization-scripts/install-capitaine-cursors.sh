@@ -10,12 +10,27 @@
 
 # Get the current user
 [ $SUDO_USER ] && user=$SUDO_USER || user=`whoami`
+icons_dir="/usr/share/icons/"
+
+# Checks for root
+if [[ $UID -ne 0 ]]; then
+    echo "The script must be run as root to install in /usr/system/icons/."
+    while true; do
+        read -r -p "Do you want to continue in local mode?" answer
+        case $answer in
+            [Yy]* )
+                icons_dir="/home/${user}/.icons/"; break;;
+            [Nn]* ) exit;;
+            * ) echo "Please answer [Y/y]es or [N/n]o.";;
+        esac
+    done
+fi
 
 # Constants
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 theme_name="capitaine-cursors"
-target="${HOME}/.icons/capitaine-cursors"
+target="${icons_dir}capitaine-cursors"
 temp="${DIR}/.${theme_name}"
 source="${temp}/dist"
 repo_location="https://github.com/keeferrourke/capitaine-cursors.git"
