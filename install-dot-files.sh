@@ -51,7 +51,7 @@ done
 
 echo 'Finished copying dot files to home directory.'
 echo 'Sourcing .bashrc to pick up latest changes.'
-SOURCE ~/.bashrc
+source ~/.bashrc
 
 echo 'Finished installing dot files.'
 echo '********************************************************************************'
