@@ -25,7 +25,7 @@ declare -a LINK_TARGETS=(
   '.bin'
   #'.config/Code/User/settings.json'   
   '.var/app/com.visualstudio.code/config/Code/User/settings.json'
-  '.config/neofetch" '
+  '.config/neofetch'
   '.profile'
   '.inputrc'
   '.vim'
