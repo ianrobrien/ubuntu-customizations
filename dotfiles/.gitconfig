@@ -12,11 +12,13 @@
     branch = auto
     diff = auto
     interactive = true
-    staLus = auto
+    status = auto
 [color "diff"]
     new = green
     old = red
 [core]
+[help]
+    autocorrect = 15
 [log]
     decorate = short
 [user]
