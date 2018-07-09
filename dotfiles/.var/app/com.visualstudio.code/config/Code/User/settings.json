@@ -14,6 +14,7 @@
     // Behavior
     "editor.autoClosingBrackets": false,
     "files.trimTrailingWhitespace": true,
+    "editor.formatOnSave": true,
 
     // CPP
     "C_Cpp.clang_format_fallbackStyle": "Google",
