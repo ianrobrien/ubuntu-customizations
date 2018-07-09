@@ -7,12 +7,13 @@
     "editor.fontFamily": "'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
     "editor.fontSize": 16,
     "editor.fontLigatures": true,
-
-    // Behavior
-    "editor.autoClosingBrackets": false,
     "workbench.iconTheme": "vscode-icons",
     "workbench.startupEditor": "newUntitledFile",
     "workbench.colorTheme": "One Dark Pro",
+
+    // Behavior
+    "editor.autoClosingBrackets": false,
+    "files.trimTrailingWhitespace": true,
 
     // CPP
     "C_Cpp.clang_format_fallbackStyle": "Google",
