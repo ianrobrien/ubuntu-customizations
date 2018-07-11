@@ -24,7 +24,7 @@ sudo apt install flatpak
 
 # Visual Studio Code
 flatpak install flathub com.visualstudio.code
-flatpak run com.visualstudio.code
+#flatpak run com.visualstudio.code
 
 # Spotify
 flatpak install flathub com.spotify.Client
