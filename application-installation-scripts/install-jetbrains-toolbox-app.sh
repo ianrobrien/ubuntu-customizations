@@ -4,18 +4,16 @@
 # https://gitlab.com/ianrobrien/ubuntu-customizations
 #
 #
-# Usage: ./install-intellij-idea.sh
+# Usage: ./install-jetbrains-toolbox-app.sh
 
-# Check user
-if [[ `whoami` == "root" ]]; then
-   echo "This script cannot be executed with sudo permissions" 1>&2
-   exit 1
-fi
+# Get the current user
+[ $SUDO_USER ] && user=$SUDO_USER || user=`whoami`
+TARGET_HOME="/home/${user}"
 
 # Constants
 version="jetbrains-toolbox-1.8.3868"
 gz_file_name="${version}.tar.gz"
-install_target="${HOME}/.local/share/"
+install_target="${TARGET_HOME}/.local/share/"
 
 echo "********************************************************************************"
 echo "Installing JetBrains Toolbox App..."

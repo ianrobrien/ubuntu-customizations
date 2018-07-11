@@ -10,13 +10,14 @@
 
 # Get the current user
 [ $SUDO_USER ] && user=$SUDO_USER || user=`whoami`
+TARGET_HOME="/home/${user}"
 
 # Constants
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 THEME_NAME='capitaine-cursors'
 REPO_LOCATION="https://github.com/keeferrourke/${THEME_NAME}.git"
 GLOBAL_TARGET='/usr/share/icons/'
-LOCAL_TARGET="/home/${user}/.icons/"
+LOCAL_TARGET="${TARGET_HOME}/.icons/"
 
 # Check for root
 mode='local'
@@ -27,7 +28,7 @@ if [[ $UID -eq 0 ]]; then
         case $answer in
             [Yy]* )
                 mode='global'; break;;
-            [Nn]* )            
+            [Nn]* )
                 break;;
             * ) echo 'Please answer [Y/y]es or [N/n]o.';;
         esac
@@ -71,7 +72,7 @@ mkdir -p ${target}
 
 echo "Copying theme from ${source} to ${target}"
 cp -r ${source}/* ${target}
-chown -R ${user}: ${target} 
+chown -R ${user}: ${target}
 
 echo "Deleting ${THEME_NAME} repository"
 rm -rf ${temp}

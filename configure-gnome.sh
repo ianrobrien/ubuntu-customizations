@@ -7,6 +7,10 @@
 # How to find setting: gsettings list-recursively | grep ${WALLPAPER_NAME}
 # Usage: ./configure-gnome.sh
 
+# Get the current user
+[ $SUDO_USER ] && user=$SUDO_USER || user=`whoami`
+TARGET_HOME="/home/${user}"
+
 # Constants
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -24,6 +28,13 @@ echo 'Customizing gnome...'
 ## Theme
 
 ${CUSTOMIZATION_SCRIPTS_DIR}install-mcos-themes.sh
+
+## Icons
+
+# Set the icon-theme to Papirus if it is installed
+if [[ $(dpkg -l | grep papirus-icon-theme) ]]; then
+    gsettings set org.gnome.desktop.interface icon-theme Papirus
+fi
 
 ## Cursors
 

@@ -14,12 +14,13 @@ REPO_NAME='mc-os-themes'
 
 # Get the current user
 [ $SUDO_USER ] && user=$SUDO_USER || user=`whoami`
+TARGET_HOME="/home/${user}"
 
 # Constants
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 REPO_URL="https://github.com/ianrobrien/${REPO_NAME}.git"
 GLOBAL_TARGET='/usr/share/themes/'
-LOCAL_TARGET="/home/${user}/.themes"
+LOCAL_TARGET="${TARGET_HOME}/.themes"
 
 # Check for root
 mode='local'
@@ -30,7 +31,7 @@ if [[ $UID -eq 0 ]]; then
         case $answer in
             [Yy]* )
                 mode='global'; break;;
-            [Nn]* )            
+            [Nn]* )
                 break;;
             * ) echo 'Please answer [Y/y]es or [N/n]o.';;
         esac
