@@ -12,10 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 ##############################################################################
-import shutil
 import os
 import pathlib
-import subprocess
+import shutil
 from src import utils
 from src.setup import applications
 from src.utils.applications import check_installed
@@ -24,6 +23,8 @@ from src.utils.bash import get_current_user
 from src.utils.bash import git_clone
 from src.utils.bash import message
 from src.utils.bash import query_yes_no
+from src.utils.bash import run_bash_command
+from src.utils.bash import run_bash_command_in_shell
 
 
 class Constants:
@@ -47,8 +48,7 @@ constants = Constants()
 
 
 def set_gsetting(schema, key, value):
-    bash_command = f'gsettings set {schema} {key} {value}'
-    subprocess.getoutput(bash_command)
+    run_bash_command_in_shell(f'gsettings set {schema} {key} {value}')
 
 
 def install_fonts():
@@ -60,8 +60,8 @@ def install_fonts():
         'resources/fonts/RobotoCondensed-Regular.ttf'), font_dir)
 
     user = get_current_user()
-    subprocess.call(f'chown -R {user}: {font_dir}'.split())
-    subprocess.call('fc-cache -f -v'.split())
+    run_bash_command(f'chown -R {user}: {font_dir}')
+    run_bash_command('fc-cache -f -v')
 
     set_gsetting('org.gnome.desktop.wm.preferences',
                  'titlebar-font', "'Roboto Condensed, 13'")
@@ -126,8 +126,8 @@ def install_capitaine_cursors():
 def load_gnome_terminal_settings():
     settings_file = pathlib.Path(
         'resources/application-settings/gnome-terminal.txt').resolve()
-    bash_command = f'dconf load /org/gnome/terminal/ < {str(settings_file)}'
-    subprocess.call(bash_command, shell=True)
+    run_bash_command_in_shell(
+        f'dconf load /org/gnome/terminal/ < {str(settings_file)}')
 
 
 def configure_gnome():

@@ -13,6 +13,7 @@
 # limitations under the License.
 ##############################################################################
 import subprocess
+from src.utils.bash import run_bash_command
 from src.utils.bash import run_bash_command_in_shell
 
 
@@ -21,9 +22,9 @@ def check_installed(application_name):
 
 
 def install_dpkg(dpkg):
-    subprocess.call(['dpkg', '-i', dpkg])
-    subprocess.call(['apt', 'install', '-f'])
+    run_bash_command(f'dpkg -i {dpkg}')
+    run_bash_command('apt install -f')
 
 
 def uninstall_dpkg(dpkg):
-    subprocess.call(['apt', 'remove', dpkg])
+    run_bash_command(f'apt remove {dpkg}')

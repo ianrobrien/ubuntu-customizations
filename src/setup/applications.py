@@ -17,10 +17,11 @@ from src.applications import beyond_compare
 from src.applications import grub_customizer
 from src.applications import vs_code
 from src.utils.bash import query_yes_no
+from src.utils.bash import run_bash_command
 
 
 def install_system_applications():
-    subprocess.call(['apt', 'update'])
+    run_bash_command('apt update')
     subprocess.call(['apt', 'install', '-y',
                      'vim',
                      'keepassxc',
@@ -47,11 +48,11 @@ def install_system_applications():
 
 
 def install():
-    if query_yes_no("Install applications from apt?"):
+    if query_yes_no("Install Applications from apt?", "no"):
         install_system_applications()
-    if query_yes_no("Install VS Code?"):
+    if query_yes_no("Install VS Code?", "no"):
         vs_code.install()
-    if query_yes_no("Install Beyond Compare?"):
+    if query_yes_no("Install Beyond Compare?", "no"):
         beyond_compare.install()
-    if query_yes_no("Install Grub Customzier?"):
+    if query_yes_no("Install Grub Customzier?", "no"):
         grub_customizer.install()
