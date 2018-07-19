@@ -33,7 +33,7 @@ This repository contains information, settings, and scripts for customizing Ubun
   * Shell: [McOS-Dark-Shell](https://github.com/paullinuxthemer/Mc-OS-themes/tree/master/McOS-Shell-themes)
     * Requires [user-themes](https://extensions.gnome.org/extension/19/user-themes/) extension
 * Behavior
-  * Minimize on dock icon click
+  * Minimize on dock icon click [gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize']
 * Terminal - [OneDark](application-settings/gnome-terminal.txt) profile
 
 ## Gnome Extensions
