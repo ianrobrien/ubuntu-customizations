@@ -12,67 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 ##############################################################################
-import os
-import requests
-import shutil
 import subprocess
-from src.utils import query_yes_no
-from urllib import request
-
-
-def check_installed(application_name):
-    return subprocess.call(['which', application_name]) == 0
-
-
-def install_dpkg(dpkg):
-    subprocess.call(['dpkg', '-i', dpkg])
-    subprocess.call(['apt', 'install', '-f'])
-
-
-def uninstall_dpkg(dpkg):
-    subprocess.call(['apt', 'remove', dpkg])
-
-
-def install_beyond_compare():
-    if check_installed("bcompare"):
-        print("Beyond Compare is already installed")
-        return
-
-    output_file = 'bcompare-4.2.6.23150_amd64.deb'
-    url = f'http://www.scootersoftware.com/{output_file}'
-
-    print("Downloading Beyond Compare...")
-    request.urlretrieve(url, output_file)
-    print("Finished downloading Beyond Compare.")
-    install_dpkg(output_file)
-    os.remove(output_file)
-
-
-def install_vs_code():
-    if check_installed("code"):
-        print("VS Code is already installed")
-        return
-
-    url = "https://go.microsoft.com/fwlink/?LinkID=760868"
-    output_file = "vscode.deb"
-
-    print("Downloading VS Code...")
-    response = requests.get(url, allow_redirects=True)
-    print("Finished downloading VS Code.")
-    with open(output_file, 'wb') as file:
-        file.write(response.content)
-        install_dpkg(output_file)
-    os.remove(output_file)
-
-
-def install_grub_customizer():
-    if check_installed("grub-customizer"):
-        print("Grub Customizer is already installed")
-        return
-
-    # sudo add-apt-repository ppa: danielrichter2007/grub-customizer
-    # sudo apt-get update
-    # sudo apt-get install grub-customizer
+from src.applications import beyond_compare
+from src.applications import grub_customizer
+from src.applications import vs_code
+from src.utils.bash import query_yes_no
 
 
 def install_system_applications():
@@ -103,16 +47,11 @@ def install_system_applications():
 
 
 def install():
-    if query_yes_no("Install system applications?"):
+    if query_yes_no("Install applications from apt?"):
         install_system_applications()
     if query_yes_no("Install VS Code?"):
-        install_vs_code()
+        vs_code.install()
     if query_yes_no("Install Beyond Compare?"):
-        install_beyond_compare()
-
-
-def uninstall():
-    if query_yes_no("Uninstall VS Code?", "no"):
-        uninstall_dpkg("code")
-    if query_yes_no("Uninstall Beyond Compare?", "no"):
-        uninstall_dpkg("bcompare")
+        beyond_compare.install()
+    if query_yes_no("Install Grub Customzier?"):
+        grub_customizer.install()

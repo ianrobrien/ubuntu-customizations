@@ -14,6 +14,7 @@
 ##############################################################################
 import os
 import pathlib
+from src.utils.bash import message
 
 paths_to_link = ['.bin', '.vim', '.bash_aliases',
                  '.bashrc', '.inputrc', '.profile', '.vimrc',
@@ -22,33 +23,33 @@ paths_to_link = ['.bin', '.vim', '.bash_aliases',
 
 
 def add_dotfile(source, destination):
-    print("Destination " + str(destination))
+    message("Destination " + str(destination))
     if destination.is_symlink():
         if destination.exists():
-            print(f"Unlinking existing link {destination}")
+            message(f"Unlinking existing link {destination}")
             os.unlink(destination)
     elif destination.is_file():
         if destination.exists():
-            print(f"Deleting existing file {destination}")
+            message(f"Deleting existing file {destination}")
             os.remove(destination)
 
     if not destination.parent.exists():
-        print(f"Creating parent directories for dotfile {source}")
+        message(f"Creating parent directories for dotfile {source}")
         os.mkdir(destination.parent)
 
-    print(f"Creating symbolic link for path {source} at {destination}")
+    message(f"Creating symbolic link for path {source} at {destination}")
     os.symlink(source, destination)
 
 
 def remove_dotfile(dotfile):
-    print("Destination " + str(dotfile))
+    message("Destination " + str(dotfile))
     if dotfile.is_symlink():
         if dotfile.exists():
-            print(f"Unlinking existing link {dotfile}")
+            message(f"Unlinking existing link {dotfile}")
             os.unlink(dotfile)
     elif dotfile.is_file():
         if dotfile.exists():
-            print(f"Deleting existing file {dotfile}")
+            message(f"Deleting existing file {dotfile}")
             os.remove(dotfile)
 
 

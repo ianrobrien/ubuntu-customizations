@@ -12,14 +12,25 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 ##############################################################################
+import os
+import requests
+from src.utils.applications import check_installed
+from src.utils.applications import install_dpkg
+from src.utils.bash import message
 
-from src.utils.bash import get_current_user
-from unittest import TestCase
 
+def install():
+    if check_installed("code"):
+        message("VS Code is already installed.")
+        return
 
-class UtilsTest(TestCase):
+    url = "https://go.microsoft.com/fwlink/?LinkID=760868"
+    output_file = "vscode.deb"
 
-    @classmethod
-    def test_get_current_user(cls):
-        user = get_current_user()
-        assert user is not None
+    message("Downloading VS Code...")
+    response = requests.get(url, allow_redirects=True)
+    message("Finished downloading VS Code.")
+    with open(output_file, 'wb') as file:
+        file.write(response.content)
+        install_dpkg(output_file)
+    os.remove(output_file)

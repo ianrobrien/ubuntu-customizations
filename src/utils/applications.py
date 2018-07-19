@@ -12,14 +12,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 ##############################################################################
+import subprocess
+from src.utils.bash import run_bash_command_in_shell
 
-from src.utils.bash import get_current_user
-from unittest import TestCase
+
+def check_installed(application_name):
+    return run_bash_command_in_shell(f'which {application_name} > /dev/null 2>&1') == 0
 
 
-class UtilsTest(TestCase):
+def install_dpkg(dpkg):
+    subprocess.call(['dpkg', '-i', dpkg])
+    subprocess.call(['apt', 'install', '-f'])
 
-    @classmethod
-    def test_get_current_user(cls):
-        user = get_current_user()
-        assert user is not None
+
+def uninstall_dpkg(dpkg):
+    subprocess.call(['apt', 'remove', dpkg])

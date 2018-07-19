@@ -13,22 +13,27 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 ##############################################################################
-from src import utils
 from src.setup import applications
 from src.setup import dotfiles
 from src.setup import gnome
+from src.utils.bash import is_root
+from src.utils.bash import message
+from src.utils.bash import print_banner
+from src.utils.bash import query_yes_no
 
 
 def main():
-    if not utils.is_root():
-        print("This script must be run with sudo permissions")
+    if not is_root():
+        message("This script must be run with sudo permissions")
         return
+
+    print_banner()
     applications.install()
-    if utils.query_yes_no("Install dot files?", "no"):
+    if query_yes_no("Install dot files?", "no"):
         dotfiles.install()
-    if utils.query_yes_no("Setup Gnome?", "no"):
+    if query_yes_no("Setup Gnome?", "no"):
         gnome.setup()
-    print("Finished running script!")
+    message("Finished running script!")
 
 
 if __name__ == "__main__":

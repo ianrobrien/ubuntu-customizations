@@ -18,6 +18,18 @@ import shutil
 import subprocess
 
 
+def message(message):
+    print(f'=> {message}')
+
+
+def run_bash_command(bash_command):
+    subprocess.call(bash_command.split())
+
+
+def run_bash_command_in_shell(bash_command):
+    return subprocess.call(bash_command, shell=True)
+
+
 def is_root():
     return os.getuid() == 0
 
@@ -47,31 +59,40 @@ def git_clone(repo_url):
     return repo_path
 
 
+def copytree_delete_existing(source, destination):
+    if (destination.exists()):
+        message(f"Deleting existing destination directory {destination}")
+        shutil.rmtree(destination)
+    message(f"Copying {source} to {destination}")
+    shutil.copytree(source, destination)
+
+
 def query_yes_no(question, default="yes"):
     valid = {"yes": True, "y": True, "ye": True,
              "no": False, "n": False}
     if default is None:
-        prompt = " [y/n] "
+        prompt = "[y/n]:"
     elif default == "yes":
-        prompt = " [Y/n] "
+        prompt = "[Y/n]:"
     elif default == "no":
-        prompt = " [y/N] "
+        prompt = "[y/N]:"
     else:
         raise ValueError(f"invalid default answer: '{default}'")
 
     while True:
-        choice = input(question + prompt).lower()
+        choice = input(f'=> {question} {prompt}').lower()
         if default is not None and choice == '':
             return valid[default]
         elif choice in valid:
             return valid[choice]
         else:
-            print("Please respond with 'yes' or 'no' (or 'y' or 'n').\n")
+            message("Please respond with 'yes' or 'no' (or 'y' or 'n').\n")
 
 
-def copytree_delete_existing(source, destination):
-    if (destination.exists()):
-        print(f"Deleting existing destination directory {destination}")
-        shutil.rmtree(destination)
-    print(f"Copying {source} to {destination}")
-    shutil.copytree(source, destination)
+def print_banner():
+    print(r"        _                 _                          _                  _          _   _                  ")
+    print(r"  _   _| |__  _   _ _ __ | |_ _   _    ___ _   _ ___| |_ ___  _ __ ___ (_)______ _| |_(_) ___  _ __  ___  ")
+    print(r" | | | | '_ \| | | | '_ \| __| | | |  / __| | | / __| __/ _ \| '_ ` _ \| |_  / _` | __| |/ _ \| '_ \/ __| ")
+    print(r" | |_| | |_) | |_| | | | | |_| |_| | | (__| |_| \__ \ || (_) | | | | | | |/ / (_| | |_| | (_) | | | \__ \ ")
+    print(r"  \__,_|_.__/ \__,_|_| |_|\__|\__,_|  \___|\__,_|___/\__\___/|_| |_| |_|_/___\__,_|\__|_|\___/|_| |_|___/ ")
+    print(r"                                                     https://gitlab.com/ianrobrien/ubuntu-customizations/ ")

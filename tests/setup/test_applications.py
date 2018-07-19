@@ -13,12 +13,24 @@
 # limitations under the License.
 ##############################################################################
 
-from src.setup import applications
 from unittest import TestCase
+from src.applications import grub_customizer
+from src.applications import vs_code
+from src.setup import applications
+from src.utils.applications import check_installed
 
 
 class ApplicationsTest(TestCase):
 
     @classmethod
+    def test_check_installed(cls):
+        assert check_installed('apt')
+        assert not check_installed('adfjsdlglsdglkneg')
+
+    @classmethod
     def test_install_vs_code(cls):
-        applications.install_vs_code()
+        vs_code.install()
+
+    @classmethod
+    def test_install_grub_customizer(cls):
+        grub_customizer.install()

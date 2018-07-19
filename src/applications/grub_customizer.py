@@ -12,14 +12,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 ##############################################################################
+from src.utils.applications import check_installed
+from src.utils.bash import message
+from src.utils.bash import run_bash_command
 
-from src.utils.bash import get_current_user
-from unittest import TestCase
 
+def install():
+    if check_installed("grub-customizer"):
+        message("Grub Customizer is already installed.")
+        return
 
-class UtilsTest(TestCase):
-
-    @classmethod
-    def test_get_current_user(cls):
-        user = get_current_user()
-        assert user is not None
+    run_bash_command(
+        'add-apt-repository ppa:danielrichter2007/grub-customizer')
+    run_bash_command('apt update')
+    run_bash_command('apt install grub-customizer')

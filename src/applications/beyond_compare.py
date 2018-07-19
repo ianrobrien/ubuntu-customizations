@@ -12,14 +12,23 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 ##############################################################################
+import os
+from src.utils.applications import check_installed
+from src.utils.applications import install_dpkg
+from src.utils.bash import message
+from urllib import request
 
-from src.utils.bash import get_current_user
-from unittest import TestCase
 
+def install():
+    if check_installed("bcompare"):
+        message("Beyond Compare is already installed.")
+        return
 
-class UtilsTest(TestCase):
+    output_file = 'bcompare-4.2.6.23150_amd64.deb'
+    url = f'http://www.scootersoftware.com/{output_file}'
 
-    @classmethod
-    def test_get_current_user(cls):
-        user = get_current_user()
-        assert user is not None
+    message("Downloading Beyond Compare...")
+    request.urlretrieve(url, output_file)
+    message("Finished downloading Beyond Compare.")
+    install_dpkg(output_file)
+    os.remove(output_file)

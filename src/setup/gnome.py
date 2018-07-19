@@ -12,16 +12,38 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 ##############################################################################
-from src import utils
-from src.setup import applications
 import shutil
 import os
 import pathlib
 import subprocess
+from src import utils
+from src.setup import applications
+from src.utils.applications import check_installed
+from src.utils.bash import copytree_delete_existing
+from src.utils.bash import get_current_user
+from src.utils.bash import git_clone
+from src.utils.bash import message
+from src.utils.bash import query_yes_no
 
-themes_root = pathlib.Path("/usr/share/themes/")
-icons_root = pathlib.Path("/usr/share/icons/")
-wallpaper_root = pathlib.Path(pathlib.Path.home(), 'Pictures/Wallpapers')
+
+class Constants:
+    def __init__(self):
+        self.themes_root = pathlib.Path("/usr/share/themes/")
+        self.icons_root = pathlib.Path("/usr/share/icons/")
+        self.wallpaper_root = pathlib.Path(
+            pathlib.Path.home(), 'Pictures/Wallpapers')
+
+    def get_themes_root(self):
+        return self.themes_root
+
+    def get_icons_root(self):
+        return self.icons_root
+
+    def get_wallpaper_root(self):
+        return self.wallpaper_root
+
+
+constants = Constants()
 
 
 def set_gsetting(schema, key, value):
@@ -37,7 +59,7 @@ def install_fonts():
     shutil.copy(pathlib.Path(
         'resources/fonts/RobotoCondensed-Regular.ttf'), font_dir)
 
-    user = utils.get_current_user()
+    user = get_current_user()
     subprocess.call(f'chown -R {user}: {font_dir}'.split())
     subprocess.call('fc-cache -f -v'.split())
 
@@ -50,13 +72,14 @@ def install_fonts():
 
 
 def set_wallpaper():
-    if not wallpaper_root.exists():
-        os.mkdir(wallpaper_root)
+    if not constants.get_wallpaper_root().exists():
+        os.mkdir(constants.get_wallpaper_root())
     shutil.copy(pathlib.Path(
-        'resources/wallpaper/preikestolen-1600x900.jpg'), wallpaper_root)
+        'resources/wallpaper/preikestolen-1600x900.jpg'), constants.get_wallpaper_root())
     shutil.copy(pathlib.Path(
-        'resources/wallpaper/trolltunga-1920x1200.jpg'), wallpaper_root)
-    wallpaper_target = pathlib.Path(wallpaper_root, "trolltunga-1920x1200.jpg")
+        'resources/wallpaper/trolltunga-1920x1200.jpg'), constants.get_wallpaper_root())
+    wallpaper_target = pathlib.Path(
+        constants.get_wallpaper_root(), "trolltunga-1920x1200.jpg")
     set_gsetting('org.gnome.desktop.background', 'picture-uri',
                  f'file://{str(wallpaper_target)}')
     set_gsetting('org.gnome.desktop.screensaver', 'picture-uri',
@@ -64,21 +87,21 @@ def set_wallpaper():
 
 
 def install_grub_theme():
-    print("Installing Grub theme..")
-    utils.copytree_delete_existing(pathlib.Path('resources/grub-themes/preikestolen').resolve(),
-                                   pathlib.Path('/boot/grub/themes/preikestolen'))
+    message("Installing Grub theme..")
+    copytree_delete_existing(pathlib.Path('resources/grub-themes/preikestolen').resolve(),
+                             pathlib.Path('/boot/grub/themes/preikestolen'))
 
 
 def install_mc_os_themes():
-    print("Installing Mc-OS Themes...")
-    repo_path = utils.git_clone(
+    message("Installing Mc-OS Themes...")
+    repo_path = git_clone(
         "https://github.com/ianrobrien/mc-os-themes.git")
 
     for theme in os.listdir(repo_path):
         theme_path = pathlib.Path(repo_path, theme).resolve()
         if "McOS" in str(theme_path) or "Gnome" in str(theme_path):
-            utils.copytree_delete_existing(
-                theme_path, pathlib.Path(themes_root, theme))
+            copytree_delete_existing(
+                theme_path, pathlib.Path(constants.get_themes_root(), theme))
 
     shutil.rmtree(repo_path)
 
@@ -87,15 +110,15 @@ def install_mc_os_themes():
 
 
 def install_capitaine_cursors():
-    print("Installing Capitaine Cursors...")
-    repo_path = utils.git_clone(
+    message("Installing Capitaine Cursors...")
+    repo_path = git_clone(
         'https://github.com/keeferrourke/capitaine-cursors.git')
 
     for theme in os.listdir(repo_path):
         theme_path = pathlib.Path(repo_path, theme).resolve()
         if "dist" in str(theme_path):
-            utils.copytree_delete_existing(
-                theme_path, pathlib.Path(icons_root, "capitaine-cursors"))
+            copytree_delete_existing(
+                theme_path, pathlib.Path(constants.get_icons_root(), "capitaine-cursors"))
 
     shutil.rmtree(repo_path)
 
@@ -110,22 +133,22 @@ def load_gnome_terminal_settings():
 def configure_gnome():
     set_gsetting('org.gnome.shell.extensions.dash-to-dock',
                  'click-action', 'minimize')
-    if applications.check_installed('papirus-icon-theme'):
+    if check_installed('papirus-icon-theme'):
         set_gsetting('org.gnome.desktop.interface', 'icon-theme', 'Papirus')
 
 
 def setup():
-    if utils.query_yes_no("Load Gnome Terminal settings?", "no"):
+    if query_yes_no("Load Gnome Terminal settings?", "no"):
         load_gnome_terminal_settings()
-    if utils.query_yes_no("Install Preikestolen grub theme?", "no"):
+    if query_yes_no("Install Preikestolen grub theme?", "no"):
         install_grub_theme()
-    if utils.query_yes_no("Install Mc-OS Themes?", "no"):
+    if query_yes_no("Install Mc-OS Themes?", "no"):
         install_mc_os_themes()
-    if utils.query_yes_no("Install Capitaine Cursors?", "no"):
+    if query_yes_no("Install Capitaine Cursors?", "no"):
         install_capitaine_cursors()
-    if utils.query_yes_no("Configure Gnome settings?", "no"):
+    if query_yes_no("Configure Gnome settings?", "no"):
         configure_gnome()
-    if utils.query_yes_no("Set wallpaper?", "no"):
+    if query_yes_no("Set wallpaper?", "no"):
         set_wallpaper()
-    if utils.query_yes_no("Install fonts?", "no"):
+    if query_yes_no("Install fonts?", "no"):
         install_fonts()
