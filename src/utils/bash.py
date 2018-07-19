@@ -51,12 +51,8 @@ def git_clone(repo_url):
     if pathlib.Path(repo_name).exists():
         shutil.rmtree(repo_name)
 
-    bash_command = f'git clone {repo_url}'
-    subprocess.call(bash_command.split())
-
-    repo_path = pathlib.Path(repo_name).resolve()
-
-    return repo_path
+    run_bash_command(f'git clone {repo_url}')
+    return pathlib.Path(repo_name).resolve()
 
 
 def copytree_delete_existing(source, destination):
