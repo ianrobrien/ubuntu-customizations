@@ -2,19 +2,24 @@
     // Privacy
     "telemetry.enableTelemetry": false,
     "telemetry.enableCrashReporter": false,
-
     // Appearance
     "editor.fontFamily": "'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
     "editor.fontSize": 16,
     "editor.fontLigatures": true,
-
-    // Behavior
-    "editor.autoClosingBrackets": false,
     "workbench.iconTheme": "vscode-icons",
     "workbench.startupEditor": "newUntitledFile",
     "workbench.colorTheme": "One Dark Pro",
-
-    // CPP
+    // Behavior
+    "editor.autoClosingBrackets": false,
+    "files.trimTrailingWhitespace": true,
+    "editor.formatOnSave": true,
+    // C++
     "C_Cpp.clang_format_fallbackStyle": "Google",
     "[makefile]": {},
+    // Python
+    "python.pythonPath": "/usr/bin/python3",
+    "explorer.confirmDragAndDrop": false,
+    "gitlens.advanced.messages": {
+        "suppressShowKeyBindingsNotice": true
+    },
 }
