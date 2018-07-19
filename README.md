@@ -12,7 +12,7 @@ This repository contains information, settings, and scripts for customizing Ubun
 
 ## Application Customizations
 
-* [dot files](dotfiles)
+* [dot files](resources/dotfiles)
 * rc files
 * bash prompt
 * [How to make touch-screen scrolling work in Firefox Quantum?](https://askubuntu.com/questions/978226/how-to-make-touch-screen-scrolling-work-in-firefox-quantum)
