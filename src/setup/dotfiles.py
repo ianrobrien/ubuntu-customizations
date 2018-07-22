@@ -25,13 +25,9 @@ paths_to_link = ['.bin', '.vim', '.bash_aliases',
 def add_dotfile(source, destination):
     message("Destination " + str(destination))
     if destination.is_symlink():
-        if destination.exists():
-            message(f"Unlinking existing link {destination}")
-            os.unlink(destination)
-    elif destination.is_file():
-        if destination.exists():
-            message(f"Deleting existing file {destination}")
-            os.remove(destination)
+        os.unlink(destination)
+    else:
+        os.remove(destination)
 
     if not destination.parent.exists():
         message(f"Creating parent directories for dotfile {source}")
