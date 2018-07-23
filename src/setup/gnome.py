@@ -33,6 +33,7 @@ class Constants:
         self.icons_root = pathlib.Path("/usr/share/icons/")
         self.wallpaper_root = pathlib.Path(
             pathlib.Path.home(), 'Pictures/Wallpapers')
+        self.home_path = pathlib.Path.home()
 
     def get_themes_root(self):
         return self.themes_root
@@ -43,6 +44,9 @@ class Constants:
     def get_wallpaper_root(self):
         return self.wallpaper_root
 
+    def get_home_path(self):
+        return self.home_path
+
 
 constants = Constants()
 
@@ -52,7 +56,7 @@ def set_gsetting(schema, key, value):
 
 
 def install_fonts():
-    font_dir = pathlib.Path(pathlib.Path.home(), '.local/share/fonts')
+    font_dir = pathlib.Path(constants.get_home_path(), '.local/share/fonts')
     if not font_dir.exists():
         os.mkdir(font_dir)
 
