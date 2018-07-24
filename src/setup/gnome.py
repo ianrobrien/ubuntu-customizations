@@ -29,11 +29,11 @@ from src.utils.bash import run_bash_command_in_shell
 
 class Constants:
     def __init__(self):
+        self.home_path = pathlib.Path.home()
         self.themes_root = pathlib.Path("/usr/share/themes/")
         self.icons_root = pathlib.Path("/usr/share/icons/")
         self.wallpaper_root = pathlib.Path(
             pathlib.Path.home(), 'Pictures/Wallpapers')
-        self.home_path = pathlib.Path.home()
 
     def get_themes_root(self):
         return self.themes_root
