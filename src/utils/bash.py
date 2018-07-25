@@ -16,6 +16,7 @@ import os
 import pathlib
 import shutil
 import subprocess
+import sys
 
 
 def message(message):
@@ -55,23 +56,15 @@ def git_clone(repo_url):
     return pathlib.Path(repo_name).resolve()
 
 
-def copytree_delete_existing(source, destination):
-    if (destination.exists()):
-        message(f"Deleting existing destination directory {destination}")
-        shutil.rmtree(destination)
-    message(f"Copying {source} to {destination}")
-    shutil.copytree(source, destination)
-
-
 def query_yes_no(question, default="yes"):
     valid = {"yes": True, "y": True, "ye": True,
              "no": False, "n": False}
     if default is None:
-        prompt = "[y/n]:"
+        prompt = "[y/n]: "
     elif default == "yes":
-        prompt = "[Y/n]:"
+        prompt = "[Y/n]: "
     elif default == "no":
-        prompt = "[y/N]:"
+        prompt = "[y/N]: "
     else:
         raise ValueError(f"invalid default answer: '{default}'")
 

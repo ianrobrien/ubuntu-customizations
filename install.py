@@ -13,6 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 ##############################################################################
+import sys
 from src.setup import applications
 from src.setup import dotfiles
 from src.setup import gnome
@@ -28,13 +29,18 @@ def main():
         return
 
     print_banner()
-    if query_yes_no("Install applications?"):
-        applications.install()
-    if query_yes_no("Install dot files?"):
-        dotfiles.install()
-    if query_yes_no("Setup Gnome?"):
-        gnome.setup()
-    message("Finished running script!")
+    try:
+        if query_yes_no("Install applications?"):
+            applications.install()
+        if query_yes_no("Install dot files?"):
+            dotfiles.install()
+        if query_yes_no("Setup Gnome?"):
+            gnome.setup()
+        message("Finished running script!")
+    except KeyboardInterrupt:
+        print('')
+        message(f'User aborted script.')
+        sys.exit()
 
 
 if __name__ == "__main__":

@@ -18,13 +18,14 @@ import shutil
 from src import utils
 from src.setup import applications
 from src.utils.applications import check_installed
-from src.utils.bash import copytree_delete_existing
 from src.utils.bash import get_current_user
 from src.utils.bash import git_clone
 from src.utils.bash import message
 from src.utils.bash import query_yes_no
 from src.utils.bash import run_bash_command
 from src.utils.bash import run_bash_command_in_shell
+from src.utils.filesystem import copytree_delete_existing
+from src.utils.filesystem import copy_directory_contents
 
 
 class Constants:
@@ -65,8 +66,7 @@ def install_fonts():
     if not fonts_path.exists():
         os.mkdir(fonts_path)
 
-    shutil.copy(pathlib.Path(
-        'resources/fonts/RobotoCondensed-Regular.ttf'), fonts_path)
+    copy_directory_contents(pathlib.Path('resources/fonts/'), fonts_path)
 
     user = get_current_user()
     run_bash_command(f'chown -R {user}: {fonts_path}')
@@ -83,10 +83,9 @@ def install_fonts():
 def set_wallpaper():
     if not constants.get_wallpaper_root().exists():
         os.mkdir(constants.get_wallpaper_root())
-    shutil.copy(pathlib.Path(
-        'resources/wallpaper/preikestolen-1600x900.jpg'), constants.get_wallpaper_root())
-    shutil.copy(pathlib.Path(
-        'resources/wallpaper/trolltunga-1920x1200.jpg'), constants.get_wallpaper_root())
+
+    filesysytem.copy_directory(pathlib.Path(
+        'resources/wallpaper/'), constants.get_wallpaper_root())
     wallpaper_target = pathlib.Path(
         constants.get_wallpaper_root(), "trolltunga-1920x1200.jpg")
     set_gsetting('org.gnome.desktop.background', 'picture-uri',
