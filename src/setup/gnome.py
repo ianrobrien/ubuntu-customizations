@@ -152,19 +152,19 @@ def install_papirus_icon_theme_from_github():
 
 
 def setup():
-    if query_yes_no("Load Gnome Terminal settings?"):
-        load_gnome_terminal_settings()
-    if query_yes_no("Install Preikestolen grub theme?"):
+    if query_yes_no("Configure Gnome behavior settings?"):
+        configure_gnome()
+    if query_yes_no("Install wallpapers?"):
+        set_wallpaper()
+    if query_yes_no("Install fonts?"):
+        install_fonts()
+    if query_yes_no("Install Grub theme (Preikestolen)?"):
         install_grub_theme()
-    if query_yes_no("Install Mc-OS Themes?"):
+    if query_yes_no("Load Terminal settings (OneDark theme)?"):
+        load_gnome_terminal_settings()
+    if query_yes_no("Install Application Themes? (Mc-OS)"):
         install_mc_os_themes()
     if query_yes_no("Install Capitaine Cursors?"):
         install_capitaine_cursors()
     if query_yes_no("Install Papirus Icon Theme from Github?"):
         install_papirus_icon_theme_from_github()
-    if query_yes_no("Configure Gnome settings?"):
-        configure_gnome()
-    if query_yes_no("Set wallpaper?"):
-        set_wallpaper()
-    if query_yes_no("Install fonts?"):
-        install_fonts()
