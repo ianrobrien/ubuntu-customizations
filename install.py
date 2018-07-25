@@ -28,10 +28,11 @@ def main():
         return
 
     print_banner()
-    applications.install()
-    if query_yes_no("Install dot files?", "no"):
+    if query_yes_no("Install applications?"):
+        applications.install()
+    if query_yes_no("Install dot files?"):
         dotfiles.install()
-    if query_yes_no("Setup Gnome?", "no"):
+    if query_yes_no("Setup Gnome?"):
         gnome.setup()
     message("Finished running script!")
 

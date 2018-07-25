@@ -34,6 +34,8 @@ class Constants:
         self.icons_root = pathlib.Path("/usr/share/icons/")
         self.wallpaper_root = pathlib.Path(
             pathlib.Path.home(), 'Pictures/Wallpapers')
+        self.local_fonts_path = pathlib.Path(
+            self.home_path, '.local/share/fonts')
 
     def get_themes_root(self):
         return self.themes_root
@@ -47,6 +49,9 @@ class Constants:
     def get_home_path(self):
         return self.home_path
 
+    def get_local_fonts_path(self):
+        return self.local_fonts_path
+
 
 constants = Constants()
 
@@ -56,15 +61,15 @@ def set_gsetting(schema, key, value):
 
 
 def install_fonts():
-    font_dir = pathlib.Path(constants.get_home_path(), '.local/share/fonts')
-    if not font_dir.exists():
-        os.mkdir(font_dir)
+    fonts_path = constants.get_local_fonts_path()
+    if not fonts_path.exists():
+        os.mkdir(fonts_path)
 
     shutil.copy(pathlib.Path(
-        'resources/fonts/RobotoCondensed-Regular.ttf'), font_dir)
+        'resources/fonts/RobotoCondensed-Regular.ttf'), fonts_path)
 
     user = get_current_user()
-    run_bash_command(f'chown -R {user}: {font_dir}')
+    run_bash_command(f'chown -R {user}: {fonts_path}')
     run_bash_command('fc-cache -f -v')
 
     set_gsetting('org.gnome.desktop.wm.preferences',
@@ -137,22 +142,30 @@ def load_gnome_terminal_settings():
 def configure_gnome():
     set_gsetting('org.gnome.shell.extensions.dash-to-dock',
                  'click-action', 'minimize')
-    if check_installed('papirus-icon-theme'):
-        set_gsetting('org.gnome.desktop.interface', 'icon-theme', 'Papirus')
+
+
+def install_papirus_icon_theme_from_github():
+    repo_path = git_clone(
+        'https://github.com/PapirusDevelopmentTeam/papirus-icon-theme.git')
+    run_bash_command(f'{repo_path}/install.sh')
+    set_gsetting('org.gnome.desktop.interface', 'icon-theme', 'Papirus')
+    shutil.rmtree(repo_path)
 
 
 def setup():
-    if query_yes_no("Load Gnome Terminal settings?", "no"):
+    if query_yes_no("Load Gnome Terminal settings?"):
         load_gnome_terminal_settings()
-    if query_yes_no("Install Preikestolen grub theme?", "no"):
+    if query_yes_no("Install Preikestolen grub theme?"):
         install_grub_theme()
-    if query_yes_no("Install Mc-OS Themes?", "no"):
+    if query_yes_no("Install Mc-OS Themes?"):
         install_mc_os_themes()
-    if query_yes_no("Install Capitaine Cursors?", "no"):
+    if query_yes_no("Install Capitaine Cursors?"):
         install_capitaine_cursors()
-    if query_yes_no("Configure Gnome settings?", "no"):
+    if query_yes_no("Install Papirus Icon Theme from Github?"):
+        install_papirus_icon_theme_from_github()
+    if query_yes_no("Configure Gnome settings?"):
         configure_gnome()
-    if query_yes_no("Set wallpaper?", "no"):
+    if query_yes_no("Set wallpaper?"):
         set_wallpaper()
-    if query_yes_no("Install fonts?", "no"):
+    if query_yes_no("Install fonts?"):
         install_fonts()

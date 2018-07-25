@@ -48,11 +48,11 @@ def install_system_applications():
 
 
 def install():
-    if query_yes_no("Install Applications from apt?", "no"):
+    if query_yes_no("Install Applications from apt?"):
         install_system_applications()
-    if query_yes_no("Install VS Code?", "no"):
+    if query_yes_no("Install VS Code?"):
         vs_code.install()
-    if query_yes_no("Install Beyond Compare?", "no"):
+    if query_yes_no("Install Beyond Compare?"):
         beyond_compare.install()
-    if query_yes_no("Install Grub Customzier?", "no"):
+    if query_yes_no("Install Grub Customzier?"):
         grub_customizer.install()

@@ -15,6 +15,7 @@
 import os
 import pathlib
 from src.utils.bash import message
+from src.utils.bash import query_yes_no
 
 paths_to_link = ['.bin', '.vim', '.bash_aliases',
                  '.bashrc', '.inputrc', '.profile', '.vimrc',
@@ -23,38 +24,35 @@ paths_to_link = ['.bin', '.vim', '.bash_aliases',
 
 
 def add_dotfile(source, destination):
-    message("Destination " + str(destination))
-    if destination.is_symlink():
-        os.unlink(destination)
-    else:
-        os.remove(destination)
+    if destination.exists():
+        if query_yes_no(f"Overwrite existing dotfile at {destination}?"):
+            if destination.is_symlink():
+                os.unlink(destination)
+            else:
+                os.remove(destination)
 
     if not destination.parent.exists():
-        message(f"Creating parent directories for dotfile {source}")
         os.mkdir(destination.parent)
 
-    message(f"Creating symbolic link for path {source} at {destination}")
     os.symlink(source, destination)
 
 
 def remove_dotfile(dotfile):
-    message("Destination " + str(dotfile))
-    if dotfile.is_symlink():
-        if dotfile.exists():
-            message(f"Unlinking existing link {dotfile}")
+    if dotfile.exists():
+        if dotfile.is_symlink():
             os.unlink(dotfile)
-    elif dotfile.is_file():
-        if dotfile.exists():
-            message(f"Deleting existing file {dotfile}")
+        elif dotfile.is_file():
             os.remove(dotfile)
 
 
 def install():
+    message("Installing dotfiles...")
     for path in paths_to_link:
         source = pathlib.Path('resources', 'dotfiles', path)
         if not source.exists():
             raise ValueError(f"The source file does not exist: '{source}'")
         add_dotfile(source.resolve(), pathlib.Path(pathlib.Path.home(), path))
+    message("Dotfiles installed")
 
 
 def uninstall():
