@@ -84,7 +84,7 @@ def set_wallpaper():
     if not constants.get_wallpaper_root().exists():
         os.mkdir(constants.get_wallpaper_root())
 
-    filesysytem.copy_directory(pathlib.Path(
+    copy_directory_contents(pathlib.Path(
         'resources/wallpaper/'), constants.get_wallpaper_root())
     wallpaper_target = pathlib.Path(
         constants.get_wallpaper_root(), "trolltunga-1920x1200.jpg")
