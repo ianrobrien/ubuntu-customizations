@@ -24,11 +24,13 @@ from src.utils.user import is_root_user
 
 
 def main():
+
+    print_banner()
+
     if not is_root_user():
         message("This script must be run with sudo permissions")
         return
 
-    print_banner()
     try:
         if query_yes_no("Install applications?"):
             applications.install()
