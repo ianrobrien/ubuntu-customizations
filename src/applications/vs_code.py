@@ -14,8 +14,7 @@
 ##############################################################################
 import os
 import requests
-from src.utils.applications import check_installed
-from src.utils.applications import install_dpkg
+from src.utils.apt import check_installed, install_dpkg
 from src.utils.bash import message
 
 

@@ -13,11 +13,8 @@
 # limitations under the License.
 ##############################################################################
 import subprocess
-from src.applications import beyond_compare
-from src.applications import grub_customizer
-from src.applications import vs_code
-from src.utils.bash import query_yes_no
-from src.utils.bash import run_bash_command
+from src.applications import beyond_compare, grub_customizer, vs_code
+from src.utils.bash import query_yes_no, run_bash_command
 
 
 def install_system_applications():

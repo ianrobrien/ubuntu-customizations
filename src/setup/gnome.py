@@ -17,7 +17,7 @@ import pathlib
 import shutil
 from src import utils
 from src.setup import applications
-from src.utils.applications import check_installed
+from src.utils.apt import check_installed
 from src.utils.bash import get_current_user
 from src.utils.bash import git_clone
 from src.utils.bash import message
@@ -29,32 +29,28 @@ from src.utils.filesystem import copy_directory_contents
 
 
 class Constants:
-    def __init__(self):
-        self.home_path = pathlib.Path.home()
-        self.themes_root = pathlib.Path("/usr/share/themes/")
-        self.icons_root = pathlib.Path("/usr/share/icons/")
-        self.wallpaper_root = pathlib.Path(
-            pathlib.Path.home(), 'Pictures/Wallpapers')
-        self.local_fonts_path = pathlib.Path(
-            self.home_path, '.local/share/fonts')
+    class Paths:
+        def THEMES_PATH(self):
+            return pathlib.Path("/usr/share/themes/")
 
-    def get_themes_root(self):
-        return self.themes_root
+        def ICONS_PATH(self):
+            return pathlib.Path("/usr/share/icons/")
 
-    def get_icons_root(self):
-        return self.icons_root
+        def WALLPAPER_ROOT(self):
+            return pathlib.Path(
+                pathlib.Path.home(), 'Pictures/Wallpapers')
 
-    def get_wallpaper_root(self):
-        return self.wallpaper_root
+        def HOME_PATH(self):
+            return pathlib.Path.home()
 
-    def get_home_path(self):
-        return self.home_path
+        def LOCAL_FONTS_PATH(self):
+            return pathlib.Path(pathlib.Path.home(), '.local/share/fonts')
 
-    def get_local_fonts_path(self):
-        return self.local_fonts_path
+        def GRUB_PATH(self):
+            return pathlib.Path('/boot/grub/')
 
 
-constants = Constants()
+PATHS = Constants().Paths()
 
 
 def set_gsetting(schema, key, value):
@@ -62,7 +58,7 @@ def set_gsetting(schema, key, value):
 
 
 def install_fonts():
-    fonts_path = constants.get_local_fonts_path()
+    fonts_path = PATHS.LOCAL_FONTS_PATH()
     if not fonts_path.exists():
         os.mkdir(fonts_path)
 
@@ -81,13 +77,13 @@ def install_fonts():
 
 
 def set_wallpaper():
-    if not constants.get_wallpaper_root().exists():
-        os.mkdir(constants.get_wallpaper_root())
+    if not PATHS.WALLPAPER_ROOT().exists():
+        os.mkdir(PATHS.WALLPAPER_ROOT())
 
     copy_directory_contents(pathlib.Path(
-        'resources/wallpaper/'), constants.get_wallpaper_root())
+        'resources/wallpaper/'), PATHS.WALLPAPER_ROOT())
     wallpaper_target = pathlib.Path(
-        constants.get_wallpaper_root(), "trolltunga-1920x1200.jpg")
+        PATHS.WALLPAPER_ROOT(), "trolltunga-1920x1200.jpg")
     set_gsetting('org.gnome.desktop.background', 'picture-uri',
                  f'file://{str(wallpaper_target)}')
     set_gsetting('org.gnome.desktop.screensaver', 'picture-uri',
@@ -97,7 +93,7 @@ def set_wallpaper():
 def install_grub_theme():
     message("Installing Grub theme..")
     copytree_delete_existing(pathlib.Path('resources/grub-themes/preikestolen').resolve(),
-                             pathlib.Path('/boot/grub/themes/preikestolen'))
+                             pathlib.Path(PATHS.GRUB_PATH(), 'themes/preikestolen'))
 
 
 def install_mc_os_themes():
@@ -109,7 +105,7 @@ def install_mc_os_themes():
         theme_path = pathlib.Path(repo_path, theme).resolve()
         if "McOS" in str(theme_path) or "Gnome" in str(theme_path):
             copytree_delete_existing(
-                theme_path, pathlib.Path(constants.get_themes_root(), theme))
+                theme_path, pathlib.Path(PATHS.THEMES_PATH(), theme))
 
     shutil.rmtree(repo_path)
 
@@ -126,7 +122,7 @@ def install_capitaine_cursors():
         theme_path = pathlib.Path(repo_path, theme).resolve()
         if "dist" in str(theme_path):
             copytree_delete_existing(
-                theme_path, pathlib.Path(constants.get_icons_root(), "capitaine-cursors"))
+                theme_path, pathlib.Path(PATHS.ICONS_PATH(), "capitaine-cursors"))
 
     shutil.rmtree(repo_path)
 
@@ -164,7 +160,7 @@ def setup():
         load_gnome_terminal_settings()
     if query_yes_no("Install Application Themes? (Mc-OS)"):
         install_mc_os_themes()
-    if query_yes_no("Install Capitaine Cursors?"):
+    if query_yes_no("Install Capitaine Cursors from GitHub?"):
         install_capitaine_cursors()
-    if query_yes_no("Install Papirus Icon Theme from Github?"):
+    if query_yes_no("Install Papirus Icon Theme from GitHub?"):
         install_papirus_icon_theme_from_github()

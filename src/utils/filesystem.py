@@ -16,6 +16,7 @@ import os
 import pathlib
 import shutil
 import subprocess
+
 from src.utils.bash import message
 
 
@@ -24,13 +25,10 @@ def copy_directory_contents(src, dest):
     for file_name in src_files:
         full_file_name = os.path.join(src.resolve(), file_name)
         if (os.path.isfile(full_file_name)):
-            print(f'copying {full_file_name} to {dest}')
             shutil.copy(full_file_name, dest)
 
 
 def copytree_delete_existing(source, destination):
     if (destination.exists()):
-        message(f"Deleting existing destination directory {destination}")
         shutil.rmtree(destination)
-    message(f"Copying {source} to {destination}")
     shutil.copytree(source, destination)

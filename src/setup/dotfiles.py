@@ -14,13 +14,13 @@
 ##############################################################################
 import os
 import pathlib
-from src.utils.bash import message
-from src.utils.bash import query_yes_no
 
-paths_to_link = ['.bin', '.vim', '.bash_aliases',
-                 '.bashrc', '.inputrc', '.profile', '.vimrc',
-                 '.config/Code/User/settings.json',
-                 '.config/neofetch/config.conf']
+from src.utils.bash import message, query_yes_no
+
+dotfiles = ['.bin', '.vim', '.bash_aliases',
+            '.bashrc', '.inputrc', '.profile', '.vimrc',
+            '.config/Code/User/settings.json',
+            '.config/neofetch/config.conf']
 
 
 def add_dotfile(source, destination):
@@ -37,27 +37,11 @@ def add_dotfile(source, destination):
     os.symlink(source, destination)
 
 
-def remove_dotfile(dotfile):
-    if dotfile.exists():
-        if dotfile.is_symlink():
-            os.unlink(dotfile)
-        elif dotfile.is_file():
-            os.remove(dotfile)
-
-
 def install():
     message("Installing dotfiles...")
-    for path in paths_to_link:
+    for path in dotfiles:
         source = pathlib.Path('resources', 'dotfiles', path)
         if not source.exists():
             raise ValueError(f"The source file does not exist: '{source}'")
         add_dotfile(source.resolve(), pathlib.Path(pathlib.Path.home(), path))
     message("Dotfiles installed")
-
-
-def uninstall():
-    for path in paths_to_link:
-        dotfile = pathlib.Path(pathlib.Path(pathlib.Path.home(), path))
-        if not dotfile.exists():
-            raise ValueError(f"The dotfile file does not exist: '{dotfile}'")
-        remove_dotfile(dotfile)

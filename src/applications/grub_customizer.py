@@ -12,9 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 ##############################################################################
-from src.utils.applications import check_installed
-from src.utils.bash import message
-from src.utils.bash import run_bash_command
+from src.utils.apt import check_installed
+from src.utils.bash import message, run_bash_command
 
 
 def install():

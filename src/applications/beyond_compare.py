@@ -13,10 +13,9 @@
 # limitations under the License.
 ##############################################################################
 import os
-from src.utils.applications import check_installed
-from src.utils.applications import install_dpkg
-from src.utils.bash import message
 from urllib import request
+from src.utils.apt import check_installed, install_dpkg
+from src.utils.bash import message
 
 
 def install():
