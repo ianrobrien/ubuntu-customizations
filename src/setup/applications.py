@@ -13,7 +13,7 @@
 # limitations under the License.
 ##############################################################################
 import subprocess
-from src.applications import beyond_compare, grub_customizer, vs_code
+from src.applications import beyond_compare, grub_customizer, neofetch, vs_code
 from src.utils.bash import query_yes_no, run_bash_command
 
 
@@ -53,3 +53,5 @@ def install():
         beyond_compare.install()
     if query_yes_no("Install Grub Customzier?"):
         grub_customizer.install()
+    if query_yes_no("Install neofetch from GitHub? (https://github.com/dylanaraps/neofetch)"):
+        neofetch.install()

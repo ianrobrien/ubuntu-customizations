@@ -17,14 +17,14 @@ import sys
 from src.setup import applications
 from src.setup import dotfiles
 from src.setup import gnome
-from src.utils.bash import is_root
 from src.utils.bash import message
 from src.utils.bash import print_banner
 from src.utils.bash import query_yes_no
+from src.utils.user import is_root_user
 
 
 def main():
-    if not is_root():
+    if not is_root_user():
         message("This script must be run with sudo permissions")
         return
 

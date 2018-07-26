@@ -12,13 +12,22 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 ##############################################################################
-from unittest import TestCase
-from src.utils.user import get_current_user
+import pathlib
+import shutil
+
+from src.utils.bash import run_bash_command
 
 
-class UtilsTest(TestCase):
+def clone_repo(repo_url):
+    repo_name = None
+    for token in repo_url.split("/"):
+        if ".git" in token:
+            repo_name = token[:-4]
+    if repo_name is None:
+        raise ValueError("Could not parse git repository name from URL")
 
-    @classmethod
-    def test_get_current_user(cls):
-        user = get_current_user()
-        assert user is not None
+    if pathlib.Path(repo_name).exists():
+        shutil.rmtree(repo_name)
+
+    run_bash_command(f'git clone {repo_url}')
+    return pathlib.Path(repo_name).resolve()

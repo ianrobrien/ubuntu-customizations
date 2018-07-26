@@ -12,13 +12,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 ##############################################################################
-from unittest import TestCase
-from src.utils.user import get_current_user
+import os
+import shutil
+from src.utils.bash import run_bash_command
+from src.utils.git import clone_repo
 
 
-class UtilsTest(TestCase):
-
-    @classmethod
-    def test_get_current_user(cls):
-        user = get_current_user()
-        assert user is not None
+def install():
+    repo_path = clone_repo(
+        'https://github.com/dylanaraps/neofetch.git')
+    cwd = os.getcwd()
+    os.chdir(repo_path)
+    run_bash_command(f'sudo make install')
+    os.chdir(cwd)
+    shutil.rmtree(repo_path)

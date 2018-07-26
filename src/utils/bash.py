@@ -12,11 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 ##############################################################################
-import os
-import pathlib
-import shutil
 import subprocess
-import sys
 
 
 def message(message):
@@ -29,31 +25,6 @@ def run_bash_command(bash_command):
 
 def run_bash_command_in_shell(bash_command):
     return subprocess.call(bash_command, shell=True)
-
-
-def is_root():
-    return os.getuid() == 0
-
-
-def get_current_user():
-    bash_command = 'echo ${SUDO_USER:-$(whoami)}'
-    username = subprocess.getoutput(bash_command)
-    return username
-
-
-def git_clone(repo_url):
-    repo_name = None
-    for token in repo_url.split("/"):
-        if ".git" in token:
-            repo_name = token[:-4]
-    if repo_name is None:
-        raise ValueError("Could not parse git repository name from URL")
-
-    if pathlib.Path(repo_name).exists():
-        shutil.rmtree(repo_name)
-
-    run_bash_command(f'git clone {repo_url}')
-    return pathlib.Path(repo_name).resolve()
 
 
 def query_yes_no(question, default="yes"):

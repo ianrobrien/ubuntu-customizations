@@ -12,13 +12,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 ##############################################################################
-from unittest import TestCase
-from src.utils.user import get_current_user
+import os
+import subprocess
 
 
-class UtilsTest(TestCase):
+def is_root_user():
+    return os.getuid() == 0
 
-    @classmethod
-    def test_get_current_user(cls):
-        user = get_current_user()
-        assert user is not None
+
+def get_current_user():
+    bash_command = 'echo ${SUDO_USER:-$(whoami)}'
+    username = subprocess.getoutput(bash_command)
+    return username

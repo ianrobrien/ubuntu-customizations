@@ -18,14 +18,14 @@ import shutil
 from src import utils
 from src.setup import applications
 from src.utils.apt import check_installed
-from src.utils.bash import get_current_user
-from src.utils.bash import git_clone
 from src.utils.bash import message
 from src.utils.bash import query_yes_no
 from src.utils.bash import run_bash_command
 from src.utils.bash import run_bash_command_in_shell
 from src.utils.filesystem import copytree_delete_existing
 from src.utils.filesystem import copy_directory_contents
+from src.utils.git import clone_repo
+from src.utils.user import get_current_user
 
 
 class Constants:
@@ -98,7 +98,7 @@ def install_grub_theme():
 
 def install_mc_os_themes():
     message("Installing Mc-OS Themes...")
-    repo_path = git_clone(
+    repo_path = clone_repo(
         "https://github.com/ianrobrien/mc-os-themes.git")
 
     for theme in os.listdir(repo_path):
@@ -115,7 +115,7 @@ def install_mc_os_themes():
 
 def install_capitaine_cursors():
     message("Installing Capitaine Cursors...")
-    repo_path = git_clone(
+    repo_path = clone_repo(
         'https://github.com/keeferrourke/capitaine-cursors.git')
 
     for theme in os.listdir(repo_path):
@@ -140,7 +140,7 @@ def configure_gnome():
 
 
 def install_papirus_icon_theme_from_github():
-    repo_path = git_clone(
+    repo_path = clone_repo(
         'https://github.com/PapirusDevelopmentTeam/papirus-icon-theme.git')
     run_bash_command(f'{repo_path}/install.sh')
     set_gsetting('org.gnome.desktop.interface', 'icon-theme', 'Papirus')
@@ -158,9 +158,9 @@ def setup():
         install_grub_theme()
     if query_yes_no("Load Terminal settings (OneDark theme)?"):
         load_gnome_terminal_settings()
-    if query_yes_no("Install Application Themes? (Mc-OS)"):
+    if query_yes_no("Install Application Themes from GitHub? (https://github.com/ianrobrien/mc-os-themes)"):
         install_mc_os_themes()
-    if query_yes_no("Install Capitaine Cursors from GitHub?"):
+    if query_yes_no("Install Capitaine Cursors from GitHub? (https://github.com/keeferrourke/capitaine-cursors)"):
         install_capitaine_cursors()
-    if query_yes_no("Install Papirus Icon Theme from GitHub?"):
+    if query_yes_no("Install Papirus Icon Theme from GitHub? (https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)"):
         install_papirus_icon_theme_from_github()

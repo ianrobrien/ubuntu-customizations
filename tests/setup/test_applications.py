@@ -12,12 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 ##############################################################################
-
 from unittest import TestCase
-from src.applications import grub_customizer
-from src.applications import vs_code
+from src.applications import grub_customizer, vs_code
 from src.setup import applications
-from src.utils.applications import check_installed
+from src.utils.apt import check_installed
 
 
 class ApplicationsTest(TestCase):
