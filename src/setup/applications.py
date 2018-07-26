@@ -47,11 +47,11 @@ def install_system_applications():
 def install():
     if query_yes_no("Install Applications from apt?"):
         install_system_applications()
-    if query_yes_no("Install VS Code?"):
+    if query_yes_no("Install VS Code from deb package? (https://go.microsoft.com/fwlink/?LinkID=760868)"):
         vs_code.install()
-    if query_yes_no("Install Beyond Compare?"):
+    if query_yes_no("Install Beyond Compare from deb package? (http://www.scootersoftware.com/)"):
         beyond_compare.install()
-    if query_yes_no("Install Grub Customzier?"):
+    if query_yes_no("Install Grub Customzier from PPA? (ppa:danielrichter2007/grub-customizer)"):
         grub_customizer.install()
     if query_yes_no("Install neofetch from GitHub? (https://github.com/dylanaraps/neofetch)"):
         neofetch.install()
