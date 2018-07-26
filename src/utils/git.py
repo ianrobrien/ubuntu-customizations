@@ -31,3 +31,18 @@ def clone_repo(repo_url):
 
     run_bash_command(f'git clone {repo_url}')
     return pathlib.Path(repo_name).resolve()
+
+
+def is_git_repo(parent):
+    git_dir = pathlib.Path(parent, '.git')
+    return git_dir.exists()
+
+
+def is_github_repo(parent):
+    git_config_path = pathlib.Path(parent, '.git/config')
+    return git_config_path.exists() and 'github' in open(git_config_path).read()
+
+
+def is_gitlab_repo(parent):
+    git_config_path = pathlib.Path(parent, '.git/config')
+    return git_config_path.exists() and 'gitlab' in open(git_config_path).read()

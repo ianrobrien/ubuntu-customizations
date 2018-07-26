@@ -30,6 +30,7 @@ def install_system_applications():
                      'openjdk-11-jdk',
                      'openjdk-8-jdk',
                      'openjdk-8-jre',
+                     'qt5-style-plugins',
                      'gnome-tweak-tool',
                      'gnome-system-monitor',
                      'gnome-calculator',

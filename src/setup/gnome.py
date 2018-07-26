@@ -25,6 +25,7 @@ from src.utils.bash import run_bash_command_in_shell
 from src.utils.filesystem import copytree_delete_existing
 from src.utils.filesystem import copy_directory_contents
 from src.utils.git import clone_repo
+from src.utils.gnome import set_folder_icons_repositories
 from src.utils.user import get_current_user
 
 
@@ -164,3 +165,5 @@ def setup():
         install_capitaine_cursors()
     if query_yes_no("Install Papirus Icon Theme from GitHub? (https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)"):
         install_papirus_icon_theme_from_github()
+    if query_yes_no(f'Update repository folder icons in {pathlib.Path.home()}?'):
+        set_folder_icons_repositories(pathlib.Path.home())
