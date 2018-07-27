@@ -14,6 +14,7 @@
 ##############################################################################
 import os
 import pathlib
+import shutil
 
 from src.utils.bash import message, query_yes_no
 
@@ -29,7 +30,10 @@ def add_dotfile(source, destination):
             if destination.is_symlink():
                 os.unlink(destination)
             else:
-                os.remove(destination)
+                if destination.is_file:
+                    os.remove(destination)
+                elif destination.is_dir:
+                    shutil.rmtree(destination, ignore_errors=True)
 
     if not destination.exists():
         os.makedirs(destination)
