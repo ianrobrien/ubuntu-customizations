@@ -24,4 +24,4 @@ def install():
     run_bash_command(
         'add-apt-repository ppa:danielrichter2007/grub-customizer')
     run_bash_command('apt update')
-    run_bash_command('apt install grub-customizer')
+    run_bash_command('apt install -y grub-customizer')

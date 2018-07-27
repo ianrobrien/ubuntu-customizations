@@ -23,7 +23,6 @@ def check_installed(application_name):
 
 def install_dpkg(dpkg):
     run_bash_command(f'gdebi {dpkg}')
-    run_bash_command('apt install -f')
 
 
 def uninstall_dpkg(dpkg):
