@@ -33,7 +33,7 @@ def add_dotfile(source, destination):
                 if destination.is_file():
                     os.remove(destination)
                 elif destination.is_dir():
-                    shutil.rmtree(destination, ignore_errors=True)
+                    shutil.rmtree(destination)
 
     if not destination.exists():
         os.makedirs(destination)
