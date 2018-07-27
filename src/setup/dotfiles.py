@@ -30,9 +30,9 @@ def add_dotfile(source, destination):
             if destination.is_symlink():
                 os.unlink(destination)
             else:
-                if destination.is_file:
+                if destination.is_file():
                     os.remove(destination)
-                elif destination.is_dir:
+                elif destination.is_dir():
                     shutil.rmtree(destination, ignore_errors=True)
 
     if not destination.exists():
