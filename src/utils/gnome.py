@@ -21,7 +21,6 @@ from src.utils.user import get_current_user
 
 def set_folder_icon(folder, icon_path):
     command = f'sudo su -- {get_current_user()} -c \'gio set -t string {folder} metadata::custom-icon file://{icon_path}\''
-    #command = f'sudo su -- ianrobrien -c \'gio set {folder} metadata::custom-icon-name folder-gitlab\''
     run_bash_command_in_shell(command)
 
 
