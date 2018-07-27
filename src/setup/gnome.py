@@ -83,8 +83,8 @@ def set_wallpaper():
 
     copy_directory_contents(pathlib.Path(
         'resources/wallpaper/'), PATHS.WALLPAPER_ROOT())
-        run_bash_command(
-            f'chown -R {get_current_user()}: {PATHS.WALLPAPER_ROOT()}')
+    run_bash_command(
+        f'chown -R {get_current_user()}: {PATHS.WALLPAPER_ROOT()}')
 
     wallpaper_target = pathlib.Path(
         PATHS.WALLPAPER_ROOT(), "trolltunga-1920x1200.jpg")
