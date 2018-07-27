@@ -46,6 +46,7 @@ This repository contains information, settings, and scripts for customizing Ubun
 * [Hide Activities Button](https://extensions.gnome.org/extension/744/hide-activities-button/)
 * [OpenWeather](https://extensions.gnome.org/extension/750/openweather/)
 * [User Themes](https://extensions.gnome.org/extension/19/user-themes/)
+* [Status Area Horizontal Spacing](https://extensions.gnome.org/extension/355/status-area-horizontal-spacing/)
 
 ### Colors
 
