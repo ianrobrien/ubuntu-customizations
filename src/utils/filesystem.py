@@ -27,11 +27,9 @@ def copy_directory_contents(source, destination):
         full_file_name = os.path.join(source.resolve(), file_name)
         if (os.path.isfile(full_file_name)):
             shutil.copy(full_file_name, destination)
-    run_bash_command(f'chown -R {get_current_user()}: {destination}')
 
 
 def copytree_delete_existing(source, destination):
     if (destination.exists()):
         shutil.rmtree(destination)
     shutil.copytree(source, destination)
-    run_bash_command(f'chown -R {get_current_user()}: {destination}')
