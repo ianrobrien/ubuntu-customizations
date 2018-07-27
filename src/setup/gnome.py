@@ -64,7 +64,7 @@ def install_fonts():
 
     copy_directory_contents(pathlib.Path('resources/fonts/'), fonts_path)
 
-    take_ownership(get_current_user, fonts_path)
+    take_ownership(get_current_user(), fonts_path)
     run_bash_command('fc-cache -f -v')
 
     set_gsetting('org.gnome.desktop.wm.preferences',
