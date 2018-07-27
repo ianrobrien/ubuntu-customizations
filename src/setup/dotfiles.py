@@ -40,8 +40,8 @@ def add_dotfile(source, destination):
     if not destination.parent.exists():
         os.makedirs(destination.parent)
 
-    run_bash_command(f'chown -R {get_current_user()}: {destination}')
     os.symlink(source, destination)
+    run_bash_command(f'chown -R {get_current_user()}: {destination}')
 
 
 def install():
