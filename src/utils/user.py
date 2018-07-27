@@ -21,6 +21,4 @@ def is_root_user():
 
 
 def get_current_user():
-    bash_command = 'echo ${SUDO_USER:-$(whoami)}'
-    username = subprocess.getoutput(bash_command)
-    return username
+    return subprocess.getoutput('echo ${SUDO_USER:-$(whoami)}')

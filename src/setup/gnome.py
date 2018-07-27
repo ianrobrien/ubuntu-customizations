@@ -15,15 +15,14 @@
 import os
 import pathlib
 import shutil
+
 from src import utils
 from src.setup import applications
 from src.utils.apt import check_installed
-from src.utils.bash import message
-from src.utils.bash import query_yes_no
-from src.utils.bash import run_bash_command
-from src.utils.bash import run_bash_command_in_shell
-from src.utils.filesystem import copytree_delete_existing
-from src.utils.filesystem import copy_directory_contents
+from src.utils.bash import (message, query_yes_no, run_bash_command,
+                            run_bash_command_in_shell)
+from src.utils.filesystem import (copy_directory_contents,
+                                  copytree_delete_existing, take_ownership)
 from src.utils.git import clone_repo
 from src.utils.gnome import set_folder_icons_repositories
 from src.utils.user import get_current_user
@@ -65,8 +64,7 @@ def install_fonts():
 
     copy_directory_contents(pathlib.Path('resources/fonts/'), fonts_path)
 
-    user = get_current_user()
-    run_bash_command(f'chown -R {user}: {fonts_path}')
+    take_ownership(get_current_user, fonts_path)
     run_bash_command('fc-cache -f -v')
 
     set_gsetting('org.gnome.desktop.wm.preferences',
@@ -83,8 +81,7 @@ def set_wallpaper():
 
     copy_directory_contents(pathlib.Path(
         'resources/wallpaper/'), PATHS.WALLPAPER_ROOT())
-    run_bash_command(
-        f'chown -R {get_current_user()}: {PATHS.WALLPAPER_ROOT()}')
+    take_ownership(get_current_user(), PATHS.WALLPAPER_ROOT())
 
     wallpaper_target = pathlib.Path(
         PATHS.WALLPAPER_ROOT(), "trolltunga-1920x1200.jpg")

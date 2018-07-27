@@ -21,6 +21,10 @@ from src.utils.bash import message, run_bash_command
 from src.utils.user import get_current_user
 
 
+def take_ownership(user, path):
+    run_bash_command(f'chown -R {user}: {path}')
+
+
 def copy_directory_contents(source, destination):
     src_files = os.listdir(source)
     for file_name in src_files:

@@ -16,6 +16,7 @@ import os
 import pathlib
 import shutil
 from src.utils.bash import message, query_yes_no, run_bash_command
+from src.utils.filesystem import take_ownership
 from src.utils.user import get_current_user
 
 dotfiles = ['.bin', '.vim', '.bash_aliases',
@@ -41,7 +42,7 @@ def add_dotfile(source, destination):
         os.makedirs(destination.parent)
 
     os.symlink(source, destination)
-    run_bash_command(f'chown -R {get_current_user()}: {destination}')
+    take_ownership(get_current_user(), destination)
 
 
 def install():
