@@ -15,8 +15,8 @@
 import os
 import pathlib
 import shutil
-
-from src.utils.bash import message, query_yes_no
+from src.utils.bash import message, query_yes_no, run_bash_command
+from src.utils.user import get_current_user
 
 dotfiles = ['.bin', '.vim', '.bash_aliases',
             '.bashrc', '.inputrc', '.profile', '.vimrc',
@@ -38,6 +38,7 @@ def add_dotfile(source, destination):
     if not destination.exists():
         os.makedirs(destination)
 
+    run_bash_command(f'chown -R {get_current_user()}: {destination}')
     os.symlink(source, destination)
 
 
