@@ -34,9 +34,11 @@ def add_dotfile(source, destination):
                     os.remove(destination)
                 elif destination.is_dir():
                     shutil.rmtree(destination)
+        else:
+            return
 
-    if not destination.exists():
-        os.makedirs(destination)
+    if not destination.parent.exists():
+        os.makedirs(destination.parent)
 
     run_bash_command(f'chown -R {get_current_user()}: {destination}')
     os.symlink(source, destination)
