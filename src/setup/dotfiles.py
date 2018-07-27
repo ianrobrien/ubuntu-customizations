@@ -31,8 +31,8 @@ def add_dotfile(source, destination):
             else:
                 os.remove(destination)
 
-    if not destination.parent.exists():
-        os.mkdir(destination.parent)
+    if not destination.exists():
+        os.makedirs(destination)
 
     os.symlink(source, destination)
 
