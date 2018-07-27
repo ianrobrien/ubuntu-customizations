@@ -17,18 +17,21 @@ import pathlib
 import shutil
 import subprocess
 
-from src.utils.bash import message
+from src.utils.bash import message, run_bash_command
+from src.utils.user import get_current_user
 
 
-def copy_directory_contents(src, dest):
-    src_files = os.listdir(src)
+def copy_directory_contents(source, destination):
+    src_files = os.listdir(source)
     for file_name in src_files:
-        full_file_name = os.path.join(src.resolve(), file_name)
+        full_file_name = os.path.join(source.resolve(), file_name)
         if (os.path.isfile(full_file_name)):
-            shutil.copy(full_file_name, dest)
+            shutil.copy(full_file_name, destination)
+    run_bash_command(f'chown -R {get_current_user()}: {destination}')
 
 
 def copytree_delete_existing(source, destination):
     if (destination.exists()):
         shutil.rmtree(destination)
     shutil.copytree(source, destination)
+    run_bash_command(f'chown -R {get_current_user()}: {destination}')
