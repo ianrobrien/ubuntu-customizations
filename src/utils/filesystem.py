@@ -18,10 +18,21 @@ import shutil
 import subprocess
 
 from src.utils.bash import message, run_bash_command
-from src.utils.user import get_current_user
+from src.utils.user import get_current_user, is_root_user
+
+
+def take_ownership_root(path):
+    take_ownership('root', path)
+
+
+def take_ownership_current_user(path):
+    take_ownership(get_current_user(), path)
 
 
 def take_ownership(user, path):
+    if user == 'root' and not is_root_user():
+        raise EnvironmentError(
+            "The current user must be root in order to take root ownership")
     run_bash_command(f'chown -R {user}: {path}')
 
 
