@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 ##############################################################################
-from src.utils.apt import check_installed
+from src.utils.apt import check_installed, install_from_ppa
 from src.utils.bash import message, run_bash_command
 
 
@@ -21,7 +21,5 @@ def install():
         message("Grub Customizer is already installed.")
         return
 
-    run_bash_command(
-        'add-apt-repository ppa:danielrichter2007/grub-customizer')
-    run_bash_command('apt update')
-    run_bash_command('apt install -y grub-customizer')
+    install_from_ppa('ppa:danielrichter2007/grub-customizer',
+                     'grub-customizer')

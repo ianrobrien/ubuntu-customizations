@@ -27,3 +27,10 @@ def install_dpkg(dpkg):
 
 def uninstall_dpkg(dpkg):
     run_bash_command(f'apt remove {dpkg}')
+
+
+def install_from_ppa(ppa_name, application_name):
+    run_bash_command(
+        f'add-apt-repository {ppa_name}')
+    run_bash_command('apt update')
+    run_bash_command(f'apt install -y {application_name}')

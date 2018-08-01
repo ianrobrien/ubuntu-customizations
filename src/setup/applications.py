@@ -13,7 +13,9 @@
 # limitations under the License.
 ##############################################################################
 import subprocess
-from src.applications import beyond_compare, grub_customizer, neofetch, vs_code
+
+from src.applications import (beyond_compare, grub_customizer, keepassxc,
+                              neofetch, vs_code)
 from src.utils.bash import query_yes_no, run_bash_command
 
 
@@ -21,7 +23,6 @@ def install_system_applications():
     run_bash_command('apt update')
     subprocess.call(['apt', 'install', '-y',
                      'vim',
-                     'keepassxc',
                      'htop',
                      'gdebi',
                      'git',
@@ -54,5 +55,7 @@ def install():
         beyond_compare.install()
     if query_yes_no("Install Grub Customzier from PPA? (ppa:danielrichter2007/grub-customizer)"):
         grub_customizer.install()
+    if query_yes_no("Install KeePassXC from PPA? (ppa:phoerious/keepassxc)"):
+        keepassxc.install()
     if query_yes_no("Install neofetch from GitHub? (https://github.com/dylanaraps/neofetch)"):
         neofetch.install()
