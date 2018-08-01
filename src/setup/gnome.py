@@ -37,20 +37,33 @@ class Constants:
             return pathlib.Path("/usr/share/icons/")
 
         def WALLPAPER_ROOT(self):
-            return pathlib.Path(
-                pathlib.Path.home(), 'Pictures')
-
-        def HOME_PATH(self):
-            return pathlib.Path.home()
+            return pathlib.Path(PATHS.HOME(), 'Pictures')
 
         def LOCAL_FONTS_PATH(self):
-            return pathlib.Path(pathlib.Path.home(), '.local/share/fonts')
+            return pathlib.Path(PATHS.HOME(), '.local/share/fonts')
 
         def GRUB_PATH(self):
             return pathlib.Path('/boot/grub/')
 
+        def HOME(self):
+            return pathlib.Path.home()
+
+    class Resources:
+        def FONTS(self):
+            return pathlib.Path('resources/fonts/')
+
+        def APPLICATION_SETTINGS(self):
+            return pathlib.Path('resources/application-settings/')
+
+        def GRUB_THEMES(self):
+            return pathlib.Path('resources/grub-themes/')
+
+        def TEMPLATES(self):
+            return pathlib.Path('resources/Templates/')
+
 
 PATHS = Constants().Paths()
+RESOURCES = Constants().Resources()
 
 
 def set_gsetting(schema, key, value):
@@ -59,10 +72,8 @@ def set_gsetting(schema, key, value):
 
 def install_fonts():
     fonts_path = PATHS.LOCAL_FONTS_PATH()
-    if not fonts_path.exists():
-        os.mkdir(fonts_path)
 
-    copy_directory_contents(pathlib.Path('resources/fonts/'), fonts_path)
+    copy_directory_contents(RESOURCES.FONTS(), fonts_path)
 
     take_ownership_current_user(fonts_path)
     run_bash_command('fc-cache -f -v')
@@ -93,7 +104,7 @@ def set_wallpaper():
 
 def install_grub_theme():
     message("Installing Grub theme..")
-    copytree_delete_existing(pathlib.Path('resources/grub-themes/preikestolen').resolve(),
+    copytree_delete_existing(pathlib.Path(RESOURCES.GRUB_THEMES(), 'preikestolen').resolve(),
                              pathlib.Path(PATHS.GRUB_PATH(), 'themes/preikestolen'))
 
 
@@ -129,8 +140,8 @@ def install_capitaine_cursors():
 
 
 def load_gnome_terminal_settings():
-    settings_file = pathlib.Path(
-        'resources/application-settings/gnome-terminal.txt').resolve()
+    settings_file = pathlib.Path(RESOURCES.APPLICATION_SETTINGS(),
+                                 'gnome-terminal.txt').resolve()
     run_bash_command_in_shell(
         f'dconf load /org/gnome/terminal/ < {str(settings_file)}')
 
@@ -149,8 +160,8 @@ def install_papirus_icon_theme_from_github():
 
 
 def install_templates():
-    copy_directory_contents(pathlib.Path('resources/Templates/'),
-                            pathlib.Path(pathlib.Path.home(), 'Templates'))
+    copy_directory_contents(RESOURCES.TEMPLATES(),
+                            pathlib.Path(PATHS.HOME(), 'Templates'))
 
 
 def setup():
@@ -172,5 +183,5 @@ def setup():
         install_capitaine_cursors()
     if query_yes_no("Install Papirus Icon Theme from GitHub? (https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)"):
         install_papirus_icon_theme_from_github()
-    if query_yes_no(f'Update repository folder icons in {pathlib.Path.home()}?'):
-        set_folder_icons_repositories(pathlib.Path.home())
+    if query_yes_no(f'Update repository folder icons in {PATHS.HOME()}?'):
+        set_folder_icons_repositories(PATHS.HOME())

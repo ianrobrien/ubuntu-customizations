@@ -37,6 +37,9 @@ def take_ownership(user, path):
 
 
 def copy_directory_contents(source, destination):
+    if not destination.exists():
+        os.mkdir(destination)
+
     src_files = os.listdir(source)
     for file_name in src_files:
         full_file_name = os.path.join(source.resolve(), file_name)
