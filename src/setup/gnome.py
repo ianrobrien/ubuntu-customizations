@@ -148,6 +148,11 @@ def install_papirus_icon_theme_from_github():
     shutil.rmtree(repo_path)
 
 
+def install_templates():
+    copy_directory_contents(pathlib.Path('resources/Templates/'),
+                            pathlib.Path(pathlib.Path.home(), 'Templates'))
+
+
 def setup():
     if query_yes_no("Configure Gnome behavior settings?"):
         configure_gnome()
@@ -157,6 +162,8 @@ def setup():
         install_fonts()
     if query_yes_no("Install Grub theme (Preikestolen)?"):
         install_grub_theme()
+    if query_yes_no("Install default Templates?"):
+        install_templates()
     if query_yes_no("Load Terminal settings (OneDark theme)?"):
         load_gnome_terminal_settings()
     if query_yes_no("Install Application Themes from GitHub? (https://github.com/ianrobrien/mc-os-themes)"):
