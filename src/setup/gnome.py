@@ -79,9 +79,9 @@ def install_fonts():
     run_bash_command('fc-cache -f -v')
 
     set_gsetting('org.gnome.desktop.wm.preferences',
-                 'titlebar-font', "'Roboto Condensed, 13'")
+                 'titlebar-font', "'Roboto Condensed, Condensed 13'")
     set_gsetting('org.gnome.desktop.interface',
-                 'font-name', "'Roboto Condensed, 12'")
+                 'font-name', "'Roboto Condensed, Condensed 12'")
     set_gsetting('org.gnome.desktop.interface',
                  'document-font-name', "'Sans 11'")
 
