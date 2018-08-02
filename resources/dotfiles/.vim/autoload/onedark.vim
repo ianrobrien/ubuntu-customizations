@@ -26,4 +26,3 @@ let s:colors = {
 function! onedark#GetColors()
   return s:colors
 endfunction
-
