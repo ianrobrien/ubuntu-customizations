@@ -13,7 +13,7 @@
 # limitations under the License.
 ##############################################################################
 from src.utils.apt import check_installed, install_from_ppa
-from src.utils.bash import message, run_bash_command
+from src.utils.bash import message
 
 
 def install():

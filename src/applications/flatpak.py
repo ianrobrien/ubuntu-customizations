@@ -13,13 +13,16 @@
 # limitations under the License.
 ##############################################################################
 from src.utils.apt import check_installed, install_from_ppa
-from src.utils.bash import message
+from src.utils.bash import message, run_bash_command
 
 
 def install():
-    if check_installed("keepassxc"):
-        message("KeePassXC is already installed.")
+    if check_installed("flatpak"):
+        message("flatpak is already installed.")
         return
 
-    install_from_ppa('ppa:phoerious/keepassxc',
-                     'keepassxc')
+    install_from_ppa('ppa:alexlarsson/flatpak',
+                     'flatpak')
+
+    run_bash_command(
+        'flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo')

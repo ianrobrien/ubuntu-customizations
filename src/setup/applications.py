@@ -14,8 +14,8 @@
 ##############################################################################
 import subprocess
 
-from src.applications import (beyond_compare, grub_customizer, keepassxc,
-                              neofetch, vs_code)
+from src.applications import (beyond_compare, flatpak, grub_customizer,
+                              keepassxc, neofetch, vs_code)
 from src.utils.bash import query_yes_no, run_bash_command
 
 
@@ -57,5 +57,7 @@ def install():
         grub_customizer.install()
     if query_yes_no("Install KeePassXC from PPA? (ppa:phoerious/keepassxc)"):
         keepassxc.install()
+    if query_yes_no("Install Flatpak from PPA? (ppa:alexlarsson/flatpak)"):
+        flatpak.install()
     if query_yes_no("Install neofetch from GitHub? (https://github.com/dylanaraps/neofetch)"):
         neofetch.install()
