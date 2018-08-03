@@ -14,8 +14,8 @@
 ##############################################################################
 import subprocess
 
-from src.applications import (beyond_compare, flatpak, grub_customizer,
-                              keepassxc, neofetch, vs_code)
+from src.applications import (beyondcompare, flatpak, grubcustomizer,
+                              keepassxc, libreoffice, neofetch, vscode)
 from src.utils.bash import query_yes_no, run_bash_command
 
 
@@ -50,14 +50,16 @@ def install():
     if query_yes_no("Install Applications from apt?"):
         install_system_applications()
     if query_yes_no("Install VS Code from deb package? (https://go.microsoft.com/fwlink/?LinkID=760868)"):
-        vs_code.install()
+        vscode.install()
     if query_yes_no("Install Beyond Compare from deb package? (http://www.scootersoftware.com/)"):
-        beyond_compare.install()
+        beyondcompare.install()
     if query_yes_no("Install Grub Customzier from PPA? (ppa:danielrichter2007/grub-customizer)"):
-        grub_customizer.install()
+        grubcustomizer.install()
     if query_yes_no("Install KeePassXC from PPA? (ppa:phoerious/keepassxc)"):
         keepassxc.install()
     if query_yes_no("Install Flatpak from PPA? (ppa:alexlarsson/flatpak)"):
         flatpak.install()
+    if query_yes_no("Install LibreOffice from PPA? (ppa:libreoffice/ppa)"):
+        libreoffice.install()
     if query_yes_no("Install neofetch from GitHub? (https://github.com/dylanaraps/neofetch)"):
         neofetch.install()
