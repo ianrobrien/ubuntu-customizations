@@ -23,8 +23,8 @@
         "suppressShowKeyBindingsNotice": true
     },
     // Extensions
-    "powermode.enabled": true,
-    "powermode.enableShake": false,
-    "powermode.enableStatusBarComboCounter": false,
-    "powermode.presets": "particles"
+    // "powermode.enabled": true,
+    // "powermode.enableShake": false,
+    // "powermode.enableStatusBarComboCounter": false,
+    // "powermode.presets": "particles"
 }
