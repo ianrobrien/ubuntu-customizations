@@ -15,7 +15,7 @@
 import os
 import requests
 from src.utils.apt import check_installed, install_dpkg
-from src.utils.bash import message
+from src.utils.bash import message, run_bash_command
 
 
 def install():
@@ -33,3 +33,11 @@ def install():
         file.write(response.content)
         install_dpkg(output_file)
     os.remove(output_file)
+
+    # Install Extensions
+    run_bash_command('code --install-extension eamodio.gitlens')
+    #run_bash_command('code --install-extension hoovercj.vscode-power-mode')
+    run_bash_command('code --install-extension ms-python.python')
+    run_bash_command('code --install-extension ms-vscode.cpptools')
+    run_bash_command('code --install-extension PKief.material-icon-theme')
+    run_bash_command('code --install-extension zhuangtongfa.Material-theme')

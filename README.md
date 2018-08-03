@@ -2,19 +2,9 @@
 
 This repository contains information, settings, and scripts for customizing Ubuntu 18.04 (with Gnome).
 
-## Non apt Application Installs
-
-* Editors
-  * [Jetbrains Toolbox App](https://www.jetbrains.com/toolbox/app/)
-  * [Visual Studio Code](https://code.visualstudio.com/)
-* Utilities
-  * [Beyond Compare](http://scootersoftware.com/download.php)
-
 ## Application Customizations
 
 * [dot files](resources/dotfiles)
-* rc files
-* bash prompt
 * [How to make touch-screen scrolling work in Firefox Quantum?](https://askubuntu.com/questions/978226/how-to-make-touch-screen-scrolling-work-in-firefox-quantum)
 * VS Code
   * [markdownlint](https://github.com/DavidAnson/vscode-markdownlint)
@@ -45,8 +35,8 @@ This repository contains information, settings, and scripts for customizing Ubun
   * sudo mv /usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com/ /usr/share/gnome-shell/extensions-disabled/
 * [Hide Activities Button](https://extensions.gnome.org/extension/744/hide-activities-button/)
 * [OpenWeather](https://extensions.gnome.org/extension/750/openweather/)
-* [User Themes](https://extensions.gnome.org/extension/19/user-themes/)
 * [Status Area Horizontal Spacing](https://extensions.gnome.org/extension/355/status-area-horizontal-spacing/)
+* [User Themes](https://extensions.gnome.org/extension/19/user-themes/)
 
 ### Colors
 
