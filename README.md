@@ -57,18 +57,38 @@ This repository contains information, settings, and scripts for customizing Ubun
     * mono-2:   #828997 // darker text
     * mono-3:   #5C6370 // darkest text
   * Colors
-    * cyan-light:   #56B6C2
-    * cyan-dark:    #39787F
-    * blue-light:   #61AFEF
-    * blue-dark:    #345D7F
-    * purple-light: #C678DD
-    * purple-dark:  #72457F
-    * green-light:  #98C379
+    * cyan-light:   #94F3FF
+    * cyan-dark:    #56B6C2
+    * blue-light:   #94CFFF
+    * blue-dark:    #61AFEF
+    * purple-light: #E794FF
+    * purple-dark:  #C678DD
+    * green-light:  #C1FF94
     * green-dark:   #98C379
-    * red-light:    #E06C75
-    * red-dark:     #7F3D43
-    * orange-light: #D19A66
-    * orange-dark:  #7F5E3E
+    * red-light:    #FF949D
+    * red-dark:     #E06C75
+    * orange-light: #FFC894
+    * orange-dark:  #D19A66
+
+* Gnome Terminal
+  * Default Color Text:  #ABB2BF
+  * Default Color Background: #282C34
+  * Color 0:  #2E3436
+  * Color 1:  #E06C75
+  * Color 2:  #98C379
+  * Color 3:  #D19A66
+  * Color 4:  #61AFEF
+  * Color 5:  #C678DD
+  * Color 6:  #56B6C2
+  * Color 7:  #D3D7CF
+  * Color 8:  #555753
+  * Color 9:  #FF949D
+  * Color 10: #C1FF94
+  * Color 11: #FFC894
+  * Color 12: #94CFFF
+  * Color 13: #E794FF
+  * Color 14: #94F3FF
+  * Color 15: #EEEEEC
 
 ### Frequently used commands
 
