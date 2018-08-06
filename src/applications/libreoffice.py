@@ -12,24 +12,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 ##############################################################################
-import os
-import requests
-from src.utils.apt import check_installed, install_dpkg
-from src.utils.bash import message
+from src.utils.apt import check_installed, install_from_ppa
+from src.utils.bash import message, run_bash_command
 
 
 def install():
-    if check_installed("code"):
-        message("VS Code is already installed.")
+    if check_installed("libreoffice"):
+        message("Libre Office is already installed.")
         return
 
-    url = "https://go.microsoft.com/fwlink/?LinkID=760868"
-    output_file = "vscode.deb"
-
-    message("Downloading VS Code...")
-    response = requests.get(url, allow_redirects=True)
-    message("Finished downloading VS Code.")
-    with open(output_file, 'wb') as file:
-        file.write(response.content)
-        install_dpkg(output_file)
-    os.remove(output_file)
+    # This command is in the PPA but Ubuntu lacks an installation candidate
+    #run_bash_command('sudo apt-get install python-software-properties')
+    install_from_ppa('ppa:libreoffice/ppa',
+                     'libreoffice')

@@ -22,4 +22,10 @@
     "gitlens.advanced.messages": {
         "suppressShowKeyBindingsNotice": true
     },
+    "workbench.statusBar.feedback.visible": false,
+    // Extensions
+    // "powermode.enabled": true,
+    // "powermode.enableShake": false,
+    // "powermode.enableStatusBarComboCounter": false,
+    // "powermode.presets": "particles"
 }
