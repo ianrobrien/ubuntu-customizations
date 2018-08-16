@@ -15,7 +15,7 @@
 import os
 import pathlib
 from src.utils.bash import run_bash_command, run_bash_command_in_shell
-from src.utils.git import is_github_repo, is_gitlab_repo
+from src.utils.git import is_git_repo, is_github_repo, is_gitlab_repo
 from src.utils.user import get_current_user
 
 
@@ -33,6 +33,8 @@ def set_folder_icons_repositories(path):
         '/usr/share/icons/Papirus/48x48/places/folder-gitlab.svg')
     github_icon = pathlib.Path(
         '/usr/share/icons/Papirus/48x48/places/folder-github.svg')
+    git_icon = pathlib.Path(
+        '/usr/share/icons/Papirus/48x48/places/folder-git.svg')
 
     # This is probably not the most efficient way to do this:
     for root, dirs, files in os.walk(path):
@@ -45,3 +47,6 @@ def set_folder_icons_repositories(path):
                 elif is_gitlab_repo(root):
                     print(f'GitLab repo: {root}')
                     set_folder_icon(root, gitlab_icon)
+                elif is_git_repo(root):
+                    print(f'Git repo: {root}')
+                    set_folder_icon(root, git_icon)
