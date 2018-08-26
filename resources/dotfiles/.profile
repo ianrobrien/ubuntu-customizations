@@ -26,4 +26,8 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+# Add Java to environment
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java"
+PATH="$JAVA_HOME:$PATH"
+
 export QT_QPA_PLATFORMTHEME=gtk2
