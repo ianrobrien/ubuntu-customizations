@@ -29,6 +29,7 @@ This repository contains information, settings, and scripts for customizing Ubun
 ## Gnome Extensions
 
 * [Alt-Tab Switcher Popup Delay Removal](https://extensions.gnome.org/extension/1317/alt-tab-switcher-popup-delay-removal/)
+* [AlternateTab](https://extensions.gnome.org/extension/15/alternatetab/)
 * [Dash to Dock](https://extensions.gnome.org/extension/307/dash-to-dock/)
   * See also [dock on lock screen](https://github.com/micheleg/dash-to-dock/issues/649)
   * sudo mkdir /usr/share/gnome-shell/extensions-disabled/
