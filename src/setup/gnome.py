@@ -55,6 +55,9 @@ class Constants:
         def APPLICATION_SETTINGS(self):
             return pathlib.Path('resources/application-settings/')
 
+        def GNOME_THEMES(self):
+            return pathlib.Path('resources/gnome-themes/')
+
         def GRUB_THEMES(self):
             return pathlib.Path('resources/grub-themes/')
 
@@ -110,16 +113,8 @@ def install_grub_theme():
 
 def install_mc_os_themes():
     message("Installing Mc-OS Themes...")
-    repo_path = clone_repo(
-        "https://github.com/ianrobrien/mc-os-themes.git")
 
-    for theme in os.listdir(repo_path):
-        theme_path = pathlib.Path(repo_path, theme).resolve()
-        if "McOS" in str(theme_path) or "Gnome" in str(theme_path):
-            copytree_delete_existing(
-                theme_path, pathlib.Path(PATHS.THEMES_PATH(), theme))
-
-    shutil.rmtree(repo_path)
+    copytree_delete_existing(RESOURCES.GNOME_THEMES(), PATHS.THEMES_PATH())
 
     set_gsetting('org.gnome.desktop.wm.preferences', 'theme', 'McOS-MJV-dark')
     set_gsetting('org.gnome.desktop.interface', 'gtk-theme', 'McOS-MJV-dark')
@@ -173,11 +168,11 @@ def setup():
         install_fonts()
     if query_yes_no("Install Grub theme (Preikestolen)?"):
         install_grub_theme()
-    if query_yes_no("Install default Templates?"):
+    if query_yes_no("Install default templates?"):
         install_templates()
     if query_yes_no("Load Terminal settings (OneDark theme)?"):
         load_gnome_terminal_settings()
-    if query_yes_no("Install Application Themes from GitHub? (https://github.com/ianrobrien/mc-os-themes)"):
+    if query_yes_no("Install McOS-MJV Gnome Themes?"):
         install_mc_os_themes()
     if query_yes_no("Install Capitaine Cursors from GitHub? (https://github.com/keeferrourke/capitaine-cursors)"):
         install_capitaine_cursors()
