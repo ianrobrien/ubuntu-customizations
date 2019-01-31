@@ -19,14 +19,14 @@ from src.utils.bash import message, query_yes_no, run_bash_command
 from src.utils.filesystem import take_ownership_current_user
 from src.utils.user import get_current_user
 
-dotfiles = ['.bin', '.vim', '.bash_aliases',
+dotfiles = ['.bin', '.prompt', '.vim', '.bash_aliases',
             '.bashrc', '.inputrc', '.profile', '.vimrc',
             '.config/Code/User/settings.json',
             '.config/neofetch/config.conf']
 
 
 def add_dotfile(source, destination):
-    if destination.exists():
+    if destination.exists() or os.path.islink(destination):
         if query_yes_no(f"Overwrite existing dotfile at {destination}?"):
             if destination.is_symlink():
                 os.unlink(destination)

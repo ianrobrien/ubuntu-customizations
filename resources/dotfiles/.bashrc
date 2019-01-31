@@ -120,7 +120,7 @@ fi
 #    fortune | cowsay -s
 #fi
 
-source ~/.bin/.onedark-bash-prompt
+source ~/.prompt/.onedark-bash-prompt
 
 # Flip through autocompletion matches with Tab.
 bind '"\t":menu-complete'
