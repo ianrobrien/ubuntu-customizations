@@ -124,3 +124,5 @@ source ~/.bin/.onedark-bash-prompt
 
 # Flip through autocompletion matches with Tab.
 bind '"\t":menu-complete'
+
+cd ~

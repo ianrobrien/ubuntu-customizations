@@ -12,7 +12,6 @@
     // Behavior
     "editor.autoClosingBrackets": false,
     "files.trimTrailingWhitespace": true,
-    "editor.formatOnSave": true,
     // C++
     "C_Cpp.clang_format_fallbackStyle": "Google",
     "[makefile]": {},
@@ -23,6 +22,12 @@
         "suppressShowKeyBindingsNotice": true
     },
     "workbench.statusBar.feedback.visible": false,
+    "gitlens.advanced.telemetry.enabled": false,
+    "window.closeWhenEmpty": true,
+    "java.jdt.ls.vmargs": "-noverify -Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication -javaagent:\"/home/ianrobrien/.vscode/extensions/gabrielbb.vscode-lombok-0.9.7/server/lombok.jar\" -Xbootclasspath/a:\"/home/ianrobrien/.vscode/extensions/gabrielbb.vscode-lombok-0.9.7/server/lombok.jar\"",
+    "editor.mouseWheelScrollSensitivity": 3,
+    "window.titleBarStyle": "native",
+    "breadcrumbs.enabled": true,
     // Extensions
     // "powermode.enabled": true,
     // "powermode.enableShake": false,

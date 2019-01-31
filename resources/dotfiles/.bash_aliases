@@ -14,7 +14,34 @@ alias grep='grep --color'
 alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
 
 alias t='tail -f'
-alias dudir='du -sh *'
-alias convert-dir-to-unix='find ./ -t1pe f -exec dos2unix {} \;'
 alias cdd='cd ~/Development'
 alias cdu='cd ~/Development/ubuntu-customizations'
+
+alias docker-tidy='docker rmi $(docker images -q -f dangling=true)'
+alias medir=mkdircd
+
+function mkdircd() {
+    mkdir -p "$1"
+    cd "$1"
+}
+
+function remove-kernel() {
+    sudo apt remove linux-headers-"$1" linux-headers-"$1"-generic linux-image-"$1"-generic linux-modules-"$1"-generic linux-modules-extra-"$1"-generic
+}
+
+function weather() {
+    curl nb.wttr.in/Drammen
+}
+
+function title() {
+   # change the title of the current window or tab
+   echo -ne "\033]0;$*\007"
+}
+
+function ssh() {
+   /usr/bin/ssh "$@"
+   # revert the window title after the ssh command
+   title Terminal
+   #title $USER@$HOST
+}
+
