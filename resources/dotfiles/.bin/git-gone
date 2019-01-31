@@ -2,15 +2,14 @@
 
 usage() {
   cat <<EOF
-usage: git gone [-pldD] [<branch>=origin]
-OPTIONS
-	-p	prune remote branch
-	-n	dry run: list the gone branches
-	-d	delete the gone branches
-	-D	delete the gone branches forcefully
-EXAMPLES
-git gone -pn	prune and dry run
-git gone -d	delete the gone branches
+
+usage: git gone [<options>] [<branch>=origin]
+
+    -p	prune remote branch
+    -n	dry run: list the gone branches
+    -d	delete the gone branches
+    -D	delete the gone branches forcefully
+
 EOF
 }
 

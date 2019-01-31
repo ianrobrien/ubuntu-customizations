@@ -36,10 +36,12 @@ export GROOVY_HOME=~/.local/lib/groovy-2.5.5
 CHROME_DRIVER_HOME="/opt/chromedriver_linux64/"
 NODE_HOME="/opt/node-v10.15.0-linux-x64/bin"
 NPM_MODULES_HOME="/home/ianrobrien/.npm/bin"
+SHELL_SCRIPTS="/home/ianrobrien/.bin"
 
 PATH="${JAVA_HOME}:$PATH"
 PATH="${CHOME_DRIVER_HOME}:$PATH"
 PATH="${GROOVY_HOME}/bin:$PATH"
 PATH="${NODE_HOME}:$PATH"
 PATH="${NPM_MODULES_HOME}:$PATH"
+PATH="${SHELL_SCRIPTS}:$PATH"
 
