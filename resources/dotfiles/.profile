@@ -33,7 +33,7 @@ JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/"
 CHROME_BIN="/usr/bin/google-chrome"
 CHROME_DRIVER_HOME="/opt/chromedriver_linux64/"
 GROOVY_HOME="${HOME}/.local/lib/groovy-2.5.5/"
-NODE_HOME="${HOME}/.local/lib/node-v10.15.0-linux-x64/bin/"
+NODE_HOME="${HOME}/.local/lib/node-v10.15.1-linux-x64/bin/"
 NPM_MODULES_HOME="${HOME}/.local/lib/npm/bin/"
 SHELL_SCRIPTS="${HOME}/.bin/"
 
