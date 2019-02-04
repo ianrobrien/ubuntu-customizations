@@ -10,7 +10,7 @@
     "workbench.startupEditor": "newUntitledFile",
     "workbench.colorTheme": "One Dark Pro",
     // Behavior
-    "editor.autoClosingBrackets": false,
+    "editor.autoClosingBrackets": "never",
     "files.trimTrailingWhitespace": true,
     // C++
     "C_Cpp.clang_format_fallbackStyle": "Google",
