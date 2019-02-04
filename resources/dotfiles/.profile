@@ -1,5 +1,5 @@
-# ~/.profile: executed by the command interpreter for login shells.
-# This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
+# ${HOME}/.profile: executed by the command interpreter for login shells.
+# This file is not read by bash(1), if ${HOME}/.bash_profile or ${HOME}/.bash_login
 # exists.
 # see /usr/share/doc/bash/examples/startup-files for examples.
 # the files are located in the bash-doc package.
@@ -26,22 +26,21 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-# Add Java to environment
-export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/"
 export QT_QPA_PLATFORMTHEME=gtk2
-export CHROME_BIN=/usr/bin/google-chrome
-export GROOVY_HOME=~/.local/lib/groovy-2.5.5
 
 # Update PATH
+JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/"
+CHROME_BIN="/usr/bin/google-chrome"
 CHROME_DRIVER_HOME="/opt/chromedriver_linux64/"
-NODE_HOME="/opt/node-v10.15.0-linux-x64/bin"
-NPM_MODULES_HOME="/home/ianrobrien/.npm/bin"
-SHELL_SCRIPTS="/home/ianrobrien/.bin"
+GROOVY_HOME="${HOME}/.local/lib/groovy-2.5.5/"
+NODE_HOME="${HOME}/.local/lib/node-v10.15.0-linux-x64/bin/"
+NPM_MODULES_HOME="${HOME}/.local/lib/npm/bin/"
+SHELL_SCRIPTS="${HOME}/.bin/"
 
 PATH="${JAVA_HOME}:$PATH"
+PATH="${CHROME_BIN}:$PATH"
 PATH="${CHOME_DRIVER_HOME}:$PATH"
-PATH="${GROOVY_HOME}/bin:$PATH"
+PATH="${GROOVY_HOME}bin:$PATH"
 PATH="${NODE_HOME}:$PATH"
 PATH="${NPM_MODULES_HOME}:$PATH"
 PATH="${SHELL_SCRIPTS}:$PATH"
-
