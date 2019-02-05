@@ -17,6 +17,7 @@ This repository contains information, settings, and scripts for customizing Ubun
   * Applications: [McOS-MJV-Dark-mode](https://github.com/paullinuxthemer/Mc-OS-themes)
     * Firefox fix: about:config [widget.content.gtk-theme-override|McOS-MJV]
     * Dash to dock settings [#1E222C, 82%]
+    * Touchscreen drag to scroll fix: []()
   * Cursor: [Capitaine-cursors](https://github.com/keeferrourke/capitaine-cursors)
   * Icons: [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)
     * [Hardcoded Icon Fixer](https://github.com/Foggalong/hardcode-fixer)
