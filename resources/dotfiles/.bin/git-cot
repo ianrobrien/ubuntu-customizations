@@ -1,0 +1,17 @@
+#!/bin/bash
+
+usage() {
+  cat <<EOF
+
+usage: git cot [tag-name]
+
+  -b	checkout out into a branch, otherwise into detached HEAD state (not yet implemented)
+
+EOF
+}
+
+TAG_NAME="$1"
+
+echo ${TAG_NAME}
+
+git checkout tags/${TAG_NAME} #-b ${TAG_NAME}

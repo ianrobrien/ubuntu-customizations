@@ -3,7 +3,6 @@
     cam = commit -am
     co = checkout
     cob = checkout -b
-    cot = checkout tags/
     db = branch -D
     discard = checkout --
     fpo = fetch --prune origin
