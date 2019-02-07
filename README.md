@@ -23,6 +23,7 @@ This repository contains information, settings, and scripts for customizing Ubun
     * [Hardcoded Icon Fixer](https://github.com/Foggalong/hardcode-fixer)
   * Shell: [McOS-Dark-Shell](https://github.com/paullinuxthemer/Mc-OS-themes/tree/master/McOS-Shell-themes)
     * Requires [user-themes](https://extensions.gnome.org/extension/19/user-themes/) extension
+  * Keyboard icons in top bar: /usr/share/X11/xkb/rules/evdev.xml
 * Behavior
   * Minimize on dock icon click [gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize']
 * Terminal - [OneDark](application-settings/gnome-terminal.txt) profile
