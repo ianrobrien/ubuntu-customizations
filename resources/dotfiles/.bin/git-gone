@@ -5,10 +5,12 @@ usage() {
 
 usage: git gone [<options>] [<branch>=origin]
 
-    -p	prune remote branch
-    -n	dry run: list the gone branches
-    -d	delete the gone branches
-    -D	delete the gone branches forcefully
+    prune remote branch and:
+
+    -n  list the gone branches (default option)
+    -d  delete the gone branches
+    -D  delete the gone branches forcefully
+    -h  display this text
 
 EOF
 }
@@ -41,25 +43,21 @@ else
   usage && echo "too many arguments!" && exit 1
 fi
 
-let prune=0
-let list=0
 let delete=0
 let force=0
+let help=0
 for (( i=1; i < ${#OPTION}; i++ )); do
   op="${OPTION:$i:1}"
   case $op in
-    p)
-    let prune=1
-    ;;
-    n)
-    let list=1
-    ;;
     d)
     let delete=1
     ;;
     D)
     let delete=1
     let force=1
+    ;;
+    h)
+    usage && exit 1
     ;;
     *)
     usage && echo "unknown option $op!" && exit 1
@@ -68,20 +66,18 @@ for (( i=1; i < ${#OPTION}; i++ )); do
   OPTIONS+="$op"
 done
 
+gone="$BRANCH/.*: gone]"
+git remote prune "${BRANCH}"
+
 if [ ${#OPTION} -eq 0 ]; then
-  usage && exit 1
-fi
-if [ $prune -eq 1 ]; then
-  git remote prune "$BRANCH"
+  git branch -vv | grep "${gone}"
+  exit 1
 fi
 
-gone="$BRANCH/.*: gone]"
-if [ $delete -eq 1 ]; then
-  if [ $force -eq 1 ]; then
-    git branch -vv | grep "$gone" | awk '{print $1}' | xargs git branch -D
+if [ ${delete} -eq 1 ]; then
+  if [ ${force} -eq 1 ]; then
+    git branch -vv | grep "${gone}" | awk '{print $1}' | xargs git branch -D
   else
-    git branch -vv | grep "$gone" | awk '{print $1}' | xargs git branch -d
+    git branch -vv | grep "${gone}" | awk '{print $1}' | xargs git branch -d
   fi
-elif [ $list -eq 1 ]; then
-  git branch -vv | grep "$gone"
 fi
