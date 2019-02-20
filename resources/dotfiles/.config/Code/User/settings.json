@@ -28,6 +28,7 @@
     "editor.mouseWheelScrollSensitivity": 3,
     "window.titleBarStyle": "native",
     "breadcrumbs.enabled": true,
+    "editor.autoClosingQuotes": "never",
     // Extensions
     // "powermode.enabled": true,
     // "powermode.enableShake": false,
