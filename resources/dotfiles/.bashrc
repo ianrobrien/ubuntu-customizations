@@ -94,7 +94,7 @@ alias l='ls -CF'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+#alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -126,3 +126,14 @@ source ~/.prompt/.onedark-bash-prompt
 bind '"\t":menu-complete'
 
 cd ~
+
+# Colors for printf
+c_clear='\e[0m'
+c_red='\e[31m'
+c_blue='\e[0;34m'
+c_green='\e[32m'
+c_yellow='\e[33m'
+c_purple='\e[0;35m'
+
+printf "${c_blue}#${c_clear} [%s]\n" "$(curl -s wttr.in/Drammen?format="%l:+%c+%t+(%h)")"
+
