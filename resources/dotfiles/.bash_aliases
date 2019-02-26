@@ -15,10 +15,11 @@ alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
 
 alias t='tail -f'
 alias cdd='cd ~/Development'
-alias cdu='cd ~/Development/ubuntu-customizations'
 
 alias docker-tidy='docker rmi $(docker images -q -f dangling=true)'
 alias medir=mkdircd
+
+alias code=vscodium
 
 function mkdircd() {
     mkdir -p "$1"

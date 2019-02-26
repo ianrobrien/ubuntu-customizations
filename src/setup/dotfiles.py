@@ -21,7 +21,7 @@ from src.utils.user import get_current_user
 
 dotfiles = ['.bin', '.prompt', '.vim', '.bash_aliases',
             '.bashrc', '.inputrc', '.profile', '.vimrc',
-            '.config/Code/User/settings.json',
+            '.config/VSCodium/User/settings.json',
             '.config/neofetch/config.conf']
 
 
