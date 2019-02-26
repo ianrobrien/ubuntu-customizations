@@ -19,8 +19,6 @@ alias cdd='cd ~/Development'
 alias docker-tidy='docker rmi $(docker images -q -f dangling=true)'
 alias medir=mkdircd
 
-alias code=vscodium
-
 function mkdircd() {
     mkdir -p "$1"
     cd "$1"
