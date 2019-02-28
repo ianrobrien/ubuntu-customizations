@@ -135,5 +135,7 @@ c_green='\e[32m'
 c_yellow='\e[33m'
 c_purple='\e[0;35m'
 
-printf "${c_blue}#${c_clear} [%s]\n" "$(curl -s wttr.in/Drammen?format="%l:+%c+%t+(%h)")"
-
+weather="$(curl -s wttr.in/Drammen?format="%l:+%c+%t+(%h)")"
+if [[ ${weather} != *"Error"* ]]; then
+  printf "${c_blue}#${c_clear} [%s]\n" ${weather}
+fi
