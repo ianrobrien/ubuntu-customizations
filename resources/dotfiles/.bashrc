@@ -127,15 +127,15 @@ bind '"\t":menu-complete'
 
 cd ~
 
-# Colors for printf
-c_clear='\e[0m'
-c_red='\e[31m'
-c_blue='\e[0;34m'
-c_green='\e[32m'
-c_yellow='\e[33m'
-c_purple='\e[0;35m'
+# Colors for echo
+CLEAR='\033[0m'
+RED='\033[31m'
+BLUE='\033[0;34m'
+GREEN='\033[32m'
+YELLOW='\033[33m'
+PURPLE='\033[0;35m'
 
 weather="$(curl -s wttr.in/Drammen?format="%l:+%c+%t+(%h)")"
 if [[ ${weather} != *"Error"* ]]; then
-  printf "${c_blue}#${c_clear} [%s]\n" ${weather}
+  echo -e "${BLUE}#${CLEAR} [${weather}]"
 fi
