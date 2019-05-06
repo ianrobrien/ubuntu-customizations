@@ -1,0 +1,41 @@
+{
+    // Privacy
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    // Appearance
+    "editor.fontFamily": "'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.fontSize": 16,
+    "editor.fontLigatures": true,
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.colorTheme": "One Dark Pro",
+    // Behavior
+    "editor.autoClosingBrackets": "never",
+    "files.trimTrailingWhitespace": true,
+    // C++
+    "C_Cpp.clang_format_fallbackStyle": "Google",
+    "[makefile]": {},
+    // Python
+    "python.pythonPath": "/usr/bin/python3",
+    "explorer.confirmDragAndDrop": false,
+    "gitlens.advanced.messages": {
+        "suppressShowKeyBindingsNotice": true
+    },
+    "workbench.statusBar.feedback.visible": false,
+    "gitlens.advanced.telemetry.enabled": false,
+    "window.closeWhenEmpty": true,
+    "java.jdt.ls.vmargs": "-noverify -Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication -javaagent:\"/home/ianrobrien/.vscode/extensions/gabrielbb.vscode-lombok-0.9.7/server/lombok.jar\" -Xbootclasspath/a:\"/home/ianrobrien/.vscode/extensions/gabrielbb.vscode-lombok-0.9.7/server/lombok.jar\"",
+    "editor.mouseWheelScrollSensitivity": 3,
+    "window.titleBarStyle": "native",
+    "breadcrumbs.enabled": true,
+    "editor.autoClosingQuotes": "never",
+    "workbench.enableExperiments": false,
+    "workbench.settings.enableNaturalLanguageSearch": false,
+    "update.enableWindowsBackgroundUpdates": false,
+    "extensions.autoCheckUpdates": false,
+    // Extensions
+    // "powermode.enabled": true,
+    // "powermode.enableShake": false,
+    // "powermode.enableStatusBarComboCounter": false,
+    // "powermode.presets": "particles"
+}

@@ -15,7 +15,7 @@
 import subprocess
 
 from src.applications import (beyondcompare, flatpak, grubcustomizer,
-                              keepassxc, libreoffice, neofetch, vscode)
+                              keepassxc, libreoffice, neofetch, vscode, vscodium)
 from src.utils.bash import query_yes_no, run_bash_command
 
 
@@ -63,3 +63,5 @@ def install():
         libreoffice.install()
     if query_yes_no("Install neofetch from GitHub? (https://github.com/dylanaraps/neofetch)"):
         neofetch.install()
+    if query_yes_no("Install VSCodium from GitHub? (https://github.com/VSCodium)"):
+        vscodium.install()
