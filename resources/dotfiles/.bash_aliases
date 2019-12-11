@@ -19,6 +19,15 @@ alias cdd='cd ~/Development'
 alias docker-tidy='docker rmi $(docker images -q -f dangling=true)'
 alias medir=mkdircd
 
+# Always add --no-fund flag to npm install command
+function npm() {
+    if [[ $1 == "install" ]]; then
+        command npm "$@" --no-fund
+    else
+        command npm "$@"
+    fi
+}
+
 function mkdircd() {
     mkdir -p "$1"
     cd "$1"
